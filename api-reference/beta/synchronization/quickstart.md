@@ -29,21 +29,28 @@ To request access token, you will need to have the following:
 - Tenant Identifier. Unique identifier of the tenant you will be working with
 - Administrative user credentials for the same tenant
 - Client Application Id (application which is performing  API calls). This application must be registered in Azure Active Directory, have Directory.ReadWrite.All permissions for Microsoft Graph, and must be consented to in the tenant we will be working with. 
--- A quick solution is to use well-known application ID of the PowerShell (1950a258-227b-4e31-a9cf-717495945fc2, both in PROD and PPE), which is automatically consented to on any tenant.
--- Another way is to register your own application (see Registering an application for API access at the bottom of this page)
+	- A quick solution is to use well-known application ID of the PowerShell (1950a258-227b-4e31-a9cf-717495945fc2, both in PROD and PPE), which is automatically consented to on any tenant.
+	- Another way is to register your own application (see Registering an application for API access at the bottom of this page)
 		
-With this information, we can make a call to obtain access token:
-Description	Obtain authorization token for Microsoft Graph, using administrative user credentials. 
-	Make sure all parameter values are URL-encoded
-Request (PROD)	POST https://login.windows.net/{tenantId}/oauth2/token
+With this information, we can make a call to obtain access token for Microsoft Graph. **Make sure all parameter values are URL-encoded** 
+
+Request (PROD)
+
+	POST https://login.windows.net/{tenantId}/oauth2/token 
+    Content-Type: application/x-www-form-urlencoded
+    
+	client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft.com%2F&grant_type=password&username={userPrincipalName}&password={password} 
+    
+Request (PPE)
+	
+    POST https://login.windows-ppe.net/{tenantId}/oauth2/token
 	Content-Type: application/x-www-form-urlencoded
 	
-	client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft.com%2F&grant_type=password&username={userPrincipalName}&password={password}
-Request (PPE)	POST https://login.windows-ppe.net/{tenantId}/oauth2/token
-	Content-Type: application/x-www-form-urlencoded
+    client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft-ppe.com%2F&grant_type=password&username={userPrincipalName}&password={password} 
+    
+Response	
 	
-	client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft-ppe.com%2F&grant_type=password&username={userPrincipalName}&password={password}
-Response	{
+    {
 	  "token_type": "Bearer",
 	   ...
 	  "access_token": "eyJ0eXAiOiJKV…",
