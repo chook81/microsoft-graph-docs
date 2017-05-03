@@ -64,26 +64,29 @@ All further requests must include access token, i.e:
 	Authorization: Bearer access_token
 
 
-Provisioning API versions and environments
+## Provisioning API versions and environments
 
-IMPORTANT: 
+**IMPORTANT** 
 When doing operations with common directory objects, such as Service Principals, we need call MS Graph's public beta version API
 (i.e. GET _https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
 
 When doing operations on provisioning-specific objects,  we need to use provisioning-specific API version:
 (i.e. GET https://graph.microsoft-ppe.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs)
 
-PPE
+**PPE**
 For PPE, use following root URL:  https://graph.microsoft-ppe.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs)
 
 
-Finding Service Principal Object(s)
+## Finding Service Principal Object(s)
 
 You would need to know ID of the Service Principal object (NOT ServicePrincipal.AppId) when forming requests to Provisioning API.  Here we assume that service principal for your application is already added to the tenant (I.e. by adding application to your tenant in the Azure portal). You can easily find servicePrincipal of interest knowing either ServicePrincipal.AppId, or ServicePrincipal.displayName
 
-Description	Find service principals by display name
-Request	GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
-Response	{
+**Find service principals by display name**
+    
+    GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
+Response
+    
+    {
 	     "value": [
 	        {
 	            "id": "bc0dc311-87df-48ac-91b1-259bd2c3a31c",
@@ -98,9 +101,12 @@ Response	{
 	    ]
 	 }
 
-Description	Find service principals by AppId
-Request	GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=AppId eq '219561ee-1480-4c67-9aa6-63d861fae3ef'
-Response	{
+**Find service principals by AppId**
+
+    GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=AppId eq '219561ee-1480-4c67-9aa6-63d861fae3ef'
+Response
+
+    {
 	    "value": [
 	        {
 	            "id": "d813d7d7-0f41-4edc-b284-d0dfaf399d15",
@@ -111,13 +117,15 @@ Response	{
 	}
 
 
-Retrieving basic job information
+## Retrieving basic job information
 
-List existing synchronization jobs
-Request	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs
-	
+**List existing synchronization jobs**
+
+    GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs
 	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
-Response	HTTP/1.1 200 OK
+Response	
+    
+    HTTP/1.1 200 OK
 	{
 	    "value": [
 	        {           
@@ -133,7 +141,7 @@ Response	HTTP/1.1 200 OK
 	    ]
 	}
 
-Retrieve a job (and its current status)
+#### Retrieve a job (and its current status)
 Request	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}
 	
 	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs/SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa
@@ -149,42 +157,38 @@ Response	HTTP/1.1 200 OK
 	            "status": {.. }
 	        }
 	
+#### Retrieve effective schema
+    GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
+Response	
 
-
-Retrieve effective schema
-Request	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
-Response	HTTP/1.1 200 OK
+    HTTP/1.1 200 OK
 	{
 	    "directories": [..],
 	    "synchronizationRules": [..]
 	}
 
+## Registering your own application for API access
 
+### Resources
+	
+[Register an app with the Azure AD v2.0 endpoint](https://graph.microsoft.io/en-us/docs/authorization/auth_register_app_v2.htm)
+[App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview.htm)
+<https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare>
 
-Registering your own application for API access
+### Register the application
+	
+1. Sign into the App Registration Portal using administrative account in your tenant. This must be the tenant you  want to make API calls against
+2. Choose Add an app. Enter a name for the app, and choose Create application
+3. Under Platforms, click Add Platform. Choose  Mobile. Web Platform with default Redirect URI will be added automatically
+4. Under Microsoft Graph Permissions, add Directory.ReadWrite.All to Delegated Permissions. If you plan the application to authenticate as a service, add the same under Application Permission
+5. Choose "Save"
+6. Copy Client Id (which is the same as Application Id) and Redirect URI (default value of "urn:ietf:wg:oauth:2.0:oob")
+7. Compose consent URL
 
-	Resources
-	
-	Register an app with the Azure AD v2.0 endpoint
-	App authentication with Microsoft Graph
-	https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare
-	
-	Register the application
-	
-		1. Sign into the App Registration Portal using administrative account in your tenant. This must be the tenant you  want to make API calls against
-		2. Choose Add an app. Enter a name for the app, and choose Create application
-			i. 
-		3. Under Platforms, click Add Platform. Choose  Mobile. Web Platform with default Redirect URI will be added automatically
-			i. 
-		4. Under Microsoft Graph Permissions, add Directory.ReadWrite.All to Delegated Permissions. If you plan the application to authenticate as a service, add the same under Application Permission
-			i. 
-		5. Choose "Save"
-		6. Copy Client Id (which is the same as Application Id) and Redirect URI (default value of "urn:ietf:wg:oauth:2.0:oob")
-		7. Compose consent URL:
 		https://login.windows.net/{tenantId}/oauth2/authorize
 		?response_type=code&redirect_uri=http%3A%2F%2Flocalhost&prompt=admin_consent&client_id={applicationId}
 		&resource=https%3A%2F%2Fgraph.microsoft.com
-		8. Paste the URL in browser. Login with the administrator credentials and consent to the application. You should get redirected to http://localhost/X address, which will be not found and show error in the browser - ignore that. 
-		9. You should be ready to go ahead with the API calls
+8. Paste the URL in browser. Login with the administrator credentials and consent to the application. You should get redirected to http://localhost/X address, which will be not found and show error in the browser - ignore that. 
+9. You should be ready to go ahead with the API calls
 	
 
