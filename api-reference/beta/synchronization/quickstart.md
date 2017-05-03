@@ -142,20 +142,21 @@ Response
 	}
 
 #### Retrieve a job (and its current status)
-Request	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}
-	
+    GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}
 	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs/SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa
-Response	HTTP/1.1 200 OK
-	        {            
-	            "id": "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
-	            "templateId": "SfSandboxOutDelta",
-	            "schedule": {
-	                "expiration": null,
-	                "interval": "PT20M",
-	                "state": "Active"
-	            },
-	            "status": {.. }
-	        }
+Response	
+	
+	HTTP/1.1 200 OK
+	{            
+	    "id": "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
+	    "templateId": "SfSandboxOutDelta",
+	    "schedule": {
+		"expiration": null,
+		"interval": "PT20M",
+		"state": "Active"
+	    },
+	    "status": {.. }
+	}
 	
 #### Retrieve effective schema
     GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
@@ -172,7 +173,9 @@ Response
 ### Resources
 	
 [Register an app with the Azure AD v2.0 endpoint](https://graph.microsoft.io/en-us/docs/authorization/auth_register_app_v2.htm)
-[App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview.htm)
+
+[App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview.htm) 
+
 <https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare>
 
 ### Register the application
