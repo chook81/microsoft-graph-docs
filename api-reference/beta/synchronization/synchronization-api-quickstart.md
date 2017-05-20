@@ -3,9 +3,9 @@
 ## Additional Resources
 
 	[Synchronization Object Model](#synchronization-objectmodel-overview.md)
-    [Synchronization Schema](#synchronization-schema-overview.md)
-	[Walk-through: Synchronize Custom Target Attributes](#synchronization-walkthrough-custom-attributes.md)
-	[Walk-through: Synchronize Directory Extension Attributes](#synchronization-walkthrough-directory-extensions.md)
+    [Synchronization Schema](synchronization-schema-overview.md)
+	[Walk-through: Synchronize Custom Target Attributes](synchronization-walkthrough-custom-attributes.md)
+	[Walk-through: Synchronize Directory Extension Attributes](synchronization-walkthrough-directory-extensions.md)
     [API Reference]
 
 ## Authorization
@@ -36,21 +36,22 @@ With this information, we can make a call to obtain access token:
 Description	Obtain authorization token for Microsoft Graph, using administrative user credentials. **Make sure all parameter values are URL-encoded**
 
 Request (PROD)
-
+```http
     POST https://login.windows.net/{tenantId}/oauth2/token
 	Content-Type: application/x-www-form-urlencoded
 	
 	client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft.com%2F&grant_type=password&username={userPrincipalName}&password={password}
-
+```
 Request (PPE)	
-
+```http
     POST https://login.windows-ppe.net/{tenantId}/oauth2/token
 	Content-Type: application/x-www-form-urlencoded
 	
 	client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft-ppe.com%2F&grant_type=password&username={userPrincipalName}&password={password}
-
+```
 Response	
-    
+```http
+	HTTP1.1/OK
     {
 	  "token_type": "Bearer",
 	   ...
@@ -82,9 +83,9 @@ For PPE, use following root URL:  https://graph.microsoft-ppe.com/testSynchroniz
 You would need to know ID of the Service Principal object (NOT ServicePrincipal.AppId) when forming requests to Provisioning API.  Here we assume that service principal for your application is already added to the tenant (I.e. by adding application to your tenant in the Azure portal). You can easily find servicePrincipal of interest knowing either ServicePrincipal.AppId, or ServicePrincipal.displayName
 
 ### Find service principals by display name	
-
+```http
     GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
-
+```
 Response	
 
     {
@@ -103,31 +104,33 @@ Response
 	 }
 
 ### Find service principals by AppId	
-
-    GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=AppId eq '219561ee-1480-4c67-9aa6-63d861fae3ef'
-
+```http
+GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=AppId eq '219561ee-1480-4c67-9aa6-63d861fae3ef'
+```
 Response	
-
-    {
-	    "value": [
-	        {
-	            "id": "d813d7d7-0f41-4edc-b284-d0dfaf399d15",
-	            "appId": "219561ee-1480-4c67-9aa6-63d861fae3ef",
-	            "displayName": "salesforce 3"
-	        }
-	    ]
-	}
+```javascript
+HTTP/1.1 200 OK
+{
+	"value": [
+		{
+			"id": "d813d7d7-0f41-4edc-b284-d0dfaf399d15",
+			"appId": "219561ee-1480-4c67-9aa6-63d861fae3ef",
+			"displayName": "salesforce 3"
+		}
+	]
+}
+```
 
 ## Retrieving basic job information
 
 ### List existing synchronization jobs
-
+	```http
 	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs
 	
 	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
-
+	```
 Response	
-
+	```javascript
     HTTP/1.1 200 OK
 	{
 	    "value": [
@@ -143,7 +146,7 @@ Response
 	        }
 	    ]
 	}
-
+	```
 ### Retrieve job status
 
     GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}
