@@ -1,9 +1,9 @@
-Synchronization Schema 
+Synchronization Schema
 ===========================================
 
 ## Overview
 
-Synchronization schema controls most of the details of the synchronization between 2 directories. On a high level, it defines what objects will be synchronized and how. Most often you will want to customize some of the attribute mappings to suit your needs, or add a scoping filter to synchronize only objects which satisfy a cetain condition. High-level schema structure:
+Synchronization schema controls most of the details of the synchronization between 2 directories. On a high level, it defines what objects will be synchronized and how. Most often you will want to customize some of the attribute mappings to suit your needs, or add a scoping filter to synchronize only objects which satisfy a certain condition. High-level schema structure:  
 
 ```javascript
 {
@@ -40,7 +40,7 @@ Synchronization schema controls most of the details of the synchronization betwe
                     targetObjectName: "User",
                     attributeMappings: [
                         {
-                            source: {},
+                            source: {...},
                             targetAttributeName: "userName"
                         },
                         {...}
@@ -59,7 +59,7 @@ Synchronization schema controls most of the details of the synchronization betwe
 Top-level nodes in synchronization schema are "directories", defining directories and their objects, and "synchronizationRules", defining mappings between objects and their attributes
 
 ### Directory Definitions ("directories")
-Directory definition provides synchronization engine with information about a directory and its objects. It tells synchronization engine, for example, that directory has objects named "User" and "Group", which attributes are supported for those objects, and what is the type of those attributes. In order for a particular object and attribute to be used in synchronization rules / object mappings, they have to be defined as part of the directory definition. 
+Directory definition provides synchronization engine with information about a directory and its objects. It tells synchronization engine, for example, that directory has objects named "User" and "Group", which attributes are supported for those objects, and what is the type of those attributes. In order for a particular object and attribute to be used in synchronization rules / object mappings, they have to be defined as part of the directory definition.
 
 As a general rule, default synchronization schema provided as part of the synchronization template will define most commonly used objects / attributes for that directory. However, if directory supports addition of custom attributes, it is common one would want to expand the default definition with their own custom objects or attributes. For more information, please see [Walk-through: Synchronizing Custom Attributes](synchronization-walkthrough-custom-attributes)
 
