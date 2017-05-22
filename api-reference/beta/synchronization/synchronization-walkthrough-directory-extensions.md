@@ -1,65 +1,68 @@
 # Walk-through: Synchronize Directory Extension Attributes
 
 ## Scenario
-We have AD Connect setup to provision a number of directory extension attributes from AD-on-premises to Azure AD. 
-We are setting up provisioning from Azure AD to Salesforce, and we want to use one of the directory extension attributes (i.e. **extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. We won't be able to setup such attribute mapping using web interface in Azure Portal, as it will not show directory extension attributes among the available attributes. We can achieve that using the API.
+
+We have AD Connect setup to provision a number of directory extension attributes from AD-on-premises to Azure AD. We are setting up provisioning from Azure AD to Salesforce, and we want to use one of the directory extension attributes (i.e. **extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. We won't be able to setup such attribute mapping using web interface in Azure Portal, as it will not show directory extension attributes among the available attributes. We can achieve that using the API.
 
 We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our Tenant Identifier, application display name (the one shown in the portal), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API Quick Start](#synchronization-api-quickstart.md)
 
 ## Find service principal by display name
 
 We are interested in the one named "Salesforce Sandbox":
-    ```http
-	GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
-	Authorization: Bearer {Token}
-	```
 
-    ```javascript
-	{
-	  "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals(id,appId,displayName)",
-	  "value": [
-	    {
-	      "id": "167e33e9-f80e-490e-b4d8-698d4a80fb3e",
-	      "appId": "cd3ed3de-93ee-400b-8b19-b61ef44a0f29",
-	      "displayName": "Salesforce"
-	    },
-	    {
-	      "id": "8cbbb70b-7290-42da-83ee-89fa3517a977",
-	      "appId": "b0f2e3b1-fe31-4658-b216-44dcaeabb63a",
-	      "displayName": "salesforce 1"
-	    },
-	    {
-	      "id": "60443998-8cf7-4e61-b05c-a53b658cb5e1",
-	      "appId": "79079396-c301-405d-900f-e2e0c2439a90",
-	      "displayName": "Salesforce Sandbox"
-	    }
-	  ]
-	}
-    ```
+```http
+GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
+Authorization: Bearer {Token}
+```
+
+```javascript
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals(id,appId,displayName)",
+    "value": [
+    {
+        "id": "167e33e9-f80e-490e-b4d8-698d4a80fb3e",
+        "appId": "cd3ed3de-93ee-400b-8b19-b61ef44a0f29",
+        "displayName": "Salesforce"
+    },
+    {
+        "id": "8cbbb70b-7290-42da-83ee-89fa3517a977",
+        "appId": "b0f2e3b1-fe31-4658-b216-44dcaeabb63a",
+        "displayName": "salesforce 1"
+    },
+    {
+        "id": "60443998-8cf7-4e61-b05c-a53b658cb5e1",
+        "appId": "79079396-c301-405d-900f-e2e0c2439a90",
+        "displayName": "Salesforce Sandbox"
+    }
+    ]
+}
+```
+
 Our {servicePrincipalId} is "60443998-8cf7-4e61-b05c-a53b658cb5e1"
-
 
 ## List synchronization jobs in the context of the service principal 
 
 Generally, we expect to see only one - this will give us jobId of the task we need to work with
 
 ```http
-	GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
-	Authorization: Bearer {Token}
-	
-	{
-	    "@odata.context": "https://graph.microsoft.com/testSynchronization/$metadata#servicePrincipals('60443998-8cf7-4e61-b05c-a53b658cb5e1')/synchronization/jobs",
-	    "value": [
-	        {
-	          "id": "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
-	          "templateId": "SfSandboxOutDelta",
-	          "schedule": {..},
-	          "status": {..}
-	    }
-	  ]
-	}
+GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
+Authorization: Bearer {Token}
 ```
-	
+
+```json
+{
+    "@odata.context": "https://graph.microsoft.com/testSynchronization/$metadata#servicePrincipals('60443998-8cf7-4e61-b05c-a53b658cb5e1')/synchronization/jobs",
+    "value": [
+        {
+            "id": "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
+            "templateId": "SfSandboxOutDelta",
+            "schedule": {..},
+            "status": {..}
+    }
+    ]
+}
+```
+
 Our {jobId} is "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa"
 
 ## Find exact name of the directory extension attribute we need
@@ -71,9 +74,12 @@ We'll need full name of the extension attribute to perform next steps. If you do
 
 ## Retrieve effective synchronization schema
 
+```http
     GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
     Authorization: Bearer {Token}
+```
 
+```json
     {
     "@odata.context": "https://graph.microsoft.com/testProvisioning/$metadata#servicePrincipals('167e33e9-f80e-490e-b4d8-698d4a80fb3e')/provisioningTasks('SfOutDelta.e4bbf44533ea4eabb17027f3a92e92aa')/schema/$entity", 
     "directories": [
@@ -169,20 +175,23 @@ We'll need full name of the extension attribute to perform next steps. If you do
         ..
        ]
     }
+```
 
 ## Add attribute definition for the directory extension attribute, and a mapping between the attributes
 
 Using text editor of your choice (i.e. http://www.jsoneditoronline.org/ or Notepad++) we need to:
 
 1. Add attribute definition for extension_9d98asdfl15980a_Nickname attribute. 
-	- Under directories, find directory with the name "Azure Active Directory", and in the objects array find the one named "User".
+    - Under directories, find directory with the name "Azure Active Directory", and in the objects array find the one named "User".
     - Add new attribute to the list, specifying minimal information (name and type) - see example below
+
 2. Add attribute mapping between extension_9d98asdfl15980a_Nickname and CommunityNickname
     - Under synchronizationRules, find the rule which has Azure AD as source directory, and Salesforce.com as target directory ( "sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com")
-	- In objectMappings of the rule, find mapping between users ("sourceObjectName": "User",   "targetObjectName": "User")
+    - In objectMappings of the rule, find mapping between users ("sourceObjectName": "User",   "targetObjectName": "User")
     - In the attributeMappings array of the objectMapping, add a new entry, specifying minimal information as show in the example
-    
-            {  
+
+            ```json
+            {
                 "directories": [
                     ...
                     {
@@ -223,9 +232,8 @@ Using text editor of your choice (i.e. http://www.jsoneditoronline.org/ or Notep
                             "scope": null,
                             "sourceObjectName": "User",
                             "targetObjectName": "User"
-                        
                         },
-                        ... 
+                        ...
                     ],
                     "priority": 1,
                     "sourceDirectoryName": "Azure Active Directory",
@@ -233,7 +241,7 @@ Using text editor of your choice (i.e. http://www.jsoneditoronline.org/ or Notep
                     },
                 ]
             }
-
+            ```
 
 ## Save modified schema
 
