@@ -1,4 +1,4 @@
-## Synchronization API Quick Start (BETA)
+# Synchronization API Quick Start (BETA)
 
 ## Additional Resources
 
@@ -12,7 +12,7 @@
 
 Provisioning API is part of Microsoft Graph, and uses the same OAuth 2.0 authorization as MS Graph does. Before making any requests to the API, you would need to obtain an access token.
 
-### Using Graph Explorer
+### Using Graph Explorer    
 
 One way to bypass the hassle with authentication is to use Graph Explorer web application (make sure you start "private" browser session with Graph Explorer):
 
