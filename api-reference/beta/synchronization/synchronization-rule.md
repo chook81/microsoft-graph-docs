@@ -1,8 +1,8 @@
 # Synchronization Rule
 
-Synchronization rules are at the core of the synchronization setup. They give synchronization engine crucial information regarding how the synchronization should be performed. That includes what objects should be synchronized, how objects from source directory should be matched with objects in target directory, and how attributes should be transformed going from source to target.
+Synchronization rules are at the core of the synchronization configuration. They give synchronization engine crucial information regarding how the synchronization should be performed. That includes which objects should be synchronized, in which direction, how objects from source directory should be matched with objects in target directory, and how attributes should be transformed going from source to target.
 
-Synchronization rule defines synchronization in one direction only, from source directory to target directory. Source and target directories are designated as part of the rule properties.
+**Synchronization rule defines synchronization in one direction only**, from source directory to target directory. Source and target directories are designated as part of the rule properties.
 
 Synchronization rules are updated as part of [synchronization schema](synchronization-schema.md)
 
@@ -28,8 +28,8 @@ Synchronization rules are updated as part of [synchronization schema](synchroniz
 |editable       |Boolean    |`true` if synchronization rule can be customized. `false` means this rule is read only and should not be changed|
 |id             |String     |Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be seen in the synchronization template returned by the API|
 |metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|name           |String     |Name of the object. Must be unique within a directory definition. Not nullable|
-|objectMappings |[objectMapping] collection    |Collection of objects supported by the directory|
+|name           |String     |Name of the synchronization rule. Human-readable name of the synchronization rule. Not nullable|
+|objectMappings |[objectMapping] collection    |Collection of object mappings supported by the rule. Tells synchronization engine which objects should be synchronized|
 |priority       |Integer    |Priority relative to other rules in the [schema](synchronization-schema.md). Rules with the lowest priority number will be processed first|
 |sourceDirectoryName       |String    |Name of the source directory. Must match one of the directory definitions in [schema](synchronization-schema.md)|
 |targetDirectoryName       |String    |Name of the target directory. Must match one of the directory definitions in [schema](synchronization-schema.md)|
