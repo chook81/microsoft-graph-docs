@@ -2,7 +2,7 @@
 
 Synchronization rules are at the core of the synchronization configuration. They give synchronization engine crucial information regarding how the synchronization should be performed. That includes which objects should be synchronized, in which direction, how objects from source directory should be matched with objects in target directory, and how attributes should be transformed going from source to target.
 
-**Synchronization rule defines synchronization in one direction only**, from source directory to target directory. Source and target directories are designated as part of the rule properties.
+**Synchronization rule defines synchronization in one direction**, from source directory to target directory. Source and target directories are designated as part of the rule properties.
 
 Synchronization rules are updated as part of [synchronization schema](synchronization-schema.md)
 
