@@ -6,11 +6,6 @@ Create new template for a given application
 
 ```http
 POST /synchronization/templates/
-Content-type: application/json
-{
-    "id": "Slack",
-    "factoryTag": "CustomSCIM"
-}
 ```
 
 ### Request body

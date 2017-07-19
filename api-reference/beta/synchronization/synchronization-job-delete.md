@@ -1,11 +1,11 @@
-# Start Synchronization Job
+# Delete Synchronization Job
 
-Starts the synchronization job (job must already exist). If job is in paused state, it will continue processing changes from the point where it was paused. If job is in quarantine, quarantine status will be cleared.
+Stops the synchronization job, and permanently deletes all the state associated with it. Already provisioned accounts remain unchanged.
 
 ## Request
 
 ```http
-POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/start
+DELETE /servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
 ## Request body
@@ -21,7 +21,7 @@ If successful, returns `204 No Content` response.
 ### Sample request
 
 ```http
-POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
+DELETE https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
 ### Sample response
