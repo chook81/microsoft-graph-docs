@@ -4,9 +4,7 @@
 
 ### Synchronization Template
 
-Synchronization template provides default synchronization settings for a particular application. Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings. One of the most important settings template provides is synchronization schema, which will be used as default one for any synchronization job based on this template. Template is required to create a synchronization job. For more information, please see [synchronization template](synchronization-template.md)
-
-Application developer may provide multiple templates for a given application, and designate a default one. If multiple templates are available for the application you are interested in, seek application-specific guidance on which one better suits your case.
+Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization-job.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization-schema.md).
 
 ### Synchronization Job
 

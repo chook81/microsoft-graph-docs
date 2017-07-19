@@ -4,19 +4,6 @@ Current status of the synchronization job
 
 ## JSON representation
 
-    <ComplexType Name="synchronizationStatus">
-    <Property Name="countSuccessiveCompleteFailures" Type="Edm.Int64" Nullable="false"/>
-    <Property Name="escrowsPruned" Type="Edm.Boolean" Nullable="false"/>
-    <Property Name="synchronizedEntryCountByType" Type="Collection(microsoft.graph.stringKeyLongValuePair)"/>
-    <Property Name="code" Type="microsoft.graph.synchronizationStatusCode" Nullable="false"/>
-    <Property Name="lastExecution" Type="microsoft.graph.synchronizationTaskExecution"/>
-    <Property Name="lastSuccessfulExecution" Type="microsoft.graph.synchronizationTaskExecution"/>
-    <Property Name="lastSuccessfulExecutionWithExports" Type="microsoft.graph.synchronizationTaskExecution"/>
-    <Property Name="steadyStateFirstAchievedTime" Type="Edm.DateTimeOffset" Nullable="false"/>
-    <Property Name="steadyStateLastAchievedTime" Type="Edm.DateTimeOffset" Nullable="false"/>
-    <Property Name="quarantine" Type="microsoft.graph.synchronizationQuarantine"/>
-    <Property Name="troubleshootingUrl" Type="Edm.String" Unicode="false"/>
-    </ComplexType>
 ```json
 {
     "id": "String (identifier)",

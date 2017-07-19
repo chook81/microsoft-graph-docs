@@ -1,0 +1,73 @@
+# Synchronization Template
+
+Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization-job.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization-schema.md).
+
+Application developer may provide multiple templates for a given application, and designate a default one. If multiple templates are available for the application you are interested in, seek application-specific guidance on which one better suits your case.
+
+## JSON representation
+
+```json
+{
+    "id": "String",
+    "applicationId" : "String (identifier)",
+    "default": "Boolean",
+    "description": "String",
+    "discoverable": "Boolean",
+    "factoryTag": "SfOutDelta",
+    "metadata": [{"@odata.type": "microsoft.graph.metadataEntry"}],
+    "schema": {"@odata.type": "microsoft.graph.synchronizationSchema"}
+}
+```
+
+## Properties
+
+| Property      | Type                      | Description                  |
+|:--------------|:--------------------------|:-----------------------------|
+|id             |String                     |Unique template identifier|
+|default        |Boolean                    |`true` if this template is recommended as default one for the application|
+|description    |String                     |Description of the template|
+|discoverable   |String                     |`true` if this template should appear in the collection of templates available for the application instance (service principal)|
+|factoryTag     |String                     |One of the well-known factory tags supported by the synchronization engine. Factory tag tells synchronization engine which implementation should be used when processing jobs based on this template|
+|metadata       |metadataEntry collection   |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
+|schema         |[synchronizationSchema](synchronization-schema.md)     |Default synchronization schema for the jobs based on this template|
+
+
+## Methods
+
+| Method        | Return Type               | Description                  |
+|:--------------|:--------------------------|:-----------------------------|
+|[List](synchronization-template-list.md)   |[synchronizationTemplate](synchronization-template.md) collection  |List templates available for a given application or application instance (service principal)|
+|[Get](synchronization-template-get.md)             |[synchronizationTemplate](synchronization-template.md)   |Retrieve existing template and its properties|
+|[Create](synchronization-template-post.md)         |[synchronizationTemplate](synchronization-template.md)   |Create new template for a given application|
+|[Update](synchronization-template-put.md)          |[synchronizationTemplate](synchronization-template.md)   |Update template|
+
+
+## JSON Example
+
+```json
+{
+    "id": "SfOutDelta",
+    "default": true,
+    "description": null,
+    "discoverable": true,
+    "factoryTag": "SfOutDelta",
+    "metadata": [
+        {
+            "key": "galleryApplicationIdentifier",
+            "value": "cd3ed3de-93ee-400b-8b19-b61ef44a0f29"
+        },
+        {
+            "key": "galleryApplicationKey",
+            "value": "salesforce.com"
+        },
+        {
+            "key": "isOAuthEnabled",
+            "value": "false"
+        },
+        {
+            "key": "configurationFields",
+            "value": "[{\"name\":\"username\"},{\"name\":\"password\",\"secret\":true},{\"name\":\"secrettoken\",\"secret\":true}]"
+        }
+    ],
+    "schema": {...}
+}
