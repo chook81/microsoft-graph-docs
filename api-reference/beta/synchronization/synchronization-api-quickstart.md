@@ -3,7 +3,7 @@
 ## Additional Resources
 
 * [Synchronization Object Model](#synchronization-objectmodel-overview.md)
-* [Synchronization Schema](synchronization-schema-overview.md)
+* [Synchronization Schema](synchronization-schema.md)
 * [Walk-through: Synchronize Custom Target Attributes](synchronization-walkthrough-custom-attributes.md)
 * [Walk-through: Synchronize Directory Extension Attributes](synchronization-walkthrough-directory-extensions.md)
 * [API Reference]

@@ -40,6 +40,50 @@ Synchronization job performs synchronization by periodically running in the back
 
 ```json
 {
-    TODO
+    "id": "BoxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
+    "templateId": "BoxOutDelta",
+    "schedule": {
+        "expiration": null,
+        "interval": "PT40M",
+        "state": "Active"
+    },
+    "status": {
+        "countSuccessiveCompleteFailures": 0,
+        "escrowsPruned": false,
+        "synchronizedEntryCountByType": [],
+        "code": "Quarantine",
+        "lastExecution": {
+            "activityIdentifier": "703dd82f-faa0-4dbd-abdc-48f620ed7ab4",
+            "countEntitled": 0,
+            "countEntitledForProvisioning": 0,
+            "countEscrowed": 0,
+            "countEscrowedRaw": 0,
+            "countExported": 0,
+            "countExports": 0,
+            "countImported": 0,
+            "countImportedDeltas": 0,
+            "countImportedReferenceDeltas": 0,
+            "state": "Failed",
+            "error": {
+                "code": "BoxInsufficientPermissions",
+                "message": "An internal error ocurred. Please contact Azure Active Directory support",
+                "tenantActionable": true
+            },
+            "timeBegan": "2017-07-19T14:55:58.5434447Z",
+            "timeEnded": "2017-07-19T14:55:58.5570274Z"
+        },
+        "lastSuccessfulExecution": null,
+        "lastSuccessfulExecutionWithExports": null,
+        "steadyStateFirstAchievedTime": "0001-01-01T00:00:00Z",
+        "steadyStateLastAchievedTime": "0001-01-01T00:00:00Z",
+        "quarantine": {
+            "currentBegan": "2017-07-19T12:35:27.0869139Z",
+            "nextAttempt": "0001-01-01T00:00:00Z",
+            "reason": "EncounteredQuarantineException",
+            "seriesBegan": "2017-07-19T06:56:58.2464011Z",
+            "seriesCount": 6
+        },
+        "troubleshootingUrl": ""
+    }
 }
 ```
