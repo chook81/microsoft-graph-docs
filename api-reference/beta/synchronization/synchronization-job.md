@@ -28,13 +28,15 @@ Synchronization job performs synchronization by periodically running in the back
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[List](synchronization-jobs-get.md)       |[synchronizationJob](synchronization-job.md) collection  |List existing jobs for a given application instance (service principal)|
-|[Get](synchronization-job-get.md)         |[synchronizationJob](synchronization-job.md)   |Retrieve existing job and its properties|
-|[Create](synchronization-jobs-post.md)    |[synchronizationJob](synchronization-job.md)   |Create new job for a given application|
-|[Start](synchronization-job-start.md)     |None   |Starts synchronization job. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared|
-|[Restart](synchronization-job-restart.md) |None   |Forces job to start from scratch and re-process all the objects in the directory|
-|[Pause](synchronization-job-pause.md)     |None   |Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](synchronization-job-start.md) call job execution will continue from where it left off|
-|[Delete](synchronization-job-delete.md)   |None   |Stops synchronization job, and permanently deletes all the state associated with the job|
+|[List](synchronization-jobs-get.md)             |[synchronizationJob](synchronization-job.md) collection  |List existing jobs for a given application instance (service principal)|
+|[Get](synchronization-job-get.md)              |[synchronizationJob](synchronization-job.md)   |Retrieves existing job and its properties|
+|[Create](synchronization-jobs-post.md)         |[synchronizationJob](synchronization-job.md)   |Create new job for a given application|
+|[Start](synchronization-job-start.md)          |None   |Starts synchronization job. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared|
+|[Restart](synchronization-job-restart.md)      |None   |Forces job to start from scratch and re-process all the objects in the directory|
+|[Pause](synchronization-job-pause.md)          |None   |Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](synchronization-job-start.md) call job execution will continue from where it left off|
+|[Delete](synchronization-job-delete.md)        |None   |Stops synchronization job, and permanently deletes all the state associated with the job|
+|[Get schema](synchronization-schema-get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retreives job's effective synchronization schema|
+|[Put schema](synchronization-schema-put.md)    |None   |Updates job's synchronization schema |
 
 ## JSON Example
 

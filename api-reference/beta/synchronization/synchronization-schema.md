@@ -24,6 +24,13 @@ Synchronization schema controls most of the details of the synchronization betwe
 |synchronizationRules   |[synchronizationRule] collection   |Collection of synchronization rules configured for the synchronization [job](#synchronization-job.md) or [template](#synchronization-template.md) |
 |version                |String                             |Version of the schema, updated automatically on every schema change|
 
+## Methods
+
+| Method        | Return Type               | Description                  |
+|:--------------|:--------------------------|:-----------------------------|
+|[Get schema](synchronization-schema-get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retreives  synchronization schema|
+|[Put schema](synchronization-schema-put.md)    |None   |Updates synchronization schema |
+
 ## Schema Components
 
 Top-level components in synchronization schema are "directories", defining directories and their objects, and "synchronizationRules", defining mappings between objects and their attributes
@@ -43,18 +50,20 @@ Object mappings are the main part of the synchronization rule. Each object mappi
 
 ## JSON Example
 
+Example below is shortened for brevity. You can see a full sample of schema [here](synchronization-schema-sample.md).
+
 ```json
 {
-    directories: [
+    "directories": [
         {
-            name: "Azure AD",
-            objects: [
+            "name": "Azure Active Directory",
+            "objects": [
                 {
-                    name: "User",
-                    attributes: [
+                    "name": "User",
+                    "attributes": [
                         {
-                            name: "userPrincipalName",
-                            type: "string"
+                            "name": "userPrincipalName",
+                            "type": "string"
                         },
                         {...}
                     ]
@@ -63,23 +72,23 @@ Object mappings are the main part of the synchronization rule. Each object mappi
             ]
         },
         {
-            name: "Salesforce",
-            objects: [...]
+            "name": "Salesforce",
+            "objects": [...]
         }
     ],
-    synchronizationRules:[
+    "synchronizationRules":[
         {
-            name: "USER_TO_USER",
-            sourceDirectoryName: "Azure AD",
-            targetDirectoryName: "Salesforce",
-            objectMappings: [
+            "name": "USER_TO_USER",
+            "sourceDirectoryName": "Azure Active Directory",
+            "targetDirectoryName": "Salesforce",
+            "objectMappings": [
                 {
-                    sourceObjectName: "User",
-                    targetObjectName: "User",
-                    attributeMappings: [
+                    "sourceObjectName": "User",
+                    "targetObjectName": "User",
+                    "attributeMappings": [
                         {
-                            source: {...},
-                            targetAttributeName: "userName"
+                            "source": {...},
+                            "targetAttributeName": "userName"
                         },
                         {...}
                     ]
