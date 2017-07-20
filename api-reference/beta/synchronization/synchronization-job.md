@@ -68,7 +68,7 @@ Synchronization job performs synchronization by periodically running in the back
             "state": "Failed",
             "error": {
                 "code": "BoxInsufficientPermissions",
-                "message": "An internal error ocurred. Please contact Azure Active Directory support",
+                "message": "Authorization with Box is not valid. Please re-authorize access to Box",
                 "tenantActionable": true
             },
             "timeBegan": "2017-07-19T14:55:58.5434447Z",
@@ -84,8 +84,7 @@ Synchronization job performs synchronization by periodically running in the back
             "reason": "EncounteredQuarantineException",
             "seriesBegan": "2017-07-19T06:56:58.2464011Z",
             "seriesCount": 6
-        },
-        "troubleshootingUrl": ""
+        }
     }
 }
 ```
