@@ -5,11 +5,7 @@ Describes an object and its attributes. Object definitions are part of [director
 ## JSON representation
 
 ```json
-{
-  "attributes": [{"@odata.type": "microsoft.graph.attributeDefinition"}],
-  "metadata": [{"@odata.type": "microsoft.graph.metadataEntry"}],
-  "name": "String"
-}
+TODO
 ```
 
 ## Properties
@@ -23,13 +19,5 @@ Describes an object and its attributes. Object definitions are part of [director
 ## JSON Example
 
 ```json
-{
-    "metadata": [
-        {
-            "key": "IsSoftDeletionSupported",
-            "value": "true"
-        }
-    ],
-    "name": "User"
-},
+TODO
 ```
