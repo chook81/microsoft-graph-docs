@@ -28,8 +28,10 @@ Synchronization schema controls most of the details of the synchronization betwe
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[Get schema](synchronization-schema-get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retreives  synchronization schema|
-|[Put schema](synchronization-schema-put.md)    |None   |Updates synchronization schema |
+|[Get schema](synchronization-schema-get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retrieves  synchronization schema|
+|[Update schema](synchronization-schema-put.md)    |None   |Updates synchronization schema |
+|[Delete schema](synchronization-schema-delete.md)    |None   |Deletes customized  schema, effectively resetting the schema to the default configured by application developer |
+
 
 ## Schema Components
 
