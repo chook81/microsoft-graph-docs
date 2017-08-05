@@ -1,6 +1,6 @@
 # Delete Synchronization Job
 
-Stops the synchronization job, and permanently deletes all the state associated with it. Already provisioned accounts remain unchanged.
+Stops the synchronization job, and permanently deletes all the state associated with it. Synchronizaed accounts remain as-is.
 
 ## Request
 
