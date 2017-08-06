@@ -31,7 +31,8 @@ Synchronization schema controls most of the details of the synchronization betwe
 |[Get schema](synchronization-schema-get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retrieves  synchronization schema|
 |[Update schema](synchronization-schema-put.md)    |None   |Updates synchronization schema |
 |[Delete schema](synchronization-schema-delete.md)    |None   |Deletes customized  schema, effectively resetting the schema to the default configured by application developer |
-
+|[List filter operators](synchronization-schema-filterOperators-get.md)    |filterOperatorSchema[]   |Lists all operators supported in the scoping filters |
+|[List attribute mapping functions](synchronization-schema-functions-get.md)    |filterOperatorSchema[]   |Lists all functions supported in the attribute mapping expressions |
 
 ## Schema Components
 
