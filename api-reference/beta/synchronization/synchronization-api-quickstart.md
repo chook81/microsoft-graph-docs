@@ -2,11 +2,11 @@
 
 ## Additional Resources
 
-* [Synchronization Object Model](#synchronization-objectmodel-overview.md)
+* [Synchronization Overview](#synchronization-overview.md)
 * [Synchronization Schema](synchronization-schema.md)
 * [Walk-through: Synchronize Custom Target Attributes](synchronization-walkthrough-custom-attributes.md)
 * [Walk-through: Synchronize Directory Extension Attributes](synchronization-walkthrough-directory-extensions.md)
-* [API Reference]
+
 
 ## Authorization
 
@@ -17,13 +17,11 @@ Provisioning API is part of Microsoft Graph, and uses the same OAuth 2.0 authori
 One way to bypass the hassle with authentication is to use Graph Explorer web application (make sure you start "private" browser session with Graph Explorer):
 
 * [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer)
-* [Graph Explorer 2 PPE](https://graphexplorer2-ppe.azurewebsites.net/)
 
 This is convenient when you want to run a few simple requests. Graph Explorer will handle authentication for you, so you don't need to worry about access tokens.
 
 * Sign-in with the administrative account for the tenant you will be working with
 * Paste requests into Graph Explorer and click 'GO'
-* Note however, Graph Explorer has limitation of not supporting HTTP PUT method.
 
 ### Using arbitrary REST client (Postman, Fiddler, etc)
 
