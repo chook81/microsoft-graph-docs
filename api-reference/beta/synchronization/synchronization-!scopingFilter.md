@@ -6,7 +6,7 @@ Scoping filter is part of [object mapping](synchronization-objectMapping.md). Ob
 
 An object is considered in scope for the group collection (group collection is evaluated to `true`) *if ANY of the groups in the collection is evaluated to `true`*.
 
- For additional information, also see [Walkthrough: Configuring a scoping filter](synchronization-walkthrough-scopingFilters.md)
+For additional information, also see [Walkthrough: Configuring a scoping filter](synchronization-walkthrough-scopingFilters.md)
 
 ## JSON representation
 
