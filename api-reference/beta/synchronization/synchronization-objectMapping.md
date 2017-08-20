@@ -28,7 +28,7 @@ Object mappings are the main part of the [synchronization rule](synchronization-
 |flowTypes      |objectFlowType    |Which flow types are enabled for this object mapping. `Add` means we will create new objects in the target directory, `Update` means we will modify existing objects, and `Delete` means we will de-provision existing users. Default is `"Add, Update, Delete"`. |
 |metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
 |name           |String     |Human-friendly name of the object mapping|
-|scope          |[scopingFilter](synchronization-scopingFilter.md)     |Scope defines a filter to be used when deciding if a given object should be provisioned. For example, we might want to only provision users which are located in US. For additional information, also see [Walkthrough: Configuring a scoping filter](synchronization-walkthrough-scopingFilters.md)|
+|scope          |[scopingFilter](synchronization-scopingFilter.md)     |Scope defines a filter to be used when deciding if a given object should be provisioned. For example, we might want to only provision users which are located in US. For additional information, also see [HOW-TO: Configuring a scoping filter](synchronization-howto-scopingFilters.md)|
 |sourceObjectName           |String     |Name of the object in source directory. Must match object name from source [directory definition](synchronization-directoryDefinition.md)|
 |targetObjectName           |String     |Name of the object in target directory. Must match object name from target [directory definition](synchronization-directoryDefinition.md)|
 
