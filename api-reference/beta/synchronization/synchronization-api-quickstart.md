@@ -4,8 +4,7 @@
 
 * [Synchronization Overview](#synchronization-overview.md)
 * [Synchronization Schema](synchronization-schema.md)
-* [Walk-through: Synchronize Custom Target Attributes](synchronization-walkthrough-custom-attributes.md)
-* [Walk-through: Synchronize Directory Extension Attributes](synchronization-walkthrough-directory-extensions.md)
+* [HOW-TO: Configure synchronization with directory extension attributes](synchronization-howto-directory-extensions.md)
 
 
 ## Authorization
@@ -14,11 +13,7 @@ Provisioning API is part of Microsoft Graph, and uses the same OAuth 2.0 authori
 
 ### Using Graph Explorer
 
-One way to bypass the hassle with authentication is to use Graph Explorer web application (make sure you start "private" browser session with Graph Explorer):
-
-* [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer)
-
-This is convenient when you want to run a few simple requests. Graph Explorer will handle authentication for you, so you don't need to worry about access tokens.
+One convenient way to get your fit wet with the API is to use [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer) web application (make sure you start "private" browser session). Graph Explorer will handle authentication for you, so you don't need to worry about access tokens.
 
 * Sign-in with the administrative account for the tenant you will be working with
 * Paste requests into Graph Explorer and click 'GO'
@@ -36,22 +31,13 @@ To request access token, you will need to have the following:
 With this information, we can make a call to obtain access token:
 Description	Obtain authorization token for Microsoft Graph, using administrative user credentials. **Make sure all parameter values are URL-encoded**
 
-Request (PROD)
+Request
 
 ```http
 POST https://login.windows.net/{tenantId}/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft.com%2F&grant_type=password&username={userPrincipalName}&password={password}
-```
-
-Request (PPE)
-
-```http
-POST https://login.windows-ppe.net/{tenantId}/oauth2/token
-Content-Type: application/x-www-form-urlencoded
-
-client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft-ppe.com%2F&grant_type=password&username={userPrincipalName}&password={password}
 ```
 
 Response
@@ -73,18 +59,6 @@ GET https://graph.microsoft.com/beta/servicePrincipals
 Authorization: Bearer access_token
 ```
 
-## Provisioning API versions and environments
-
-**IMPORTANT**
-When doing operations with common directory objects, such as Service Principals, we need call MS Graph's public beta version API
-(i.e. GET https://graph.microsoft.com/**beta**/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
-
-When doing operations on provisioning-specific objects,  we need to use provisioning-specific API version:
-(i.e. GET https://graph.microsoft-ppe.com/**testSynchronization**/servicePrincipals/{id}/synchronization/jobs)
-
-For PPE, use following root URL:  https://graph.microsoft-ppe.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs)
-
-
 ## Finding Service Principal Object(s)
 
 You would need to know ID of the Service Principal object (NOT ServicePrincipal.AppId) when forming requests to Provisioning API.  Here we assume that service principal for your application is already added to the tenant (I.e. by adding application to your tenant in the Azure portal). You can easily find servicePrincipal of interest knowing either ServicePrincipal.AppId, or ServicePrincipal.displayName
@@ -92,7 +66,7 @@ You would need to know ID of the Service Principal object (NOT ServicePrincipal.
 ### Find service principals by display name
 
 ```http
-    GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
+GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
 ```
 
 Response
@@ -140,9 +114,9 @@ HTTP/1.1 200 OK
 ### List existing synchronization jobs
 
 ```http
-GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 
-GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
+GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
 ```
 
 Response
@@ -168,9 +142,9 @@ HTTP/1.1 200 OK
 ### Retrieve job status
 
 ```http
-    GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}
 
-    GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs/SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa
+GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs/SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa
 ```
 
 ```javascript
@@ -190,7 +164,7 @@ HTTP/1.1 200 OK
 ### Retrieve effective schema
 
 ```http
-GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
 ```
 
 ```javascript

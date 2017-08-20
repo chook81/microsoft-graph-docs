@@ -1,4 +1,4 @@
-# Walk-through: Synchronize Directory Extension Attributes
+# HOW-TO: Configure synchronization with directory extension attributes
 
 ## Scenario
 
@@ -68,8 +68,8 @@ Our {jobId} is "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa"
 ## Find exact name of the directory extension attribute we need
 
 We'll need full name of the extension attribute to perform next steps. If you don't know the full name (which should look similar to **extension_9d98asdfl15980a_Nickname**), see following  information regarding directory extension attributes and how to inspect them: 
-[Extending the Azure AD directory schema with custom properties](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-graphapi-directoryextensions-web/)
-[Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)
+* [Extending the Azure AD directory schema with custom properties](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-graphapi-directoryextensions-web/)
+* [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)
 
 
 ## Retrieve effective synchronization schema
@@ -179,7 +179,7 @@ We'll need full name of the extension attribute to perform next steps. If you do
 
 ## Add attribute definition for the directory extension attribute, and a mapping between the attributes
 
-Using text editor of your choice (i.e. http://www.jsoneditoronline.org/ or Notepad++) we need to:
+Using text editor of your choice (i.e. http://www.jsoneditoronline.org/, Notepad++, etc) we need to:
 
 1. Add attribute definition for extension_9d98asdfl15980a_Nickname attribute. 
     - Under directories, find directory with the name "Azure Active Directory", and in the objects array find the one named "User".
@@ -190,70 +190,71 @@ Using text editor of your choice (i.e. http://www.jsoneditoronline.org/ or Notep
     - In objectMappings of the rule, find mapping between users ("sourceObjectName": "User",   "targetObjectName": "User")
     - In the attributeMappings array of the objectMapping, add a new entry, specifying minimal information as show in the example
 
-            ```json
+    ```json
+    {
+        "directories": [
+            ...
             {
-                "directories": [
-                    ...
+                "id": "66e4a8cc-1b7b-435e-95f8-f06cea133828",
+                    "name": "Azure Active Directory",
+                "objects": [
                     {
-                        "id": "66e4a8cc-1b7b-435e-95f8-f06cea133828",
-                            "name": "Azure Active Directory",
-                        "objects": [
-                            {
-                                "attributes": [
-                                    ...
-                                        ,{
-                                        "name": "extension_9d98asdfl15980a_Nickname",
-                                        "type": "String"
-                                        }
-                                ],
-                                "name":"User"
-                            }]
-                    }
-                ],
-                "synchronizationRules": [
-                    {
-                    "editable": true,
-                    "id": "4c5ecfa1-a072-4460-b1c3-4adde3479854",
-                    "metadata": [..],
-                    "name": "USER_OUTBOUND_USER",
-                    "objectMappings": [
-                        {
-                            "attributeMappings": [
+                        "attributes": [
                             ...
-                            ,{
-                                "source": {
-                                    "name": "extension_9d98asdfl15980a_Nickname",
-                                    "type": "Attribute"
-                                },
-                                "targetAttributeName": "CommunityNickname"
+                                ,{
+                                "name": "extension_9d98asdfl15980a_Nickname",
+                                "type": "String"
                                 }
                         ],
-                        "name": "Synchronize Azure Active Directory Users to salesforce.com",
-                            "scope": null,
-                            "sourceObjectName": "User",
-                            "targetObjectName": "User"
-                        },
-                        ...
-                    ],
-                    "priority": 1,
-                    "sourceDirectoryName": "Azure Active Directory",
-                    "targetDirectoryName": "salesforce.com"
-                    },
-                ]
+                        "name":"User"
+                    }]
             }
-            ```
+        ],
+        "synchronizationRules": [
+            {
+            "editable": true,
+            "id": "4c5ecfa1-a072-4460-b1c3-4adde3479854",
+            "metadata": [..],
+            "name": "USER_OUTBOUND_USER",
+            "objectMappings": [
+                {
+                    "attributeMappings": [
+                    ...
+                    ,{
+                        "source": {
+                            "name": "extension_9d98asdfl15980a_Nickname",
+                            "type": "Attribute"
+                        },
+                        "targetAttributeName": "CommunityNickname"
+                        }
+                ],
+                "name": "Synchronize Azure Active Directory Users to salesforce.com",
+                    "scope": null,
+                    "sourceObjectName": "User",
+                    "targetObjectName": "User"
+                },
+                ...
+            ],
+            "priority": 1,
+            "sourceDirectoryName": "Azure Active Directory",
+            "targetDirectoryName": "salesforce.com"
+            },
+        ]
+    }
+    ```
 
 ## Save modified schema
 
-    PUT https://graph.microsoft.com/testSynchronization/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
-    Authorization: Bearer {Token}
-    {
-        "directories": [..],
-        "synchronizationRules": [..]
-    }
+```http
+PUT https://graph.microsoft.com/testSynchronization/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
+Authorization: Bearer {Token}
+{
+    "directories": [..],
+    "synchronizationRules": [..]
+}
 
-    HTTP/1.1 201 No Content
-
+HTTP/1.1 201 No Content
+```
 
 ## Observe the results
 
