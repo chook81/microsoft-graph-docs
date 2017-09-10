@@ -20,23 +20,23 @@ Synchronization job performs synchronization by periodically running in the back
 |:--------------|:----------|:---------------|
 |id             |String                     |Unique synchronization job identifier|
 |metadata       |metadataEntry collection   |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|schema         |[synchronizationSchema](synchronization-schema.md)     |Synchronization schema configured for the job|
-|status         |[synchronizationStatus](synchronization-status.md)     |Status of the job, which includes when the job was last executed, current job state and errors|
-|templateId     |String    |Identifier of the [synchronization template](synchronization-template.md) this job is based on|
+|schema         |[synchronizationSchema](synchronization_schema.md)     |Synchronization schema configured for the job|
+|status         |[synchronizationStatus](synchronization_status.md)     |Status of the job, which includes when the job was last executed, current job state and errors|
+|templateId     |String    |Identifier of the [synchronization template](synchronization_template.md) this job is based on|
 
 ## Methods
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[List](synchronization-jobs-get.md)             |[synchronizationJob](synchronization-job.md) collection  |List existing jobs for a given application instance (service principal)|
-|[Get](synchronization-job-get.md)              |[synchronizationJob](synchronization-job.md)   |Retrieves existing job and its properties|
-|[Create](synchronization-jobs-post.md)         |[synchronizationJob](synchronization-job.md)   |Create new job for a given application|
-|[Start](synchronization-job-start.md)          |None   |Starts synchronization job. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared|
-|[Restart](synchronization-job-restart.md)      |None   |Forces job to start from scratch and re-process all the objects in the directory|
-|[Pause](synchronization-job-pause.md)          |None   |Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](synchronization-job-start.md) call job execution will continue from where it left off|
-|[Delete](synchronization-job-delete.md)        |None   |Stops synchronization job, and permanently deletes all the state associated with the job|
-|[Get schema](synchronization-schema-get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retreives job's effective synchronization schema|
-|[Put schema](synchronization-schema-put.md)    |None   |Updates job's synchronization schema |
+|[List](synchronization_jobs_get.md)             |[synchronizationJob](synchronization_job.md) collection  |List existing jobs for a given application instance (service principal)|
+|[Get](../api/synchronization_job_get.md)              |[synchronizationJob](synchronization_job.md)   |Retrieves existing job and its properties|
+|[Create](../api/synchronization-jobs-post.md)         |[synchronizationJob](synchronization_job.md)   |Create new job for a given application|
+|[Start](../api/synchronization_job_start.md)          |None   |Starts synchronization job. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared|
+|[Restart](../api/synchronization_job_restart.md)      |None   |Forces job to start from scratch and re-process all the objects in the directory|
+|[Pause](../api/synchronization_job_pause.md)          |None   |Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](../api/synchronization_job_start.md) call job execution will continue from where it left off|
+|[Delete](../api/synchronization_job_delete.md)        |None   |Stops synchronization job, and permanently deletes all the state associated with the job|
+|[Get schema](../api/synchronization_schema_get.md)    |[synchronizationSchema](synchronization_schema.md)   |Retreives job's effective synchronization schema|
+|[Put schema](../api/synchronization_schema_put.md)    |None   |Updates job's synchronization schema |
 
 ## JSON Example
 

@@ -30,7 +30,7 @@ Describes an attribute of an object
 |mutability     |String     |Defines if attribute is read-only (`Read`), write-only (`Write`) or both readable and writable (`ReadWrite`). Default is `ReadWrite`|
 |name           |String     |Name of the attribute. Must be unique within the object definition. Not nullable|
 |required       |Boolean    |`true` if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization required attribute has no value, default value will be used. If default value was not set, synchronization will record an error|
-|referencedObjects|[referencedObject](synchronization-referencedObject.md) |For attributes with `reference` type, lists referenced objects (i.e. `manager` attribute would list `User` as referenced object)|
+|referencedObjects|[referencedObject](../resources/synchronization_referencedObject.md) |For attributes with `reference` type, lists referenced objects (i.e. `manager` attribute would list `User` as referenced object)|
 |type           |String     |Attribute value type. Supported values are `String`, `Integer`, `Reference`, `Binary`, `Boolean`. Default is `String`|
 
 ## JSON Example

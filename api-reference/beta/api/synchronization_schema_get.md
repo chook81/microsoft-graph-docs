@@ -12,7 +12,7 @@ GET /applications/{id}/synchronization/templates/{templateId}/schema
 
 ## Response
 
-If successful, returns `200 OK` response with [synchronizationJob](synchronization-job.md) in the response body.
+If successful, returns `200 OK` response with [synchronizationJob](../resources/synchronization_job.md) in the response body.
 
 ## Example
 
@@ -24,7 +24,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 
 ### Sample response
 
-Response below is shortened for brevity. You can see a full sample of schema [here](synchronization-schema-sample.md).
+Response below is shortened for brevity. You can see a full sample of schema [here](../resources/synchronization_schema_sample.md).
 
 ```http
 HTTP/1.1 200 OK

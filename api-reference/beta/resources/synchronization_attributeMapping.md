@@ -26,7 +26,7 @@ Defines how value for the given target atribute should flow during synchronizati
 |flowType                   |attributeFlowType          |Defines when this attribute should be updated in target directory. Possible values: `Always` (default), `ObjectAddOnly` (only when new object is created), `MultiValueAddOnly` (only when the change is adding new values to a multi-valued attribute)  |
 |matchingPriority           |Integer                    |If higher than 0, this attribute will be used to perform inital match of the objects between source and target directories. Synchronization engine will try to find matching object using attribute with
 with lowest value of matching priority first. If not found, attribute with the next matching priority will be used, and so on until match is found or no more matching attributes are left. Only attributes which are expected to have unique values, such as email, should be used as matching attributes|
-|source                     |[attributeMappingSource](synchronization-attributeMappingSource.md)     | Defines how a value should be extracted (or transformed) from the source object |
+|source                     |[attributeMappingSource](synchronization_attributeMappingSource.md)     | Defines how a value should be extracted (or transformed) from the source object |
 |targetAttributeName        |String                     |Name of the attribute on the target object, which this mapping is defined for |
 
 ## JSON Example

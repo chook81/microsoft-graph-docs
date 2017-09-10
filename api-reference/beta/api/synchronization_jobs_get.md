@@ -10,7 +10,7 @@ GET /servicePrincipals/{id}/synchronization/jobs/
 
 ## Response
 
-If successful, returns `200 OK` response with collection of [synchronizationJobs](synchronization-job.md) in the response body.
+If successful, returns `200 OK` response with collection of [synchronizationJobs](../resources/synchronization_job.md) in the response body.
 
 ## Example
 

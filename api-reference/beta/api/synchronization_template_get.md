@@ -11,7 +11,7 @@ GET servicePrincipals/{id}/synchronization/templates/{templateId}
 
 ### Response
 
-If successful, returns `200 OK` response with [synchronizationTemplate](synchronization-template.md) object. If template with given id is not fount, returns `404 Not Found`.
+If successful, returns `200 OK` response with [synchronizationTemplate](../resources/synchronization_template.md) object. If template with given id is not fount, returns `404 Not Found`.
 
 ### Example
 

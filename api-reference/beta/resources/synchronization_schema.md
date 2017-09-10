@@ -28,11 +28,11 @@ Synchronization schema controls most of the details of the synchronization betwe
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[Get schema](synchronization-schema-get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retrieves  synchronization schema|
-|[Update schema](synchronization-schema-put.md)    |None   |Updates synchronization schema |
-|[Delete schema](synchronization-schema-delete.md)    |None   |Deletes customized  schema, effectively resetting the schema to the default configured by application developer |
-|[List filter operators](synchronization-schema-filterOperators-get.md)    |filterOperatorSchema[]   |Lists all operators supported in the scoping filters |
-|[List attribute mapping functions](synchronization-schema-functions-get.md)    |filterOperatorSchema[]   |Lists all functions supported in the attribute mapping expressions |
+|[Get schema](synchronization_schema_get.md)    |[synchronizationSchema](synchronization-schema.md)   |Retrieves  synchronization schema|
+|[Update schema](synchronization_schema_put.md)    |None   |Updates synchronization schema |
+|[Delete schema](synchronization_schema_delete.md)    |None   |Deletes customized  schema, effectively resetting the schema to the default configured by application developer |
+|[List filter operators](synchronization_schema_filterOperators-get.md)    |filterOperatorSchema[]   |Lists all operators supported in the scoping filters |
+|[List attribute mapping functions](synchronization_schema_functions-get.md)    |filterOperatorSchema[]   |Lists all functions supported in the attribute mapping expressions |
 
 ## Schema Components
 
@@ -53,7 +53,7 @@ Object mappings are the main part of the synchronization rule. Each object mappi
 
 ## JSON Example
 
-Example below is shortened for brevity. You can see a full sample of schema [here](synchronization-schema-sample.md).
+Example below is shortened for brevity. You can see a full sample of schema [here](synchronization_schema_sample.md).
 
 ```json
 {

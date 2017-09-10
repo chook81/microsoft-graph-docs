@@ -2,9 +2,9 @@
 
 ## Additional Resources
 
-* [Synchronization Overview](#synchronization-overview.md)
-* [Synchronization Schema](synchronization-schema.md)
-* [HOW-TO: Configure synchronization with directory extension attributes](synchronization-howto-directory-extensions.md)
+* [Synchronization Overview](../resources/synchronization_overview.md)
+* [Synchronization Schema](../resources/synchronization_schema.md)
+* [HOW-TO: Configure synchronization with directory extension attributes](../resources/synchronization_howto_directory_extensions.md)
 
 
 ## Authorization
@@ -13,7 +13,7 @@ Provisioning API is part of Microsoft Graph, and uses the same OAuth 2.0 authori
 
 ### Using Graph Explorer
 
-One convenient way to get your fit wet with the API is to use [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer) web application (make sure you start "private" browser session). Graph Explorer will handle authentication for you, so you don't need to worry about access tokens.
+One convenient way to get your feet wet with the API is to use [Graph Explorer](https://graph.microsoft.io/en-us/graph-explorer) web application (make sure you start "private" browser session). Graph Explorer will handle authentication for you, so you don't need to worry about access tokens.
 
 * Sign-in with the administrative account for the tenant you will be working with
 * Paste requests into Graph Explorer and click 'GO'

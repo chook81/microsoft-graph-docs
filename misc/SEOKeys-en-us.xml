@@ -1025,13 +1025,19 @@
     </Item>
       <Item text="Service principal" url="/en-us/api-reference/beta/resources/serviceprincipal" >
         <Item text="List service principal" url="/en-us/api-reference/beta/api/serviceprincipal_list" />
-		<Item text="Get service principal" url="/en-us/api-reference/beta/api/serviceprincipal_get" />
+		    <Item text="Get service principal" url="/en-us/api-reference/beta/api/serviceprincipal_get" />
         <Item text="Update service principal" url="/en-us/api-reference/beta/api/serviceprincipal_update" />
         <Item text="Delete service principal" url="/en-us/api-reference/beta/api/serviceprincipal_delete" />
       </Item>
       <Item text="Subscribed sku" url="/en-us/api-reference/beta/resources/subscribedsku" SEOKeyword="subscribedsku API, Microsoft Graph API, subscribedsku API" SEODescription="Only the read operation is supported on subscribed SKUs; create, update, and delete are not supported. Query filter expressions are not supported. Inherits from DirectoryObject.">
         <Item text="List subscribedSkus" url="/en-us/api-reference/beta/api/subscribedsku_list" SEOKeyword="List subscribedSkus, Microsoft Graph API, subscribedsku API" SEODescription="Retrieve a list of subscribedsku objects." />
         <Item text="Get subscribedSku" url="/en-us/api-reference/beta/api/subscribedsku_get" SEOKeyword="Get subscribedSku, Microsoft Graph API, subscribedsku API" SEODescription="Retrieve the properties and relationships of subscribedsku object." />
+      </Item>
+      <Item text="Synchronization" url="/en-us/api-reference/beta/resources/synchronization_overview" >
+        <Item text="Attribute definition" url="/en-us/api-reference/beta/api/serviceprincipal_delete" />
+        <Item text="Synchronization job" url="/en-us/api-reference/beta/api/serviceprincipal_get" />
+        <Item text="Synchronization template" url="/en-us/api-reference/beta/api/serviceprincipal_list" />
+		    <Item text="Synchronization schema" url="/en-us/api-reference/beta/api/serviceprincipal_update" />        
       </Item>
     </Item>
     <Item text="Excel" url="/en-us/api-reference/beta/resources/excel" SEOKeyword="Excel API, Microsoft Graph API, Excel API" SEODescription="">

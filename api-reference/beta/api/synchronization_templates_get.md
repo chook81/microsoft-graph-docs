@@ -11,7 +11,7 @@ GET applications/{id}/synchronization/templates
 
 ### Response
 
-If successful, returns `200 OK` response and collection of [synchronizationTemplate](synchronization-template.md) objects in the response body.
+If successful, returns `200 OK` response and collection of [synchronizationTemplate](../resources/synchronization_template.md) objects in the response body.
 
 ### Example
 

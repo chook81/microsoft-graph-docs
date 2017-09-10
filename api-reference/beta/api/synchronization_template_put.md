@@ -10,7 +10,7 @@ PUT application/{id}/synchronization/templates/{templateId}
 
 ### Request body
 
-Body should contain [synchronizationTemplate](synchronization-template.md) with desired updates. Make sure all properties are provided, as missing properties will be erased
+Body should contain [synchronizationTemplate](../resources/synchronization_template.md) with desired updates. Make sure all properties are provided, as missing properties will be erased
 
 ### Response
 

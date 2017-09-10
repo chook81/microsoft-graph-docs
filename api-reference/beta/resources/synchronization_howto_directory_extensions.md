@@ -4,7 +4,7 @@
 
 We have AD Connect setup to provision a number of directory extension attributes from AD-on-premises to Azure AD. We are setting up provisioning from Azure AD to Salesforce, and we want to use one of the directory extension attributes (i.e. **extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. We won't be able to setup such attribute mapping using web interface in Azure Portal, as it will not show directory extension attributes among the available attributes. We can achieve that using the API.
 
-We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our Tenant Identifier, application display name (the one shown in the portal), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API Quick Start](#synchronization-api-quickstart.md)
+We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our Tenant Identifier, application display name (the one shown in the portal), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API Quick Start](#synchronization_api_quickstart.md)
 
 ## Find service principal by display name
 
@@ -69,7 +69,7 @@ Our {jobId} is "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa"
 
 We'll need full name of the extension attribute to perform next steps. If you don't know the full name (which should look similar to **extension_9d98asdfl15980a_Nickname**), see following  information regarding directory extension attributes and how to inspect them: 
 * [Extending the Azure AD directory schema with custom properties](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-graphapi-directoryextensions-web/)
-* [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)
+* [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory_schema_extensions)
 
 
 ## Retrieve effective synchronization schema

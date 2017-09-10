@@ -1,6 +1,6 @@
 # Pause Synchronization Job
 
-Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](synchronization-job-start.md) call job execution will continue from where it left off
+Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](synchronization_job_start.md) call job execution will continue from where it left off
 
 ## Request
 

@@ -12,7 +12,7 @@ GET /applications/{id}/synchronization/templates/{templateId}/schema/functions
 
 ## Response
 
-If successful, returns `200 OK` response with a collection of [filterOperatorSchema](synchronization-filterOperatorSchema.md) in the response body.
+If successful, returns `200 OK` response with a collection of [filterOperatorSchema](../resources/synchronization_filterOperatorSchema.md) in the response body.
 
 ## Example
 

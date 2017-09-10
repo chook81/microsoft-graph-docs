@@ -10,7 +10,7 @@ POST /applications/{id}/synchronization/templates/
 
 ### Request body
 
-Body should contain [synchronizationTemplate](synchronization-template.md) object to be created. `id`, `applicationId` and `factoryTag` properties are required. When no `schema` is provided with the template, default schema associated with `factoryTag` will be used.
+Body should contain [synchronizationTemplate](../resources/synchronization_template.md) object to be created. `id`, `applicationId` and `factoryTag` properties are required. When no `schema` is provided with the template, default schema associated with `factoryTag` will be used.
 
 ### Response
 
