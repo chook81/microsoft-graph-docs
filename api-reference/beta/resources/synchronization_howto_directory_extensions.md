@@ -2,9 +2,9 @@
 
 ## Scenario
 
-We have AD Connect setup to provision a number of directory extension attributes from AD-on-premises to Azure AD. We are setting up provisioning from Azure AD to Salesforce, and we want to use one of the directory extension attributes (i.e. **extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. We won't be able to setup such attribute mapping using web interface in Azure Portal, as it will not show directory extension attributes among the available attributes. We can achieve that using the API.
+We have AD Connect setup to provision a number of directory extension attributes from AD-on-premises to Azure AD. We are setting up provisioning from Azure AD to Salesforce, and we want to use one of the directory extension attributes (i.e. **extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. We won't be able to setup such attribute mapping using web interface in [Azure Portal](https://portal.azure.com), as it will not show directory extension attributes among the available attributes. We can achieve that using the API.
 
-We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our Tenant Identifier, application display name (the one shown in the portal), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API Quick Start](#synchronization_api_quickstart.md)
+We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our application display name (the one shown in the portal), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API Quick Start](#synchronization_api_quickstart.md)
 
 ## Find service principal by display name
 
@@ -45,13 +45,13 @@ Our {servicePrincipalId} is "60443998-8cf7-4e61-b05c-a53b658cb5e1"
 Generally, we expect to see only one - this will give us jobId of the task we need to work with
 
 ```http
-GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
+GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
 Authorization: Bearer {Token}
 ```
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/testSynchronization/$metadata#servicePrincipals('60443998-8cf7-4e61-b05c-a53b658cb5e1')/synchronization/jobs",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('60443998-8cf7-4e61-b05c-a53b658cb5e1')/synchronization/jobs",
     "value": [
         {
             "id": "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
@@ -75,7 +75,7 @@ We'll need full name of the extension attribute to perform next steps. If you do
 ## Retrieve effective synchronization schema
 
 ```http
-    GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
+    GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
     Authorization: Bearer {Token}
 ```
 
@@ -245,8 +245,10 @@ Using text editor of your choice (i.e. http://www.jsoneditoronline.org/, Notepad
 
 ## Save modified schema
 
+Make sure you supply entire schema object, including all the unmodified parts, as this request will replace existing schema with the one provided.
+
 ```http
-PUT https://graph.microsoft.com/testSynchronization/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
+PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
 Authorization: Bearer {Token}
 {
     "directories": [..],
