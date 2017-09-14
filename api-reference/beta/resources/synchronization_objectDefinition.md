@@ -1,6 +1,6 @@
 # Object definition
 
-Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization-directoryDefinition.md), which is updated as part of [synchronizationSchema](synchronization-schema.md)
+Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization_directoryDefinition.md), which is updated as part of [synchronizationSchema](synchronization_schema.md)
 
 ## JSON representation
 
@@ -16,7 +16,7 @@ Describes an object and its attributes. Object definitions are part of [director
 
 | Property      | Type      | Description    |
 |:--------------|:----------|:---------------|
-|attributes     |[attributeDefinition](synchronization-attributeDefinition.md) collection    | Defines attributes of the object |
+|attributes     |[attributeDefinition](synchronization_attributeDefinition.md) collection    | Defines attributes of the object |
 |metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
 |name           |String     |Name of the object. Must be unique within a directory definition. Not nullable|
 

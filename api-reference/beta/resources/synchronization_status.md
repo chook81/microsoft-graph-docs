@@ -26,13 +26,13 @@ Current status of the synchronization job
 |countSuccessiveCompleteFailures        |Number         |Number of consecutive times this job failed|
 |escrowsPruned                          |Boolean        |`true` if the job's escrows (object-level errors) were pruned during initial synchronization. Escrows can be pruned if during initial synchronization we reach the threshold of errors which would normally put the job in quarantine. Instead of going into quarantine, synchronization opts out to clear job's errors and continue until the initial synchronization is completed. Once initial synchronization is completed, job will be paused and wait for customer's manual intervention to clean up the errors  |
 |synchronizedEntryCountByType           |KeyValuePair<string,integer> collection     |Count of synchronized objects, listed by object type|
-|code                                   |[statusCode](synchronization-statusCode.md)  |Job's current status code|
-|lastExecution                          |[synchronizationJobExecution](synchronization-status.md#synchronizationJobExecution)   |Details of the last execution of the job|
-|lastSuccessfulExecution       |[synchronizationJobExecution](synchronization-status.md#synchronizationJobExecution)        |Details of the last execution of this job, which didn't have any errors|
-|lastSuccessfulExecutionWithExports     |[synchronizationJobExecution](synchronization-status.md#synchronizationJobExecution)        |Details of the last execution of the job, which exported objects into the target directory|
+|code                                   |[statusCode](synchronization_statusCode.md)  |Job's current status code|
+|lastExecution                          |[synchronizationJobExecution](synchronization_status.md#synchronizationJobExecution)   |Details of the last execution of the job|
+|lastSuccessfulExecution       |[synchronizationJobExecution](synchronization_status.md#synchronizationJobExecution)        |Details of the last execution of this job, which didn't have any errors|
+|lastSuccessfulExecutionWithExports     |[synchronizationJobExecution](synchronization_status.md#synchronizationJobExecution)        |Details of the last execution of the job, which exported objects into the target directory|
 |steadyStateFirstAchievedTime           |DateTimeOffset        |Time when steady state (no more changes to process) was first achieved|
 |steadyStateLastAchievedTime            |DateTimeOffset        |Time when steady state (no more changes to process) was last achieved|
-|quarantine     |[synchronizationQuarantine](synchronization-status.md#synchronizationQuarantine)        |If job is in quarantine, quarantine details|
+|quarantine     |[synchronizationQuarantine](synchronization_status.md#synchronizationQuarantine)        |If job is in quarantine, quarantine details|
 
 
 ### synchronizationJobExecution

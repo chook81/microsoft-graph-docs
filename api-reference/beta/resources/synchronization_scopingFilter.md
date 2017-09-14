@@ -2,11 +2,11 @@
 
 Scoping filters (when present) determine which objects should be provisioned to the application. For example, we might want to only provision users which are located in the US. When scoping filter is present, *objects which do not satisfy the filter will be skipped* during synchronization.
 
-Filter is part of [object mapping](synchronization-objectMapping.md). It consists of several sets of filter groups, and each filter group holds one or more clauses. An object is considered in scope for the group (group is evaluated to `true`) **if, and only if ALL of the clauses of the group are evaluated to `true`**.
+Filter is part of [object mapping](synchronization_objectMapping.md). It consists of several sets of filter groups, and each filter group holds one or more clauses. An object is considered in scope for the group (group is evaluated to `true`) **if, and only if ALL of the clauses of the group are evaluated to `true`**.
 
 An object is considered in scope for the group set (group set is evaluated to `true`) **if ANY of the groups in the set is evaluated to `true`**.
 
-For additional information, also see [HOW-TO: Configuring a scoping filter](synchronization-howto-scopingFilter.md)
+For additional information, also see [HOW-TO: Configuring a scoping filter](synchronization_howto_scopingFilter.md)
 
 ## JSON representation
 
