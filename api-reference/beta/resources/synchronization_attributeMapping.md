@@ -1,4 +1,4 @@
-# Attribute Mapping
+# Attribute mapping
 
 Defines how value for the given target atribute should flow during synchronization
 

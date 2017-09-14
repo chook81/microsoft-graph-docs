@@ -1,4 +1,4 @@
-# Object Definition
+# Object definition
 
 Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization-directoryDefinition.md), which is updated as part of [synchronizationSchema](synchronization-schema.md)
 

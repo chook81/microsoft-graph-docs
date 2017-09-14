@@ -1,4 +1,4 @@
-# Update Synchronization Schema
+# Update synchronization schema
 
 Updates synchronization schema for a given job or template. Fully replaces current schema with the one provided in the request. To update schema of a template, call must be made on the application object, and caller must be the owner of the application.
 

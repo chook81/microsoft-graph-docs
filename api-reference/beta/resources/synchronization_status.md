@@ -1,4 +1,4 @@
-# Synchronization Status
+# Synchronization status
 
 Current status of the synchronization job
 

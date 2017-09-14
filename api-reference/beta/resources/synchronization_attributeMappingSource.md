@@ -1,4 +1,4 @@
-# Attribute Mapping Source
+# Attribute mapping source
 
 Defines how a value should be extracted (or transformed) from the source object. For example, it can be a simple value taken from a given attribute on the source object; or it can be more complex expresion of string concatenation/extraction/replacement based on several source attributes. 
 

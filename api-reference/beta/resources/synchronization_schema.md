@@ -1,4 +1,4 @@
-# Synchronization Schema
+# Synchronization schema
 
 ## Overview
 

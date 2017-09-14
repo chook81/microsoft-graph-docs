@@ -1,4 +1,4 @@
-# Start Synchronization Job
+# Start synchronization job
 
 Starts the synchronization job (job must already exist). If job is in paused state, it will continue processing changes from the point where it was paused. If job is in quarantine, quarantine status will be cleared.
 

@@ -1,4 +1,4 @@
-# Create Synchronization Job
+# Create synchronization job
 
 Creates new synchronization job with default synchornization schema. Job is created in disabled state. Call [Start job](#synchronization_job_start.md) to start synchronization.
 

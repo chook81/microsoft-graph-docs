@@ -1,4 +1,4 @@
-# Start Synchronization Job
+# Restart synchronization job
 
 Restarts the synchronization job, forcing it to reprocess from scratch all the objects in the directory. Optionally clears existing synchronization state and previous errors.
 

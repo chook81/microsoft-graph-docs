@@ -1,4 +1,4 @@
-# Delete Synchronization Job
+# Delete synchronization job
 
 Stops the synchronization job, and permanently deletes all the state associated with it. Synchronizaed accounts remain as-is.
 

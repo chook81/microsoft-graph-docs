@@ -1,4 +1,4 @@
-# Get Synchronization Job
+# Get synchronization job
 
 Retrieves existing job and its properties
 

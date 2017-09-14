@@ -1,4 +1,4 @@
-# Synchronization Schema Sample
+# Synchronization schema sample
 
 ```json
 {

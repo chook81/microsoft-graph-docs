@@ -1,4 +1,4 @@
-# Synchronization Job
+# Synchronization job
 
 Synchronization job performs synchronization by periodically running in the background, polling for changes in one directory and pushing them to another directory. Synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, generally you would need to give authorization to read/write objects in your target directory, and customize job's synchronization schema to suit your needs.
 
@@ -28,9 +28,9 @@ Synchronization job performs synchronization by periodically running in the back
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[List](synchronization_jobs_get.md)             |[synchronizationJob](synchronization_job.md) collection  |List existing jobs for a given application instance (service principal)|
+|[List](../api/synchronization_jobs_get.md)             |[synchronizationJob](synchronization_job.md) collection  |List existing jobs for a given application instance (service principal)|
 |[Get](../api/synchronization_job_get.md)              |[synchronizationJob](synchronization_job.md)   |Retrieves existing job and its properties|
-|[Create](../api/synchronization-jobs-post.md)         |[synchronizationJob](synchronization_job.md)   |Create new job for a given application|
+|[Create](../api/synchronization_jobs_post.md)         |[synchronizationJob](synchronization_job.md)   |Create new job for a given application|
 |[Start](../api/synchronization_job_start.md)          |None   |Starts synchronization job. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared|
 |[Restart](../api/synchronization_job_restart.md)      |None   |Forces job to start from scratch and re-process all the objects in the directory|
 |[Pause](../api/synchronization_job_pause.md)          |None   |Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](../api/synchronization_job_start.md) call job execution will continue from where it left off|
@@ -42,7 +42,7 @@ Synchronization job performs synchronization by periodically running in the back
 
 ```json
 {
-    "id": "BoxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
+    "id": "{jobId}",
     "templateId": "BoxOutDelta",
     "schedule": {
         "expiration": null,

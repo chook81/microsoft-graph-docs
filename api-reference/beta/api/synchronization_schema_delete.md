@@ -1,4 +1,4 @@
-# Delete Synchronization Schema
+# Delete synchronization schema
 
 Deletes customized  schema, effectively resetting the schema to the default configured by application developer. If the schema is deleted in the context of the template, it resets the schema to default one associated with the template's `factoryTag`
 

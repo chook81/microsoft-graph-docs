@@ -1,4 +1,4 @@
-# Get Synchronization Schema
+# Get synchronization schema
 
 Retrieves effective schema for a given job or template
 

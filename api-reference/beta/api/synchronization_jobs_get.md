@@ -1,4 +1,4 @@
-# List Synchronization Jobs
+# List synchronization jobs
 
 List existing jobs for a given application instance (service principal)
 

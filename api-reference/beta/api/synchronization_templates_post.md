@@ -1,4 +1,4 @@
-## Create a template
+## Create synchorniztion template
 
 Create new template for a given application
 

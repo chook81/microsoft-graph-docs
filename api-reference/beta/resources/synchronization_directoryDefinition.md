@@ -1,4 +1,4 @@
-# Directory Definition
+# Directory definition
 
 Directory definition provides synchronization engine information about a directory and its objects. It tells synchronization engine, for example, that directory has objects named "User" and "Group", which attributes are supported for those objects, and what is the type of those attributes. In order for a particular object and attribute to be used in [synchronization rules](synchronization_rule.md) and [object mappings](synchronization_objectMapping.md), they have to be defined as part of the directory definition.
 

@@ -1,4 +1,4 @@
-# Retrieve  Synchroization Template
+# Retrieve synchroization template
 
 Retrieve template by its identifier
 

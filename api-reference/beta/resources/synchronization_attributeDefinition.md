@@ -1,4 +1,4 @@
-# Attribute Definition
+# Attribute definition
 
 Describes an attribute of an object
 

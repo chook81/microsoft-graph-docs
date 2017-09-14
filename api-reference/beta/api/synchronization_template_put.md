@@ -1,4 +1,4 @@
-# Update Synchronization Template
+# Update synchronization template
 
 Update (override) synchronization template associated with a given application
 

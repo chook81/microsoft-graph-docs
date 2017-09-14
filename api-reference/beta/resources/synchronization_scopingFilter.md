@@ -1,4 +1,4 @@
-# Scoping Filter
+# Scoping filter
 
 Scoping filters (when present) determine which objects should be provisioned to the application. For example, we might want to only provision users which are located in the US. When scoping filter is present, *objects which do not satisfy the filter will be skipped* during synchronization.
 

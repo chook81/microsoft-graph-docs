@@ -1,4 +1,4 @@
-# Synchronization Rule
+# Synchronization rule
 
 Synchronization rules are at the core of the synchronization configuration. They give synchronization engine crucial information regarding how the synchronization should be performed. That includes which objects should be synchronized, in which direction, how objects from source directory should be matched with objects in target directory, and how attributes should be transformed going from source to target.
 
