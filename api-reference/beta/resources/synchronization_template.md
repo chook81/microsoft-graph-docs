@@ -36,10 +36,10 @@ Application developer may provide multiple templates for a given application, an
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[List](synchronization_template_list.md)   |[synchronizationTemplate](synchronization_template.md) collection  |List templates available for a given application or application instance (service principal)|
-|[Get](synchronization_template_get.md)             |[synchronizationTemplate](synchronization_template.md)   |Retrieve existing template and its properties|
-|[Create](synchronization_template_post.md)         |[synchronizationTemplate](synchronization_template.md)   |Create new template for a given application|
-|[Update](synchronization_template_put.md)          |[synchronizationTemplate](synchronization_template.md)   |Update template|
+|[List](../api/synchronization_template_list.md)   |[synchronizationTemplate](synchronization_template.md) collection  |List templates available for a given application or application instance (service principal)|
+|[Get](../api/synchronization_template_get.md)             |[synchronizationTemplate](synchronization_template.md)   |Retrieve existing template and its properties|
+|[Create](../api/synchronization_template_post.md)         |[synchronizationTemplate](synchronization_template.md)   |Create new template for a given application|
+|[Update](../api/synchronization_template_put.md)          |[synchronizationTemplate](synchronization_template.md)   |Update template|
 
 
 ## JSON Example

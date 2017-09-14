@@ -19,20 +19,20 @@ Synchronization schema controls most of the details of the synchronization betwe
 
 | Property      | Type      | Description    |
 |:--------------|:----------|:---------------|
-|directories            |[directoryDefinition] collection   |Describes directories and objects which are part of the synchronization [job](#synchronization_job.md) or [template](#synchronization_template.md) |
+|directories            |[directoryDefinition] collection   |Describes directories and objects which are part of the synchronization [job](synchronization_job.md) or [template](synchronization_template.md) |
 |metadata               |metadataEntry collection           |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|synchronizationRules   |[synchronizationRule] collection   |Collection of synchronization rules configured for the synchronization [job](#synchronization_job.md) or [template](#synchronization_template.md) |
+|synchronizationRules   |[synchronizationRule] collection   |Collection of synchronization rules configured for the synchronization [job](synchronization_job.md) or [template](synchronization_template.md) |
 |version                |String                             |Version of the schema, updated automatically on every schema change|
 
 ## Methods
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[Get schema](synchronization_schema_get.md)    |[synchronizationSchema](synchronization_schema.md)   |Retrieves  synchronization schema|
-|[Update schema](synchronization_schema_put.md)    |None   |Updates synchronization schema |
-|[Delete schema](synchronization_schema_delete.md)    |None   |Deletes customized  schema, effectively resetting the schema to the default configured by application developer |
-|[List filter operators](synchronization_schema_filterOperators-get.md)    |filterOperatorSchema[]   |Lists all operators supported in the scoping filters |
-|[List attribute mapping functions](synchronization_schema_functions-get.md)    |filterOperatorSchema[]   |Lists all functions supported in the attribute mapping expressions |
+|[Get schema](../api/synchronization_schema_get.md)    |[synchronizationSchema](synchronization_schema.md)   |Retrieves  synchronization schema|
+|[Update schema](../api/synchronization_schema_put.md)    |None   |Updates synchronization schema |
+|[Delete schema](../api/synchronization_schema_delete.md)    |None   |Deletes customized  schema, effectively resetting the schema to the default configured by application developer |
+|[List filter operators](../api/synchronization_schema_filterOperators_get.md)    |filterOperatorSchema[]   |Lists all operators supported in the scoping filters |
+|[List attribute mapping functions](../api/synchronization_schema_functions_get.md)    |filterOperatorSchema[]   |Lists all functions supported in the attribute mapping expressions |
 
 ## Schema Components
 
