@@ -9,20 +9,20 @@ Azure Active Directory (Azure AD) identity synchronization (also called "provisi
 
 ## Synchronization API 
 
-## Summary
+### Summary
 
-Synchronization API, part of Microsfot Graph API, allows programmatic management of identity synchronization. Using the API one can create, start and stop synchronization jobs, make changes to their synchronization schema, and verify current synchronization status. For a quckstart introduction to the API usage, see:
+Synchronization API, part of Microsfot Graph API, allows programmatic management of identity synchronization. Using the API one can create, start and stop synchronization jobs, make changes to their synchronization schema, and verify current synchronization status. For a quckstart introduction on the API usage, see:
 
 * [Synchronization API Quick Start](synchornization_api_quickstart.md)
 * [HOW-TO: Configure synchronization with directory extension attributes](../resources/synchronization_howto_directory_extensions.md)]
 
-## Object model overview
+### Object model overview
 
-### Synchronization Job
+#### Synchronization Job
 
 Synchronization job performs synchronization by periodically running in the background, polling for changes in one directory and pushing them to another directory. Synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, generally you would need to give authorization to read/write objects in your target directory, and customize job's synchronization schema to suit your needs. For more information, please see [synchronization job](synchronization_job.md).
 
-### Synchronization Schema
+#### Synchronization Schema
 
 Synchronization schema contains the bulk of a particular synchronization setup. On a high level, it defines what objects will be synchronized and how. Most often you will want to customize some of the attribute mappings to suit your needs, or add a scoping filter to synchronize only objects which satisfy a certain condition. For more information, please see [synchronization schema](synchronization_schema.md).
 
@@ -36,8 +36,8 @@ Synchronization rules are at the core of the synchronization setup. They instruc
 
 #### Object Mapping
 
-Object mappings are the main part of the synchronization rule. A single object mapping defines how a given object should be synchronized from source directory to target. In particular, it defines how object in source directory should be matched with an object in target directory, what (if any) scoping filters should be used to decide if we want to provision a given object, and how object attributes should be transformed going from source to target directory. For more information, please see [object mapping](synchronization_objectMapping.md).
+Object mappings are the main part of the synchronization rule. Single object mapping defines how a given object should be synchronized from source directory to target. In particular, it defines how object in source directory should be matched with an object in target directory, what (if any) scoping filters should be used to decide if we want to provision a given object, and how object attributes should be transformed going from source to target directory. For more information, please see [object mapping](synchronization_objectMapping.md).
 
-### Synchronization Template
+#### Synchronization Template
 
 Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_job.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization_schema.md). For more information, please see [synchronization template](synchronization_template.md).
