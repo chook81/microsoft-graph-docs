@@ -29,13 +29,13 @@ Synchronization job performs synchronization by periodically running in the back
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
 |[List](../api/synchronization_jobs_get.md)             |[synchronizationJob](synchronization_job.md) collection  |List existing jobs for a given application instance (service principal)|
-|[Get](../api/synchronization_job_get.md)              |[synchronizationJob](synchronization_job.md)   |Retrieves existing job and its properties|
+|[Get](../api/synchronization_job_get.md)              |[synchronizationJob](synchronization_job.md)   |Retrieve existing job and its properties|
 |[Create](../api/synchronization_jobs_post.md)         |[synchronizationJob](synchronization_job.md)   |Create new job for a given application|
-|[Start](../api/synchronization_job_start.md)          |None   |Starts synchronization job. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared|
-|[Restart](../api/synchronization_job_restart.md)      |None   |Forces job to start from scratch and re-process all the objects in the directory|
-|[Pause](../api/synchronization_job_pause.md)          |None   |Temporarily stops job execution. All the progress and job's state is persisted, and upon [Start](../api/synchronization_job_start.md) call job execution will continue from where it left off|
-|[Delete](../api/synchronization_job_delete.md)        |None   |Stops synchronization job, and permanently deletes all the state associated with the job|
-|[Get schema](../api/synchronization_schema_get.md)    |[synchronizationSchema](synchronization_schema.md)   |Retreives job's effective synchronization schema|
+|[Start](../api/synchronization_job_start.md)          |None   |Start synchronization. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared|
+|[Restart](../api/synchronization_job_restart.md)      |None   |Force job to start from scratch and re-process all the objects in the directory|
+|[Pause](../api/synchronization_job_pause.md)          |None   |Temporarily stop synchronizaion. All the progress including job state is persisted, and upon [Start](../api/synchronization_job_start.md) call job execution will continue from where it left off|
+|[Delete](../api/synchronization_job_delete.md)        |None   |Stop synchronization, and permanently delete all the state associated with the job|
+|[Get schema](../api/synchronization_schema_get.md)    |[synchronizationSchema](synchronization_schema.md)   |Retreive job's effective synchronization schema|
 |[Put schema](../api/synchronization_schema_put.md)    |None   |Updates job's synchronization schema |
 
 ## JSON Example

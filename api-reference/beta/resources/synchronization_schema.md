@@ -2,7 +2,7 @@
 
 ## Overview
 
-Synchronization schema controls most of the details of the synchronization between 2 directories. On a high level, it defines what objects will be synchronized and how. Most often you will want to customize some of the [attribute mappings](synchronization_attributeMapping.md) to suit your needs, or add a [scoping filter](synchronization_scopingFilter,md) to synchronize only objects which satisfy a certain condition.
+Synchronization schema contains the bulk of a particular synchronization setup. On a high level, it defines what objects will be synchronized and how. Most often you will want to customize some of the  [attribute mappings](synchronization_attributeMapping.md) to suit your needs, or add a [scoping filter](synchronization_scopingFilter,md) to synchronize only objects which satisfy a certain condition.
 
 ## JSON representation
 
@@ -19,9 +19,9 @@ Synchronization schema controls most of the details of the synchronization betwe
 
 | Property      | Type      | Description    |
 |:--------------|:----------|:---------------|
-|directories            |[directoryDefinition] collection   |Describes directories and objects which are part of the synchronization [job](synchronization_job.md) or [template](synchronization_template.md) |
+|directories            |[directoryDefinition](synchronization_directoryDefinition,md) collection   |Describes directories and objects which are part of the synchronization [job](synchronization_job.md) or [template](synchronization_template.md) |
 |metadata               |metadataEntry collection           |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|synchronizationRules   |[synchronizationRule] collection   |Collection of synchronization rules configured for the synchronization [job](synchronization_job.md) or [template](synchronization_template.md) |
+|synchronizationRules   |[synchronizationRule](synchronization_rule,md) collection   |Collection of synchronization rules configured for the synchronization [job](synchronization_job.md) or [template](synchronization_template.md) |
 |version                |String                             |Version of the schema, updated automatically on every schema change|
 
 ## Methods
