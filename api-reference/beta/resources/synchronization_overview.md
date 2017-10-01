@@ -9,10 +9,14 @@ Azure Active Directory (Azure AD) identity synchronization (also called "provisi
 
 ## What is the purpose of the Synchronization API? 
 
-Synchronization API, part of Microsfot Graph API, allows programmatic management of identity synchronization. Using the API one can create, start and stop synchronization jobs, make changes to their synchronization schema, and verify current synchronization status. For a quckstart introduction on the API usage, see:
+Synchronization API, part of Microsfot Graph API, allows programmatic management of identity synchronization. Using the API one can create, start and stop synchronization jobs, make changes to their synchronization schema, and verify current synchronization status. 
+
+## Quick start
+
+For a quckstart introduction on the API usage, see:
 
 * [Synchronization API Quick Start](synchronization_api_quickstart.md)
-* [HOW-TO: Configure synchronization with directory extension attributes](synchronization_howto_directory_extensions.md)]
+* [HOW-TO: Configure synchronization with directory extension attributes](synchronization_howto_directory_extensions.md)
 * [HOW-TO: Configure synchronization with custom target attributes](../resources/synchronization_howto_custom_attributes.md)
 
 ## Object model overview
