@@ -13,6 +13,7 @@ Synchronization API, part of Microsfot Graph API, allows programmatic management
 
 * [Synchronization API Quick Start](synchronization_api_quickstart.md)
 * [HOW-TO: Configure synchronization with directory extension attributes](synchronization_howto_directory_extensions.md)]
+* [HOW-TO: Configure synchronization with custom target attributes](../resources/synchronization_howto_custom_attributes.md)
 
 ## Object model overview
 

@@ -1,15 +1,16 @@
-# Synchronization API Quick Start (BETA)
+# Synchronization API quick start
 
 ## Additional Resources
 
-* [Synchronization Overview](../resources/synchronization_overview.md)
-* [Synchronization Schema](../resources/synchronization_schema.md)
+* [Synchronization API overview](../resources/synchronization_overview.md)
+* [Synchronization schema](../resources/synchronization_schema.md)
 * [HOW-TO: Configure synchronization with directory extension attributes](../resources/synchronization_howto_directory_extensions.md)
+* [HOW-TO: Configure synchronization with custom target attributes](../resources/synchronization_howto_custom_attributes.md)
 
 
-## Authorization
+## Authentication
 
-Provisioning API is part of Microsoft Graph, and uses the same OAuth 2.0 authorization as MS Graph does. Before making any requests to the API, you would need to obtain an access token.
+Synchronization API is part of Microsoft Graph, and uses the same OAuth 2.0 authorization as MS Graph does. Before making any requests to the API, you would need to obtain an access token. For detailed information on authentication with Microsoft Graph, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview)
 
 ### Using Graph Explorer
 
@@ -25,8 +26,8 @@ To request access token, you will need to have the following:
 * Tenant Identifier. Unique identifier of the tenant you will be working with
 * Administrative user credentials for the same tenant
 * Client Application Id (application which is performing  API calls). This application must be registered in Azure Active Directory, have Directory.ReadWrite.All permissions for Microsoft Graph, and must be consented to in the tenant we will be working with.
-	- A quick solution is to use well-known application ID of the PowerShell (1950a258-227b-4e31-a9cf-717495945fc2, both in PROD and PPE), which is automatically consented to on any tenant.
-	- Another way is to register your own application (see Registering an application for API access at the bottom of this page)
+	- A quick solution is to use well-known application ID of the PowerShell (1950a258-227b-4e31-a9cf-717495945fc2), which is automatically consented to on any tenant.
+	- Another way is to register your own application (see **Registering an application for API access** at the bottom of this page)
 
 With this information, we can make a call to obtain access token:
 Description	Obtain authorization token for Microsoft Graph, using administrative user credentials. **Make sure all parameter values are URL-encoded**
@@ -42,7 +43,7 @@ client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft.com%2F&gr
 
 Response
 
-```javascript
+```http
 HTTP1.1/OK
 {
     "token_type": "Bearer",
@@ -61,7 +62,7 @@ Authorization: Bearer access_token
 
 ## Finding Service Principal Object(s)
 
-You would need to know ID of the Service Principal object (NOT ServicePrincipal.AppId) when forming requests to Provisioning API.  Here we assume that service principal for your application is already added to the tenant (I.e. by adding application to your tenant in the Azure portal). You can easily find servicePrincipal of interest knowing either ServicePrincipal.AppId, or ServicePrincipal.displayName
+You would need to know ID of the Service Principal object (NOT ServicePrincipal.AppId) when forming requests to Synchronization API.  Here we assume that service principal for your application is already added to the tenant (I.e. by adding application to your tenant in the Azure portal). You can easily find servicePrincipal of interest knowing either ServicePrincipal.AppId, or ServicePrincipal.displayName
 
 ### Find service principals by display name
 
@@ -71,7 +72,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayN
 
 Response
 
-```javascript
+```json
 {
     "value": [
     {
@@ -96,7 +97,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayN
 
 Response
 
-```javascript
+```http
 HTTP/1.1 200 OK
 {
     "value": [
@@ -121,7 +122,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a
 
 Response
 
-```javascript
+```http
 HTTP/1.1 200 OK
 {
     "value": [
@@ -147,7 +148,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs/SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa
 ```
 
-```javascript
+```http
     HTTP/1.1 200 OK
     {
         "id": "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
@@ -167,7 +168,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
 ```
 
-```javascript
+```http
 HTTP/1.1 200 OK
 {
     "directories": [..],
@@ -179,11 +180,8 @@ HTTP/1.1 200 OK
 
 ### Resources
 
-[Register an app with the Azure AD v2.0 endpoint](https://graph.microsoft.io/en-us/docs/authorization/auth_register_app_v2.htm)
-
-[App authentication with Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview.htm)
-
-<https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare>
+* [Register an app with the Azure AD v2.0 endpoint](https://graph.microsoft.io/en-us/docs/authorization/auth_register_app_v2.htm)
+* [Get access tokens to call Microsoft Graph](https://graph.microsoft.io/en-us/docs/authorization/auth_overview.htm)
 
 ### Register the application
 

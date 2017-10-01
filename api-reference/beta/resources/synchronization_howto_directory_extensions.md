@@ -4,7 +4,7 @@
 
 We have AD Connect setup to provision a number of directory extension attributes from AD-on-premises to Azure AD. We are setting up provisioning from Azure AD to Salesforce, and we want to use one of the directory extension attributes (i.e. **extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. We won't be able to setup such attribute mapping using web interface in [Azure Portal](https://portal.azure.com), as it will not show directory extension attributes among the available attributes. We can achieve that using the API.
 
-We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our application display name (the one shown in the portal), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API Quick Start](#synchronization_api_quickstart.md)
+We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our application display name (the one shown in the portal), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API quick start](synchronization_api_quickstart.md)
 
 ## Find service principal by display name
 
@@ -80,8 +80,7 @@ We'll need full name of the extension attribute to perform next steps. If you do
 ```
 
 ```json
-    {
-    "@odata.context": "https://graph.microsoft.com/testProvisioning/$metadata#servicePrincipals('167e33e9-f80e-490e-b4d8-698d4a80fb3e')/provisioningTasks('SfOutDelta.e4bbf44533ea4eabb17027f3a92e92aa')/schema/$entity", 
+{
     "directories": [
             {
                 "id": "66e4a8cc-1b7b-435e-95f8-f06cea133828",
@@ -127,8 +126,7 @@ We'll need full name of the extension attribute to perform next steps. If you do
                 "objects": [ .. ]
             }
     ],
-    "synchronizationRules": [
-            {
+    "synchronizationRules": [{
             "editable": true,
             "id": "4c5ecfa1-a072-4460-b1c3-4adde3479854",
             "metadata": [ .. ],
@@ -170,11 +168,10 @@ We'll need full name of the extension attribute to perform next steps. If you do
                         "sourceObjectName": "User",
                         "targetObjectName": "User"
                 },
-            ..
+                ..
             ]
-        ..
-       ]
-    }
+    }]
+}
 ```
 
 ## Add attribute definition for the directory extension attribute, and a mapping between the attributes
@@ -196,7 +193,7 @@ Using text editor of your choice (i.e. http://www.jsoneditoronline.org/, Notepad
             ...
             {
                 "id": "66e4a8cc-1b7b-435e-95f8-f06cea133828",
-                    "name": "Azure Active Directory",
+                "name": "Azure Active Directory",
                 "objects": [
                     {
                         "attributes": [

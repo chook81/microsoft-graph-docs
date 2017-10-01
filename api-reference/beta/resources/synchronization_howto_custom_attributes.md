@@ -1,10 +1,10 @@
-# HOW-TO: Configure synchronization with custom attributes
+# HOW-TO: Configure synchronization with custom target attributes
 
 ## Scenario
 
-We have a Salesforce subscription, where we customized Salesforce's User object by adding a new field, "officeCode". We are setting up provisioning from Azure AD to Salesforce, and for each user we want to populate "officeCode" in Salesforce with the value from the "extensionAttribute10" on Azure AD side. 
+We have a Salesforce subscription, where we customized Salesforce's User object by adding a new field, "officeCode". We are setting up synchronization from Azure AD to Salesforce, and for each user we want to populate "officeCode" in Salesforce with the value from the "extensionAttribute10" on Azure AD side. 
 
-We assume that we already added an application which supports provisioning to our tenant through the Azure Portal. We know our application display name (the one shown in [Azure Portal](https://portal.azure.com)), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API Quick Start](#synchronization_api_quickstart.md)
+We assume that we already added an application which supports syncrhonization to our tenant through the Azure Portal. We know our application display name (the one shown in [Azure Portal](https://portal.azure.com)), and we have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API quick start](synchronization_api_quickstart.md)
 
 ## Find service principal by display name
 
@@ -70,7 +70,6 @@ GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{servicePr
 Authorization: Bearer {Token}
 
 {
-  "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('167e33e9-f80e-490e-b4d8-698d4a80fb3e')/provisioningTasks('SfOutDelta.e4bbf44533ea4eabb17027f3a92e92aa')/schema/$entity", 
   "directories": [
 	    {
 		      "id": "66e4a8cc-1b7b-435e-95f8-f06cea133828",
@@ -181,14 +180,14 @@ Using plain text editor of your choice (i.e. Notepad++, or http://www.jsoneditor
 ```json
 {  
     "directories": [
-    . . .
+    ...
     {
         "id": "8ffa6169-f354-4751-9b77-9c00765be92d",
             "name": "salesforce.com",
             "objects": [
             {
                     "attributes": [
-                    . . .
+                    ...
                         ,{
                             "name": "officeCode",
                             "type": "String"
@@ -208,7 +207,7 @@ Using plain text editor of your choice (i.e. Notepad++, or http://www.jsoneditor
         "objectMappings": [
             {
             "attributeMappings": [
-            . . .
+            ...
             ,{
                     "source": {
                     "name": "extensionAttribute10",
@@ -223,7 +222,7 @@ Using plain text editor of your choice (i.e. Notepad++, or http://www.jsoneditor
             "targetObjectName": "User"
         
             },
-            . . . 
+            ... 
         ],
     "priority": 1,
         "sourceDirectoryName": "Azure Active Directory",
