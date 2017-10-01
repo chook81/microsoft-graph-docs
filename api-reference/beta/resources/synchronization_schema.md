@@ -31,8 +31,8 @@ Synchronization schema contains the bulk of a particular synchronization setup. 
 |[Get schema](../api/synchronization_schema_get.md)    |[synchronizationSchema](synchronization_schema.md)   |Retrieves  synchronization schema|
 |[Update schema](../api/synchronization_schema_put.md)    |None   |Updates synchronization schema |
 |[Delete schema](../api/synchronization_schema_delete.md)    |None   |Deletes customized  schema, effectively resetting the schema to the default configured by application developer |
-|[List filter operators](../api/synchronization_schema_filterOperators_get.md)    |filterOperatorSchema[]   |Lists all operators supported in the scoping filters |
-|[List attribute mapping functions](../api/synchronization_schema_functions_get.md)    |filterOperatorSchema[]   |Lists all functions supported in the attribute mapping expressions |
+|[List filter operators](../api/synchronization_schema_filterOperators_get.md)    |[filterOperatorSchema](../resources/synchronization_filterOperatorSchema.md) colection   |Lists all operators supported in the scoping filters |
+|[List attribute mapping functions](../api/synchronization_schema_functions_get.md)    |[attributeMappingFunctionSchema](../resources/synchronization_attributeMappingFunctionSchema.md) colection   |Lists all functions supported in the attribute mapping expressions |
 
 ## Schema Components
 
@@ -40,15 +40,15 @@ Top-level components in synchronization schema are "directories", defining direc
 
 ### Directory Definitions ("directories")
 
-Directory definitions are part of the [synchronization schema](synchronization_schema.md) and provide synchronization engine information about directories and their objects. It tells synchronization engine, for example, that directory "Azure AD" has objects named "User" and "Group", which attributes are supported for those objects, and what is the type of those attributes. In order for a particular object and attribute to be used in synchronization rules / object mappings, they have to be defined as part of the directory definition. For more information, please see [directory definition](synchronization_directoryDefinition.md)
+[Directory definitions](synchronization_directoryDefinition.md) are part of the [synchronization schema](synchronization_schema.md) and provide synchronization engine information about directories and their objects. It tells synchronization engine, for example, that directory "Azure AD" has objects named "User" and "Group", which attributes are supported for those objects, and what is the type of those attributes. In order for a particular object and attribute to be used in synchronization rules / object mappings, they have to be defined as part of the directory definition.
 
-#### Synchronization Rules ("synchronizationRules")
+### Synchronization Rules ("synchronizationRules")
 
-Synchronization rules area part of the [synchronization schema](synchronization_schema.md) and are at the core of the synchronization setup. They give synchronization engine crucial information regarding how the synchronization should be performed. That includes what objects should be synchronized, how objects from source directory should be matched with objects in target directory, and how attributes should be transformed going from source to target directory. For more information, please see [synchronization rule](synchronization_rule.md)
+[Synchronization rules](synchronization_rule.md) area part of the [synchronization schema](synchronization_schema.md) and are at the core of the synchronization setup. They give synchronization engine crucial information regarding how the synchronization should be performed. That includes what objects should be synchronized, how objects from source directory should be matched with objects in target directory, and how attributes should be transformed going from source to target directory. 
 
-#### Object mappings ("objectMappings")
+### Object mappings ("objectMappings")
 
-Object mappings are the main part of the synchronization rule. Each object mapping defines how a given object should be synchronized from source directory to target. In particular, it defines how object in source directory should be matched with an object in target directory, what (if any) scoping filters should be used to decide if we want to provision a given object, and how object attributes should be transformed going from source to target directory. For more information, please see [object mapping](synchronization_objectMapping.md)
+[Object mappings](synchronization_objectMapping.md) are the main part of the synchronization rule. Each object mapping defines how a given object should be synchronized from source directory to target. In particular, it defines how object in source directory should be matched with an object in target directory, what (if any) scoping filters should be used to decide if we want to provision a given object, and how object attributes should be transformed going from source to target directory.
 
 
 ## JSON Example
