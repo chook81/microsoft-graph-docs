@@ -2,11 +2,21 @@
 
 Retrieves existing job and its properties
 
-## Request
+## HTTP Request
 
 ```http
 GET /servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
+
+## Request headers
+
+| Name           | Type    | Description|
+|:---------------|:--------|:-----------|
+| Authorization  | string  | Bearer {token}. Required. |
+
+## Request body
+
+Do not supply a request body for this method.
 
 ## Response
 
@@ -14,13 +24,15 @@ If successful, returns `200 OK` response with [synchronizationJob](../resources/
 
 ## Example
 
-### Sample request
+##### Request
+The following is an example of a request.
 
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
-### Sample response
+##### Response
+The following is an example of a response.
 
 ```http
 HTTP/1.1 200 OK

@@ -4,20 +4,14 @@ Synchronization template provides pre-configured synchronization settings for a 
 
 Application developer may provide multiple templates for a given application, and designate a default one. If multiple templates are available for the application you are interested in, seek application-specific guidance on which one better suits your case.
 
-## JSON representation
+## Methods
 
-```json
-{
-    "id": "String",
-    "applicationId" : "String (identifier)",
-    "default": "Boolean",
-    "description": "String",
-    "discoverable": "Boolean",
-    "factoryTag": "SfOutDelta",
-    "metadata": [{"@odata.type": "microsoft.graph.metadataEntry"}],
-    "schema": {"@odata.type": "microsoft.graph.synchronizationSchema"}
-}
-```
+| Method        | Return Type               | Description                  |
+|:--------------|:--------------------------|:-----------------------------|
+|[List](../api/synchronization_templates_get.md)   |[synchronizationTemplate](synchronization_template.md) collection  |List templates available for a given application or application instance (service principal)|
+|[Get](../api/synchronization_template_get.md)             |[synchronizationTemplate](synchronization_template.md)   |Retrieve existing template and its properties|
+|[Create](../api/synchronization_templates_post.md)         |[synchronizationTemplate](synchronization_template.md)   |Create new template for a given application|
+|[Update](../api/synchronization_template_put.md)          |[synchronizationTemplate](synchronization_template.md)   |Update template|
 
 ## Properties
 
@@ -31,44 +25,17 @@ Application developer may provide multiple templates for a given application, an
 |metadata       |metadataEntry collection   |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
 |schema         |[synchronizationSchema](synchronization_schema.md)     |Default synchronization schema for the jobs based on this template|
 
-
-## Methods
-
-| Method        | Return Type               | Description                  |
-|:--------------|:--------------------------|:-----------------------------|
-|[List](../api/synchronization_templates_get.md)   |[synchronizationTemplate](synchronization_template.md) collection  |List templates available for a given application or application instance (service principal)|
-|[Get](../api/synchronization_template_get.md)             |[synchronizationTemplate](synchronization_template.md)   |Retrieve existing template and its properties|
-|[Create](../api/synchronization_templates_post.md)         |[synchronizationTemplate](synchronization_template.md)   |Create new template for a given application|
-|[Update](../api/synchronization_template_put.md)          |[synchronizationTemplate](synchronization_template.md)   |Update template|
-
-
-## JSON Example
+## JSON representation
 
 ```json
 {
-    "id": "CustomSCIM-myTestTemplate",
-    "default": true,
-    "description": null,
-    "discoverable": true,
-    "factoryTag": "CustomSCIM",
-    "metadata": [
-        {
-            "key": "galleryApplicationIdentifier",
-            "value": "cd3ed3de-93ee-400b-8b19-b61ef44a0f29"
-        },
-        {
-            "key": "galleryApplicationKey",
-            "value": "myscim.com"
-        },
-        {
-            "key": "isOAuthEnabled",
-            "value": "false"
-        },
-        {
-            "key": "configurationFields",
-            "value": "[{\"name\":\"username\"},{\"name\":\"password\",\"secret\":true},{\"name\":\"secrettoken\",\"secret\":true}]"
-        }
-    ],
-    "schema": {...}
+    "id": "String",
+    "applicationId" : "String (identifier)",
+    "default": "Boolean",
+    "description": "String",
+    "discoverable": "Boolean",
+    "factoryTag": "SfOutDelta",
+    "metadata": [{"@odata.type": "microsoft.graph.metadataEntry"}],
+    "schema": {"@odata.type": "microsoft.graph.synchronizationSchema"}
 }
 ```

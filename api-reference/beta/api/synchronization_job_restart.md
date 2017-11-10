@@ -2,11 +2,17 @@
 
 Restarts the synchronization job, forcing it to reprocess from scratch all the objects in the directory. Optionally clears existing synchronization state and previous errors.
 
-## Request
+## HTTP Request
 
 ```http
 POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```
+
+## Request headers
+
+| Name           | Type    | Description|
+|:---------------|:--------|:-----------|
+| Authorization  | string  | Bearer {token}. Required. |
 
 ## Request body
 
@@ -34,7 +40,8 @@ If successful, returns `204 No Content` response.
 
 ## Example
 
-### Sample request
+##### Request
+The following is an example of a request.
 
 ```http
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
@@ -48,7 +55,8 @@ Content-type: application/json
 }
 ```
 
-### Sample response
+##### Response
+The following is an example of a response.
 
 ```http
 HTTP/1.1 204 No Content

@@ -4,6 +4,19 @@ Object mapping defines how a given object should be synchronized from source dir
 
 Object mappings are the main part of the [synchronization rule](synchronization_rule.md) and are updated as part of [synchronization schema](synchronization_schema.md)
 
+## Properties
+
+| Property      | Type      | Description    |
+|:--------------|:----------|:---------------|
+|attributeMappings  |[attributeMapping](synchronization_attributeMapping.md) collection    | Attribute mappings define which attributes and how should flow from the source object into the target object. A number of functions are available to support transformation of original source values|
+|enabled        |Boolean    |When `true`, this object mapping will be processed during synchronization. When `false`, this object mapping will be skipped|
+|flowTypes      |objectFlowType    |Which flow types are enabled for this object mapping. `Add` means we will create new objects in the target directory, `Update` means we will modify existing objects, and `Delete` means we will de-provision existing users. Default is `"Add, Update, Delete"`. |
+|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
+|name           |String     |Human-friendly name of the object mapping|
+|scope          |[scopingFilter](synchronization_scopingFilter.md)     |Scope defines a filter to be used when deciding if a given object should be provisioned. For example, we might want to only provision users which are located in US|
+|sourceObjectName           |String     |Name of the object in source directory. Must match object name from source [directory definition](synchronization_directoryDefinition.md)|
+|targetObjectName           |String     |Name of the object in target directory. Must match object name from target [directory definition](synchronization_directoryDefinition.md)|
+
 ## JSON representation
 
 ```json
@@ -18,20 +31,6 @@ Object mappings are the main part of the [synchronization rule](synchronization_
   "targetObjectName": "String"
 }
 ```
-
-## Properties
-
-| Property      | Type      | Description    |
-|:--------------|:----------|:---------------|
-|attributeMappings  |[attributeMapping](synchronization_attributeMapping.md) collection    | Attribute mappings define which attributes and how should flow from the source object into the target object. A number of functions are available to support transformation of original source values|
-|enabled        |Boolean    |When `true`, this object mapping will be processed during synchronization. When `false`, this object mapping will be skipped|
-|flowTypes      |objectFlowType    |Which flow types are enabled for this object mapping. `Add` means we will create new objects in the target directory, `Update` means we will modify existing objects, and `Delete` means we will de-provision existing users. Default is `"Add, Update, Delete"`. |
-|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|name           |String     |Human-friendly name of the object mapping|
-|scope          |[scopingFilter](synchronization_scopingFilter.md)     |Scope defines a filter to be used when deciding if a given object should be provisioned. For example, we might want to only provision users which are located in US|
-|sourceObjectName           |String     |Name of the object in source directory. Must match object name from source [directory definition](synchronization_directoryDefinition.md)|
-|targetObjectName           |String     |Name of the object in target directory. Must match object name from target [directory definition](synchronization_directoryDefinition.md)|
-
 
 ## JSON Example
 

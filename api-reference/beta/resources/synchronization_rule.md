@@ -6,6 +6,19 @@ Synchronization rules are at the core of the synchronization configuration. They
 
 Synchronization rules are updated as part of [synchronization schema](synchronization_schema.md)
 
+## Properties
+
+| Property      | Type      | Description    |
+|:--------------|:----------|:---------------|
+|editable       |Boolean    |`true` if synchronization rule can be customized. `false` means this rule is read only and should not be changed|
+|id             |String     |Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be seen in the synchronization template returned by the API|
+|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
+|name           |String     |Human-readable name of the synchronization rule. Not nullable|
+|objectMappings |[objectMapping](synchronization_objectMapping.md) collection    |Collection of object mappings supported by the rule. Tells synchronization engine which objects should be synchronized|
+|priority       |Integer    |Priority relative to other rules in the [schema](synchronization_schema.md). Rules with the lowest priority number will be processed first|
+|sourceDirectoryName       |String    |Name of the source directory. Must match one of the directory definitions in [schema](synchronization_schema.md)|
+|targetDirectoryName       |String    |Name of the target directory. Must match one of the directory definitions in [schema](synchronization_schema.md)|
+
 ## JSON representation
 
 ```json
@@ -20,19 +33,6 @@ Synchronization rules are updated as part of [synchronization schema](synchroniz
     "targetDirectoryName": "String"
 }
 ```
-
-## Properties
-
-| Property      | Type      | Description    |
-|:--------------|:----------|:---------------|
-|editable       |Boolean    |`true` if synchronization rule can be customized. `false` means this rule is read only and should not be changed|
-|id             |String     |Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be seen in the synchronization template returned by the API|
-|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|name           |String     |Human-readable name of the synchronization rule. Not nullable|
-|objectMappings |[objectMapping](synchronization_objectMapping.md) collection    |Collection of object mappings supported by the rule. Tells synchronization engine which objects should be synchronized|
-|priority       |Integer    |Priority relative to other rules in the [schema](synchronization_schema.md). Rules with the lowest priority number will be processed first|
-|sourceDirectoryName       |String    |Name of the source directory. Must match one of the directory definitions in [schema](synchronization_schema.md)|
-|targetDirectoryName       |String    |Name of the target directory. Must match one of the directory definitions in [schema](synchronization_schema.md)|
 
 ## JSON Example
 

@@ -2,15 +2,6 @@
 
 Describes a function which can be used in an [attribute mapping](synchronization_attributeMapping.md) to transform one value into another
 
-## JSON representation
-
-```json
-{
-    "name": "String",
-    "parameters": [{"@odata.type": "microsoft.graph.attributeMappingParameterSchema"}]
-}
-```
-
 ## Properties
 
 | Property                   | Type                      | Description    |
@@ -26,6 +17,15 @@ Describes a function which can be used in an [attribute mapping](synchronization
 |name                        |String                    |Parameter name |
 |required                    |Boolean                   |`true` if paramer is required. `false` otherwise |
 |type                        |attributeType             |Type of the parameter. Supported values are `String`, `Integer`, `Reference`, `Binary`, `Boolean`|
+
+## JSON representation
+
+```json
+{
+    "name": "String",
+    "parameters": [{"@odata.type": "microsoft.graph.attributeMappingParameterSchema"}]
+}
+```
 
 ## JSON Example
 

@@ -6,6 +6,15 @@ As a general rule, default [synchronization schema](synchronization_schema.md) p
 
 Directory definitions are updated as part of [synchronization schema](synchronization_schema.md).
 
+## Properties
+
+| Property      | Type      | Description    |
+|:--------------|:----------|:---------------|
+|id           |String     |Directory identifier. Not nullable|
+|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
+|name           |String     |Name of the directory. Must be unique within the [synchronization schema](synchronization_schema.md). Not nullable|
+|objects        |[objectDefinition](synchronization_objectDefinition.md) collection    |Collection of objects supported by the directory|
+
 ## JSON representation
 
 ```json
@@ -16,16 +25,6 @@ Directory definitions are updated as part of [synchronization schema](synchroniz
     "objects": [{"@odata.type": "microsoft.graph.objectDefinition"}]
 }
 ```
-
-## Properties
-
-| Property      | Type      | Description    |
-|:--------------|:----------|:---------------|
-|id           |String     |Directory identifier. Not nullable|
-|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|name           |String     |Name of the directory. Must be unique within the [synchronization schema](synchronization_schema.md). Not nullable|
-|objects        |[objectDefinition](synchronization_objectDefinition.md) collection    |Collection of objects supported by the directory|
-
 
 ## JSON Example
 

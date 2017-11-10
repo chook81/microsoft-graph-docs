@@ -2,6 +2,14 @@
 
 Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization_directoryDefinition.md), which is updated as part of [synchronizationSchema](synchronization_schema.md)
 
+## Properties
+
+| Property      | Type      | Description    |
+|:--------------|:----------|:---------------|
+|attributes     |[attributeDefinition](synchronization_attributeDefinition.md) collection    | Defines attributes of the object |
+|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
+|name           |String     |Name of the object. Must be unique within a directory definition. Not nullable|
+
 ## JSON representation
 
 ```json
@@ -11,15 +19,6 @@ Describes an object and its attributes. Object definitions are part of [director
   "name": "String"
 }
 ```
-
-## Properties
-
-| Property      | Type      | Description    |
-|:--------------|:----------|:---------------|
-|attributes     |[attributeDefinition](synchronization_attributeDefinition.md) collection    | Defines attributes of the object |
-|metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|name           |String     |Name of the object. Must be unique within a directory definition. Not nullable|
-
 
 ## JSON Example
 

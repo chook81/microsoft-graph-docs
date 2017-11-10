@@ -2,23 +2,6 @@
 
 Current status of the synchronization job
 
-## JSON representation
-
-```json
-{
-    "countSuccessiveCompleteFailures": "Integer",
-    "escrowsPruned": "Boolean",
-    "synchronizedEntryCountByType": [],
-    "code": {"@odata.type":"synchronizationStatusCode"},
-    "lastExecution":{"@odata.type": "microsoft.graph.synchronizationJobExecution"},
-    "lastSuccessfulExecution": {"@odata.type": "microsoft.graph.synchronizationJobExecution"},
-    "lastSuccessfulExecutionWithExports": {"@odata.type": "microsoft.graph.synchronizationJobExecution"},
-    "steadyStateFirstAchievedTime": "String",
-    "steadyStateLastAchievedTime": "String",
-    "quarantine": {"@odata.type": "microsoft.graph.synchronizationJobExecution"}
-}
-```
-
 ## Properties
 
 | Property                              | Type      | Description    |
@@ -33,7 +16,6 @@ Current status of the synchronization job
 |steadyStateFirstAchievedTime           |DateTimeOffset        |Time when steady state (no more changes to process) was first achieved|
 |steadyStateLastAchievedTime            |DateTimeOffset        |Time when steady state (no more changes to process) was last achieved|
 |quarantine     |[synchronizationQuarantine](#synchronizationquarantine)        |If job is in quarantine, quarantine details|
-
 
 ### synchronizationStatusCode
 
@@ -80,6 +62,23 @@ Provides information about quarantine state
 |reason         |String             | Code signifying why the quarantine was imposed|
 |seriesBegan    |String (DateTime)  | Date and time when the quarantine was first imposed in this series (Series starts when quarantine is first imposed, and is reset as soon as quarantine is lifted)|
 |seriesCount    |Integer            | Number of times in this series quarantine was re-evaluated and left in effect ((Series starts when quarantine is first imposed, and is reset as soon as quarantine is lifted) |
+
+## JSON representation
+
+```json
+{
+    "countSuccessiveCompleteFailures": "Integer",
+    "escrowsPruned": "Boolean",
+    "synchronizedEntryCountByType": [],
+    "code": {"@odata.type":"synchronizationStatusCode"},
+    "lastExecution":{"@odata.type": "microsoft.graph.synchronizationJobExecution"},
+    "lastSuccessfulExecution": {"@odata.type": "microsoft.graph.synchronizationJobExecution"},
+    "lastSuccessfulExecutionWithExports": {"@odata.type": "microsoft.graph.synchronizationJobExecution"},
+    "steadyStateFirstAchievedTime": "String",
+    "steadyStateLastAchievedTime": "String",
+    "quarantine": {"@odata.type": "microsoft.graph.synchronizationJobExecution"}
+}
+```
 
 ## JSON Example
 
