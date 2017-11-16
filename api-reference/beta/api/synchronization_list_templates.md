@@ -1,6 +1,6 @@
-# synchronizationJob: pause
+## List existing synchronization templates
 
-Temporarily stop job execution. All the progress and job's state is persisted, and upon [Start](synchronization_job_start.md) call job execution will continue from where it left off.
+List templates associated with a given application or service principal.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -11,10 +11,11 @@ One of the following permissions is required to call this API. To learn more, in
 |Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
 |Application                            |Directory.ReadWrite.All  | 
 
-## HTTP Request
+### HTTP Request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/pause
+GET servicePrincipals/{id}/synchronization/templates
+GET applications/{id}/synchronization/templates
 ```
 
 ## Request headers
@@ -27,37 +28,53 @@ POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/pause
 
 Do not supply a request body for this method.
 
-## Response
+### Response
 
-If successful, returns `204 No Content` response. It does not return anything in the response body.
+If successful, this method returns a `200 OK` response code and collection of [synchronizationTemplate](../resources/synchronization_template.md) objects in the response body.
 
-## Example
+### Example
 
 ##### Request
 The following is an example of a request.
 <!-- {
   "blockType": "request",
-  "name": "synchronizationjob_pause"
+  "name": "get_synchronizationtemplate"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/pause
+GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/templates
 ```
 
 ##### Response
 The following is an example of a response.
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned in an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.None"
+  "@odata.type": "microsoft.graph.synchronizationTemplate",
+  "isCollection": true
 } -->
 ```http
-HTTP/1.1 204 No Content
+HTTP/1.1 200 OK
+
+{
+    "value": [
+        {
+            "id": "Slack",
+            "factoryTag": "CustomSCIM",
+            "schema": {
+                    "directories": [],
+                    "synchronizationRules": []
+                    }
+        }
+    ]
+}
 ```
+
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "synchronizationJob: pause",
+  "description": "Get synchronizationTemplate",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""

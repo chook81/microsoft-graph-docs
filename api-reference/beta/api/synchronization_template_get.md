@@ -1,6 +1,15 @@
-# Retrieve synchroization template
+# Get synchroizationTemplate
 
-Retrieve template by its identifier
+Retrieve template by its identifier.
+
+## Permissions
+One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
+
+|Permission type                        | Permissions (from least to most privileged)              |
+|:--------------------------------------|:---------------------------------------------------------|
+|Delegated (work or school account)     |Directory.ReadWrite.All  |
+|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
+|Application                            |Directory.ReadWrite.All  | 
 
 ### HTTP Request
 
@@ -42,8 +51,8 @@ HTTP/1.1 200 OK
     "id": "Slack",
     "factoryTag": "CustomSCIM",
     "schema": {
-        "directories": [...],
-        "synchronizationRules": [...]
+        "directories": [],
+        "synchronizationRules": []
         }
 }
 ```

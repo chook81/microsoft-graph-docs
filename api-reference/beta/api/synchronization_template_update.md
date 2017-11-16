@@ -1,6 +1,6 @@
-# synchronizationJob: pause
+# Update synchronizationTemplate
 
-Temporarily stop job execution. All the progress and job's state is persisted, and upon [Start](synchronization_job_start.md) call job execution will continue from where it left off.
+Update (override) synchronization template associated with a given application.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -11,10 +11,10 @@ One of the following permissions is required to call this API. To learn more, in
 |Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
 |Application                            |Directory.ReadWrite.All  | 
 
-## HTTP Request
+### HTTP Request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/pause
+PUT application/{id}/synchronization/templates/{templateId}
 ```
 
 ## Request headers
@@ -25,22 +25,30 @@ POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/pause
 
 ## Request body
 
-Do not supply a request body for this method.
+In the request body, supply the [synchronizationTemplate](../resources/synchronization_template.md) object to replace the existing template. Make sure all properties are provided, as missing properties will be erased.
 
-## Response
+### Response
 
-If successful, returns `204 No Content` response. It does not return anything in the response body.
+If successful, this method returns a `204 No Content` response code. It does not return anything in the response body.
 
-## Example
+### Examples
 
 ##### Request
-The following is an example of a request.
+The following is an example of a request. Note: The request object shown here may is truncated for brevity. All of the properties should be supplied in an actual call.
 <!-- {
   "blockType": "request",
-  "name": "synchronizationjob_pause"
+  "name": "update_synchronizationtemplate"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/pause
+PUT https://graph.microsoft.com/testSynchronization/applications/{id}/synchronization/templates/{templateId}
+Authorization: Bearer <token>
+Content-type: application/json
+
+{
+    "id": "Slack",
+    "applicationId": "{id}",
+    "factoryTag": "CustomSCIM"
+}
 ```
 
 ##### Response
@@ -48,16 +56,17 @@ The following is an example of a response.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.None"
+  "@odata.type": "microsoft.graph.synchronizationTemplate"
 } -->
 ```http
 HTTP/1.1 204 No Content
 ```
+
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "synchronizationJob: pause",
+  "description": "Update synchronizationtemplate",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""

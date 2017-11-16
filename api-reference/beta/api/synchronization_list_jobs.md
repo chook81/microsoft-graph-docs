@@ -1,6 +1,6 @@
-# Get synchronizationJob
+# List synchronizationJobs
 
-Retrieve existing job and its properties.
+List existing jobs for a given application instance (service principal).
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -14,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /servicePrincipals/<id>/synchronization/jobs/<jobId>/
+GET /servicePrincipals/{id}/synchronization/jobs/
 ```
 
 ## Request headers
@@ -29,7 +29,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, returns `200 OK` response with [synchronizationJob](../resources/synchronization_job.md) in the response body.
+If successful, this method returns a `200 OK` response code and collection of [synchronizationJob](../resources/synchronization_job.md) objects in the response body.
 
 ## Example
 
@@ -37,10 +37,10 @@ If successful, returns `200 OK` response with [synchronizationJob](../resources/
 The following is an example of a request.
 <!-- {
   "blockType": "request",
-  "name": "get_synchronizationjob"
+  "name": "get_jobs"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<jobId>/
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/
 ```
 
 ##### Response
@@ -48,34 +48,38 @@ The following is an example of a response. Note: The response object shown here 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.synchronizationJob"
+  "@odata.type": "microsoft.graph.synchronizationJob",
+  "isCollection": true
 } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 2577
+Content-length: 2958
 
 {
-    "id": "{jobId}",
-    "templateId": "BoxOutDelta",
-    "schedule": {
-        "expiration": null,
-        "interval": "P10675199DT2H48M5.4775807S",
-        "state": "Disabled"
-    },
-    "status": {
-        "countSuccessiveCompleteFailures": 0,
-        "escrowsPruned": false,
-        "synchronizedEntryCountByType": [],
-        "code": "Paused",
-        "lastExecution": null,
-        "lastSuccessfulExecution": null,
-        "lastSuccessfulExecutionWithExports": null,
-        "steadyStateFirstAchievedTime": "0001-01-01T00:00:00Z",
-        "steadyStateLastAchievedTime": "0001-01-01T00:00:00Z",
-        "quarantine": null,
-        "troubleshootingUrl": null
-    }
+    "value": [
+        {
+            "id": "{jobId}",
+            "templateId": "BoxOutDelta",
+            "schedule": {
+                "expiration": null,
+                "interval": "P10675199DT2H48M5.4775807S",
+                "state": "Disabled"
+            },
+            "status": {
+                "countSuccessiveCompleteFailures": 0,
+                "escrowsPruned": false,
+                "synchronizedEntryCountByType": [],
+                "code": "Paused",
+                "lastExecution": null,
+                "lastSuccessfulExecution": null,
+                "lastSuccessfulExecutionWithExports": null,
+                "steadyStateFirstAchievedTime": "0001-01-01T00:00:00Z",
+                "steadyStateLastAchievedTime": "0001-01-01T00:00:00Z",
+                "quarantine": null,
+            }
+        }
+    ]
 }
 ```
 
@@ -83,7 +87,7 @@ Content-length: 2577
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "Get synchronizationJob",
+  "description": "List jobs",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""

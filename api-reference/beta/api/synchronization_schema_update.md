@@ -1,6 +1,6 @@
-# Get synchronizationSchema
+# Update synchronizationSchema
 
-Retrieve effective schema for a given job or template.
+Update synchronization schema for a given job or template. Fully replaces current schema with the one provided in the request. To update schema of a template, call must be made on the application object, and caller must be the owner of the application.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -14,9 +14,8 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
-GET /servicePrincipals/{id}/synchronization/templates/{templateId}/schema
-GET /applications/{id}/synchronization/templates/{templateId}/schema
+PUT /servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
+PUT /applications/{id}/synchronization/templates/{templateId}/schema
 ```
 
 ## Request headers
@@ -27,34 +26,23 @@ GET /applications/{id}/synchronization/templates/{templateId}/schema
 
 ## Request body
 
-Do not supply a request body for this method.
+In the request body, supply the [synchronizationSchema](../resources/synchronization_schema.md) object to replace existing schema with.
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and [synchronizationSchema](../resources/synchronization_schema.md) object in the response body.
+If successful, returns a `204 No Content` response code. It does not return anything in the response body.
 
 ## Example
 
 ##### Request
 The following is an example of a request.
+>**Note:** The request object shown here is be shortened for readability. All the properties should be supplied in an actual call.
 <!-- {
   "blockType": "request",
-  "name": "get_synchronizationschema"
+  "name": "update_synchronizationschema"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
-```
-
-##### Response
-The following is an example of a response.
->**Note:** The response object shown here might be shortened for readability. All the properties will be returned in an actual call.
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.synchronizationSchema"
-} -->
-```http
-HTTP/1.1 200 OK
+PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/schema
 
 {
     "directories": [
@@ -69,12 +57,11 @@ HTTP/1.1 200 OK
                             "type": "string"
                         }
                     ]
-                }
+                },
             ]
         },
         {
             "name": "Salesforce",
-            "objects": [{}]
         }
     ],
     "synchronizationRules":[
@@ -91,22 +78,31 @@ HTTP/1.1 200 OK
                             "source": {},
                             "targetAttributeName": "userName"
                         },
-                        {}
                     ]
                 },
-                {}
             ]
         },
-        {}
     ]
 }
+
+```
+
+##### Response
+The following is an example of a response.
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.synchronizationSchema"
+} -->
+```http
+HTTP/1.1 204 No Content
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "Get synchronizationSchema",
+  "description": "Update synchronizationschema",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""

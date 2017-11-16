@@ -1,6 +1,6 @@
-# Get synchronizationJob
+# Create synchronizationJob
 
-Retrieve existing job and its properties.
+Create new synchronization job with default synchronization schema. Job is created in disabled state. Call [Start job](synchronization_job_start.md) to start synchronization.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -14,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /servicePrincipals/<id>/synchronization/jobs/<jobId>/
+POST /servicePrincipals/{id}/synchronization/jobs/
 ```
 
 ## Request headers
@@ -25,11 +25,11 @@ GET /servicePrincipals/<id>/synchronization/jobs/<jobId>/
 
 ## Request body
 
-Do not supply a request body for this method.
+In the request body, supply a JSON representation of [synchronizationJob](../resources/synchronizationjob.md) object to be created. `templateId` is the only required property. `templateId` must match one of the templates created for this application/service principal (to discover available templates, use [List templates](synchronization_list_templates.md).
 
 ## Response
 
-If successful, returns `200 OK` response with [synchronizationJob](../resources/synchronization_job.md) in the response body.
+If successful, returns a `201 Created` response code and [synchronizationJob](../resources/synchronization_job.md) object in the response body.
 
 ## Example
 
@@ -37,10 +37,15 @@ If successful, returns `200 OK` response with [synchronizationJob](../resources/
 The following is an example of a request.
 <!-- {
   "blockType": "request",
-  "name": "get_synchronizationjob"
+  "name": "create_synchronizationjob_from_synchronization"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<jobId>/
+POST https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs
+Content-type: application/json
+
+{ 
+    "templateId": "BoxOutDelta"
+}
 ```
 
 ##### Response
@@ -53,7 +58,6 @@ The following is an example of a response. Note: The response object shown here 
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 2577
 
 {
     "id": "{jobId}",
@@ -67,7 +71,7 @@ Content-length: 2577
         "countSuccessiveCompleteFailures": 0,
         "escrowsPruned": false,
         "synchronizedEntryCountByType": [],
-        "code": "Paused",
+        "code": "NotConfigured",
         "lastExecution": null,
         "lastSuccessfulExecution": null,
         "lastSuccessfulExecutionWithExports": null,
@@ -83,7 +87,7 @@ Content-length: 2577
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "Get synchronizationJob",
+  "description": "Create synchronizationJob",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""
