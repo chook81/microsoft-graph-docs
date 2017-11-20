@@ -1,0 +1,1 @@
+xcopy d:\github\jackp555\microsoft-graph-docs\api-reference\beta\synchronization_*.* .\api-reference\beta /s /i /Y
