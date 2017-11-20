@@ -1,4 +1,4 @@
-# attributeMappingFunctionSchema
+# attributeMappingFunctionSchema resource type
 
 Describes a function which can be used in an [attribute mapping](synchronization_attributeMapping.md) to transform values during synchronization.
 
@@ -6,7 +6,7 @@ Describes a function which can be used in an [attribute mapping](synchronization
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[List](../api/synchronization_schema_functions_get.md) | [attributeMappingFunctionSchema](../resources/synchronization_attributemappingfunctionschema.md) collection|List supported attribute mapping functions.|
+|[List](../api/synchronization_synchronizationschema_functions.md) | [attributeMappingFunctionSchema](../resources/synchronization_attributemappingfunctionschema.md) collection|List supported attribute mapping functions.|
 
 ## Properties
 

@@ -1,6 +1,6 @@
 # Create synchronizationJob
 
-Create new synchronization job with default synchronization schema. Job is created in disabled state. Call [Start job](synchronization_job_start.md) to start synchronization.
+Create new synchronization job with default synchronization schema. Job is created in disabled state. Call [Start job](synchronization_synchronizationjob_start.md) to start synchronization.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -25,11 +25,11 @@ POST /servicePrincipals/{id}/synchronization/jobs/
 
 ## Request body
 
-In the request body, supply a JSON representation of [synchronizationJob](../resources/synchronization_job.md) object to be created. `templateId` is the only required property. `templateId` must match one of the templates created for this application/service principal (to discover available templates, use [List templates](synchronization_list_templates.md).
+In the request body, supply a JSON representation of [synchronizationJob](../resources/synchronization_synchronizationjob.md) object to be created. `templateId` is the only required property. `templateId` must match one of the templates created for this application/service principal (to discover available templates, use [List templates](synchronization_list_templates.md).
 
 ## Response
 
-If successful, returns a `201 Created` response code and [synchronizationJob](../resources/synchronization_job.md) object in the response body.
+If successful, returns a `201 Created` response code and [synchronizationJob](../resources/synchronization_synchronizationjob.md) object in the response body.
 
 ## Example
 

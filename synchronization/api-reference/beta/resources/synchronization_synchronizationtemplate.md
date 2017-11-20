@@ -1,6 +1,6 @@
 # synchronizationTemplate resource type
 
-Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_job.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization_schema.md).
+Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_synchronizationjob.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization_synchronizationschema.md).
 
 Application developer may provide multiple templates for a given application, and designate a default one. If multiple templates are available for the application you are interested in, seek application-specific guidance on which one better suits your case.
 
@@ -30,7 +30,7 @@ Application developer may provide multiple templates for a given application, an
 ## Relationships
 | Relationship      | Type	    |Description|
 |:------------------|:----------|:----------|
-|schema             |[synchronizationSchema](synchronization_schema.md)     |Default synchronization schema for the jobs based on this template.|
+|schema             |[synchronizationSchema](synchronization_synchronizationschema.md)     |Default synchronization schema for the jobs based on this template.|
 
 ## JSON representation
 

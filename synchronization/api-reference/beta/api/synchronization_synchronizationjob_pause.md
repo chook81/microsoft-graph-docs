@@ -1,6 +1,6 @@
 # synchronizationJob: pause
 
-Temporarily stop job execution. All the progress and job's state is persisted, and upon [Start](synchronization_job_start.md) call job execution will continue from where it left off.
+Temporarily stop job execution. All the progress and job's state is persisted, and upon [Start](synchronization_synchronizationjob_start.md) call job execution will continue from where it left off.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).

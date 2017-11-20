@@ -1,6 +1,6 @@
 # parseExpressionResponse resource type
 
-Response of the [synchronizationSchema: parseExpression](../api/synchronization_schema_parseexpression.md) method.
+Response of the [synchronizationSchema: parseExpression](../api/synchronization_synchronizationschema_parseexpression.md) method.
 
 ## Properties
 | Property	   | Type	|Description|

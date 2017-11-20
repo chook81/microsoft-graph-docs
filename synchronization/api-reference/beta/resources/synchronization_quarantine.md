@@ -1,6 +1,6 @@
 # synchronizationQuarantine resource type
 
-Provides information about [synchronizationJob](synchronization_job.md)'s quarantine state.
+Provides information about [synchronizationJob](synchronization_synchronizationjob.md)'s quarantine state.
 
 ## Properties
 | Property	   | Type	|Description|

@@ -1,6 +1,6 @@
 # objectDefinition resource type
 
-Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization_directoryDefinition.md), which is updated as part of [synchronizationSchema](synchronization_schema.md)
+Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization_directoryDefinition.md), which is updated as part of [synchronizationSchema](synchronization_synchronizationschema.md)
 
 ## Properties
 

@@ -1,6 +1,6 @@
 # synchronizationJobRestartCriteria resource type
 
-Defines the scope of [synchronizationJob: restart](../api/synchronization_job_restart.md) method.
+Defines the scope of [synchronizationJob: restart](../api/synchronization_synchronizationjob_restart.md) method.
 
 ## Properties
 | Property	   | Type	|Description|

@@ -1,4 +1,4 @@
-# Filter operator schema
+# filterOperatorSchema resource type
 
 Describes an operator which can be used in a [filter](synchronization_filter.md)
 

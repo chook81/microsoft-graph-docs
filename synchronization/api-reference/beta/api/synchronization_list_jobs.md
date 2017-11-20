@@ -1,4 +1,4 @@
-# List synchronizationJobs
+# List synchronization jobs
 
 List existing jobs for a given application instance (service principal).
 
@@ -29,7 +29,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and collection of [synchronizationJob](../resources/synchronization_job.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and collection of [synchronizationJob](../resources/synchronization_synchronizationjob.md) objects in the response body.
 
 ## Example
 

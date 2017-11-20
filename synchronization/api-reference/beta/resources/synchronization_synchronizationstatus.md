@@ -1,6 +1,6 @@
 # synchronizationStatus resource type
 
-Current status of the [synchronizationJob](synchronization_job.md).
+Current status of the [synchronizationJob](synchronization_synchronizationjob.md).
 
 ## Properties
 
@@ -9,9 +9,9 @@ Current status of the [synchronizationJob](synchronization_job.md).
 |code|String|High-level status code of the synchronization job. Possible values are: `NotConfigured`, `NotRun`, `Active`, `Paused`, `Quarantine`.|
 |countSuccessiveCompleteFailures|Int64|Number of consecutive times this job failed.|
 |escrowsPruned|Boolean|`true` if the job's escrows (object-level errors) were pruned during initial synchronization. Escrows can be pruned if during initial synchronization we reach the threshold of errors which would normally put the job in quarantine. Instead of going into quarantine, synchronization opts out to clear job's errors and continue until the initial synchronization is completed. Once initial synchronization is completed, job will be paused and wait for customer's manual intervention to clean up the errors.|
-|lastExecution|[synchronizationTaskExecution](synchronization_taskexecution.md)|Details of the last execution of the job.|
-|lastSuccessfulExecution|[synchronizationTaskExecution](synchronization_taskexecution.md)|Details of the last execution of this job, which didn't have any errors|
-|lastSuccessfulExecutionWithExports|[synchronizationTaskExecution](synchronization_taskexecution.md)|Details of the last execution of the job, which exported objects into the target directory|
+|lastExecution|[synchronizationTaskExecution](synchronization_synchronizationtaskexecution.md)|Details of the last execution of the job.|
+|lastSuccessfulExecution|[synchronizationTaskExecution](synchronization_synchronizationtaskexecution.md)|Details of the last execution of this job, which didn't have any errors|
+|lastSuccessfulExecutionWithExports|[synchronizationTaskExecution](synchronization_synchronizationtaskexecution.md)|Details of the last execution of the job, which exported objects into the target directory|
 |quarantine|[synchronizationQuarantine](synchronization_quarantine.md)|If job is in quarantine, quarantine details.|
 |steadyStateFirstAchievedTime|DateTimeOffset|Time when steady state (no more changes to process) was first achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`.|
 |steadyStateLastAchievedTime|DateTimeOffset|Time when steady state (no more changes to process) was last achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`.|

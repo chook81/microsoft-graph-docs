@@ -4,7 +4,7 @@ Synchronization rules are at the core of the synchronization configuration. They
 
 **Synchronization rule defines synchronization in one direction**, from source directory to target directory. Source and target directories are designated as part of the rule properties.
 
-Synchronization rules are updated as part of [synchronization schema](synchronization_schema.md)
+Synchronization rules are updated as part of [synchronization schema](synchronization_synchronizationschema.md)
 
 ## Properties
 
@@ -15,9 +15,9 @@ Synchronization rules are updated as part of [synchronization schema](synchroniz
 |metadata       |[stringKeyStringValuePair](synchronization_stringkeystringvaluepair.md) collection |Additional extension properties. Unless instructed explicitly by the support team, metadata values should not be changed.|
 |name           |String     |Human-readable name of the synchronization rule. Not nullable.|
 |objectMappings |[objectMapping](synchronization_objectmapping.md) collection    |Collection of object mappings supported by the rule. Tells synchronization engine which objects should be synchronized.|
-|priority       |Integer    |Priority relative to other rules in the [synchronizationSchema](synchronization_schema.md). Rules with the lowest priority number will be processed first.|
-|sourceDirectoryName       |String    |Name of the source directory. Must match one of the directory definitions in [synchronizationSchema](synchronization_schema.md).|
-|targetDirectoryName       |String    |Name of the target directory. Must match one of the directory definitions in [synchronizationSchema](synchronization_schema.md).|
+|priority       |Integer    |Priority relative to other rules in the [synchronizationSchema](synchronization_synchronizationschema.md). Rules with the lowest priority number will be processed first.|
+|sourceDirectoryName       |String    |Name of the source directory. Must match one of the directory definitions in [synchronizationSchema](synchronization_synchronizationschema.md).|
+|targetDirectoryName       |String    |Name of the target directory. Must match one of the directory definitions in [synchronizationSchema](synchronization_synchronizationschema.md).|
 
 ## JSON representation
 

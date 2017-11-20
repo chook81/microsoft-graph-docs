@@ -1,6 +1,6 @@
 # synchronizationSchedule resource type
 
-Schedule used to execute given [synchronizationJob](synchronization_job.md).
+Schedule used to execute given [synchronizationJob](synchronization_synchronizationjob.md).
 
 ## Properties
 | Property	   | Type	|Description|
