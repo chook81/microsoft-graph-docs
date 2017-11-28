@@ -1,4 +1,4 @@
-# Azure AD Synchronization API Overview
+# Azure AD synchronization API overview
 
 Azure Active Directory (Azure AD) identity synchronization (also called "provisioning") allows you to automate the creation, maintenance, and removal of identities in cloud (software as a service, or SaaS) applications such as Dropbox, Salesforce, ServiceNow, and more. You can use the synchronization APIs in Microsoft Graph to manage identity synchronization programmatically, including:
 
@@ -13,7 +13,9 @@ For more information about synchronization in Azure AD, see:
 
 ## Authorization
 
-The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to obtain an access token. For information about authentication with Microsoft Graph, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). For information about the permissions your app needs to access synchronization resources, see 
+The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to obtain an access token. For information about authentication with Microsoft Graph, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). For information about the permissions your app needs to access synchronization resources, see [Directory permissions](../../../concepts/permissions_reference.md#directory-permissions).
+
+<!-- I'm not sure why we've included these sections in the overview topic, as this basically repeats the information in the associated resource topics. I don't recommend duplicating content because it's more difficult to maintain and it's easier for users to access information in a single location. Can you clarify the intent for including these resource descriptions in the overview topic?
 
 ## Synchronization job
 
@@ -39,6 +41,9 @@ Object mappings are the main part of the synchronization rule. Single object map
 
 Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_synchronizationjob.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization_synchronizationschema.md). For more information, please see [synchronization template](synchronization_template.md).
 
+-->
+
+<!-- Is this information that is already covered in the Get auth tokens section? If so, remove; we already link to that content under Authorization. 
 ## Using arbitrary REST client (Postman, Fiddler, etc)
 
 To request access token, you will need to have the following:
@@ -51,7 +56,7 @@ To request access token, you will need to have the following:
 
 With this information, we can make a call to obtain access token:
 Description	Obtain authorization token for Microsoft Graph, using administrative user credentials. **Make sure all parameter values are URL-encoded**
-
+-->
 ### Request
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -79,19 +84,23 @@ GET https://graph.microsoft.com/beta/servicePrincipals
 Authorization: Bearer access_token
 ```
 
-## Finding Service Principal Objects
+## Find service principal objects
 
-You would need to know ID of the Service Principal object (NOT ServicePrincipal.AppId) when forming requests to Synchronization API.  Here we assume that service principal for your application is already added to the tenant (I.e. by adding application to your tenant in the Azure portal). You can easily find servicePrincipal of interest knowing either ServicePrincipal.AppId, or ServicePrincipal.displayName
+To make requests to the synchronization API, you need to know the ID of the service principal object. This example assumes that the service principal for your application is already added to the tenant (by adding the application to your tenant in the Azure portal). You can easily find the service principal object by either display name or app ID.
 
 ### Find service principals by display name
 
-#### Request
+The following example shows how to find service principals by display name.
+
+**Request** 
+
 <!-- { "blockType": "ignored" } -->
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
 ```
 
-#### Response
+**Response**
+
 <!-- { "blockType": "ignored" } -->
 ```http
 HTTP/1.1 200 OK
@@ -111,15 +120,17 @@ HTTP/1.1 200 OK
 }
 ```
 
-### Find service principals by AppId
+### Find service principals by app ID
 
-#### Request
+The following example shows how to find service principals by app ID.
+
+**Request** 
 <!-- { "blockType": "ignored" } -->
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=AppId eq '219561ee-1480-4c67-9aa6-63d861fae3ef'
 ```
 
-#### Response
+**Response**
 <!-- { "blockType": "ignored" } -->
 ```http
 HTTP/1.1 200 OK
@@ -134,9 +145,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-## Retrieving basic job information
+## Retrieve basic synchronization job information
 
-### List existing synchronization jobs
+## List existing synchronization jobs
 
 #### Request
 <!-- { "blockType": "ignored" } -->
