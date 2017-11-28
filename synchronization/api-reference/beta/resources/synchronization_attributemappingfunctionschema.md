@@ -1,6 +1,6 @@
 # attributeMappingFunctionSchema resource type
 
-Describes a function which can be used in an [attribute mapping](synchronization_attributeMapping.md) to transform values during synchronization.
+Describes a function that can be used in an [attribute mapping](synchronization_attributeMapping.md) to transform values during synchronization.
 
 ## Methods
 
@@ -17,7 +17,7 @@ Describes a function which can be used in an [attribute mapping](synchronization
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

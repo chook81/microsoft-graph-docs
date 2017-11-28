@@ -6,14 +6,14 @@ Describes a single parameter used in an [attributeMappingFunctionSchema](../reso
 
 | Property                   | Type                      | Description    |
 |:---------------------------|:-------------------------|:---------------|
-|allowMultipleOccurrences    |Boolean                   |Given parameter can be provided multiple times (i.e. multiple input strings into Concatenate(string,string,...) function). |
+|allowMultipleOccurrences    |Boolean                   |The given parameter can be provided multiple times (for example, multiple input strings in the `Concatenate(string,string,...)` function). |
 |name                        |String                    |Parameter name. |
-|required                    |Boolean                   |`true` if paramer is required, `false` otherwise. |
-|type                        |String                    |Possible values are: `Boolean`, `Binary`, `Reference`, `Integer`, `String`. Default is `String`|
+|required                    |Boolean                   |`true` if the parameter is required; otherwise `false`. |
+|type                        |String                    |Possible values are: `Boolean`, `Binary`, `Reference`, `Integer`, `String`. Default is `String`.|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

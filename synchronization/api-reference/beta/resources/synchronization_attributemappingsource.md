@@ -1,19 +1,19 @@
 # attributeMappingSource resource type
 
-Defines how a value should be extracted (or transformed) from the source object. For example, it can be a simple value taken from a given attribute on the source object; or it can be a more complex expresion of string concatenation/extraction/replacement based on several source attributes. 
+Defines how a value should be extracted (or transformed) from the source object. For example, it can be a simple value taken from a given attribute on the source object, or it can be a more complex expression of string concatenation/extraction/replacement based on several source attributes. 
 
 ## Properties
 
 | Property              | Type                      | Description               |
 |:----------------------|:--------------------------|:--------------------------|
-|expression             |String                     |Equivalent expression representation of this attributeMappingSource object.|
-|name                   |String                     |Name parameter of the mapping source Depending on the "type" property value, can be the name of the function, the name of the source attribute, or constant value to be used. |
-|parameters             |[stringKeyAttributeMappingSourceValuePair](synchronization_stringkeyattributemappingsourcevaluepair.md) collection | In case this object represents a function, lists function parameters. Parameters consist of attributeMappingSource objects themselves, thus allowing for complex expressions If type is not `Function`, this property will be null / empty array. |
-|type                   | String                    |Type of this attribute mapping source. Possible values are: `Attribute`, `Constant`, `Function`. Default is `Attribute`.| 
+|expression             |String                     |Equivalent expression representation of this **attributeMappingSource** object.|
+|name                   |String                     |Name parameter of the mapping source. Depending on the **type** property value, this can be the name of the function, the name of the source attribute, or a constant value to be used. |
+|parameters             |[stringKeyAttributeMappingSourceValuePair](synchronization_stringkeyattributemappingsourcevaluepair.md) collection | If this object represents a function, lists function parameters. Parameters consist of **attributeMappingSource** objects themselves, allowing for complex expressions. If **type** is not `Function`, this property will be null/empty array. |
+|type                   | String                    |The type of this attribute mapping source. Possible values are: `Attribute`, `Constant`, `Function`. Default is `Attribute`.| 
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
