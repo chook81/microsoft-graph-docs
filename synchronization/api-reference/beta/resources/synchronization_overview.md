@@ -86,11 +86,11 @@ Authorization: Bearer access_token
 
 ## Find service principal objects
 
-To make requests to the synchronization API, you need to know the ID of the service principal object. This example assumes that the service principal for your application is already added to the tenant (by adding the application to your tenant in the Azure portal). You can easily find the service principal object by either display name or app ID.
+To make requests to the synchronization API, you need to know the ID of the service principal object. This example assumes that the service principal for your application is already added to the tenant (by adding the application to your tenant in the Azure portal). You can find the service principal object by either display name or app ID.
 
-### Find service principals by display name
+### Find service principal object by display name
 
-The following example shows how to find service principals by display name.
+The following example shows how to find service principal objects by display name.
 
 **Request** 
 
@@ -122,7 +122,7 @@ HTTP/1.1 200 OK
 
 ### Find service principals by app ID
 
-The following example shows how to find service principals by app ID.
+The following example shows how to find service principal objectss by app ID.
 
 **Request** 
 <!-- { "blockType": "ignored" } -->
