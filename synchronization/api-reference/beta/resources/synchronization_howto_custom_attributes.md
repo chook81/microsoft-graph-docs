@@ -1,6 +1,6 @@
 # Configure synchronization with custom target attributes
 
-This tutorial will guide you through customizing your synchronization schema to include custom attributes defined in target directory.
+You can customize your synchronization schema to include custom attributes that are defined in the target directory.
 
 ## Scenario
 
