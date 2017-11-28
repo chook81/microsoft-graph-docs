@@ -13,7 +13,7 @@ For more information about synchronization in Azure AD, see:
 
 ## Authorization
 
-The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to obtain an access token. For information about authentication with Microsoft Graph, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). For information about the permissions your app needs to access synchronization resources, see [Directory permissions](../../../concepts/permissions_reference.md#directory-permissions).
+The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to obtain an access token. For more information, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). For information about the permissions your app needs to access synchronization resources, see [Directory permissions](../../../concepts/permissions_reference.md#directory-permissions).
 
 <!-- I'm not sure why we've included these sections in the overview topic, as this basically repeats the information in the associated resource topics. I don't recommend duplicating content because it's more difficult to maintain and it's easier for users to access information in a single location. Can you clarify the intent for including these resource descriptions in the overview topic?
 
