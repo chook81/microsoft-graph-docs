@@ -1,12 +1,12 @@
 # filter resource type
 
-Scoping filters (when present) determine which objects should be provisioned to the application. For example, we might want to only provision users which are located in the US. When scoping filter is present, *objects which do not satisfy the filter will be skipped* during synchronization.
+Determines which objects should be provisioned to the application. For example, you might want to only provision users that are located in the US. When a scoping filter is present, objects that do not satisfy the filter will be skipped during synchronization.
 
-Filter is part of [object mapping](synchronization_objectMapping.md). It consists of several sets of filter groups, and each filter group holds one or more clauses. An object is considered in scope for the group (group is evaluated to `true`) **if, and only if ALL of the clauses of the group are evaluated to `true`**.
+Filter is part of [object mapping](synchronization_objectMapping.md). It consists of several sets of filter groups, and each filter group holds one or more clauses. An object is considered in scope for the group (the group is evaluated to `true`) only if all the clauses of the group are evaluated to `true`.
 
-An object is considered in scope for the group set (group set is evaluated to `true`) **if ANY of the groups in the set is evaluated to `true`**.
+An object is considered in scope for the group set (group set is evaluated to `true`) if any of the groups in the set is evaluated to `true`.
 
-For additional information, please also see [Attribute-based application provisioning with scoping filters](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-scoping-filters)
+For more information, see [Attribute-based application provisioning with scoping filters](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-scoping-filters)
 
 ## Properties
 | Property	   | Type	|Description|

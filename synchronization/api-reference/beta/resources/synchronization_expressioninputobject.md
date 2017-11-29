@@ -1,6 +1,6 @@
 # expressionInputObject resource type
 
-Represents an object to be used as input test data during expression evaluation in [synchronizationSchema: parseExpression](../api/synchronization_synchronizationschema_parseexpression.md) method.
+Represents an object to be used as input test data when the [synchronizationSchema: parseExpression](../api/synchronization_synchronizationschema_parseexpression.md) action performs an expression evaluation.
 
 ## Properties
 | Property	   | Type	|Description|
@@ -10,7 +10,7 @@ Represents an object to be used as input test data during expression evaluation 
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
