@@ -1,13 +1,13 @@
 # synchronizationJob resource type
 
-Synchronization job performs synchronization by periodically running in the background, polling for changes in one directory and pushing them to another directory. Synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, generally you would need to give authorization to read/write objects in your target directory, and customize job's synchronization schema to suit your needs.
+Performs synchronization by periodically running in the background, polling for changes in one directory and pushing them to another directory. The synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, you need to give authorization to read and write objects in your target directory, and customize the job's synchronization schema.
 
 ## Methods
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
 |[List](../api/synchronization_list_jobs.md)             |[synchronizationJob](synchronization_synchronizationjob.md) collection  |List existing jobs for a given application instance (service principal).|
-|[Get synchronizationJob](../api/synchronization_synchronizationjob_get.md) | [synchronizationJob](synchronization_synchronizationjob.md) |Read properties and relationships of synchronizationJob object.|
+|[Get synchronizationJob](../api/synchronization_synchronizationjob_get.md) | [synchronizationJob](synchronization_synchronizationjob.md) |Read properties and relationships of a synchronizationJob object.|
 |[Create](../api/synchronization_post_jobs.md)         |[synchronizationJob](synchronization_synchronizationjob.md)   |Create new job for a given application.|
 |[Start](../api/synchronization_synchronizationjob_start.md)          |None   |Start synchronization. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared.|
 |[Restart](../api/synchronization_synchronizationjob_restart.md)      |None   |Force job to start from scratch and re-process all the objects in the directory.|

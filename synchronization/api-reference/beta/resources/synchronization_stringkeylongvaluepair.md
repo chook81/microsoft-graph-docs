@@ -1,6 +1,6 @@
 # stringKeyLongValuePair resource type
 
-Key value pair where key is a string and value is an Int64.
+Represents a key-value pair where the key is a string and the value is an Int64.
 
 ## Properties
 | Property	   | Type	|Description|
@@ -10,7 +10,7 @@ Key value pair where key is a string and value is an Int64.
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

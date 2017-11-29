@@ -1,6 +1,6 @@
 # stringKeyStringValuePair resource type
 
-Key value pair where key is a string and value is a string.
+Represents a key-value pair where the key is a string and the value is a string.
 
 ## Properties
 | Property	   | Type	|Description|
@@ -10,7 +10,7 @@ Key value pair where key is a string and value is a string.
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

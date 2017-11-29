@@ -1,17 +1,17 @@
 # referencedObject resource type
 
-Describes a reference to another object defined in the same [directory definition](synchronization_directorydefinition.md)
+Describes a reference to another object defined in the same [directory definition](synchronization_directorydefinition.md).
 
 ## Properties
 
 | Property                   | Type                      | Description    |
 |:---------------------------|:--------------------------|:---------------|
-|referencedObjectName        |String                     |Name of the referenced object. Must match one of the objects in the [directory definition](synchronization_directorydefinition.md)|
-|referencedProperty          |String                     |**Currently not supported**. Name of the property in the referenced object, whos value is used as the reference|
+|referencedObjectName        |String                     |Name of the referenced object. Must match one of the objects in the [directory definition](synchronization_directorydefinition.md).|
+|referencedProperty          |String                     |<!-- is this property supported now in beta? -->**Currently not supported**. Name of the property in the referenced object, the value for which is used as the reference.|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

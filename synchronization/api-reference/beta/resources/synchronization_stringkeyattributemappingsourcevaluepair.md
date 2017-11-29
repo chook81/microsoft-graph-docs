@@ -1,16 +1,16 @@
 # stringKeyAttributeMappingSourceValuePair resource type
 
-Key value pair where key is a string and value is [attributeMappingSource](synchronization_attributemappingsource.md).
+Represents a key-value pair where the key is a string and the value is [attributeMappingSource](synchronization_attributemappingsource.md).
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|key|String|Name of the parameter|
-|value|[attributeMappingSource](synchronization_attributemappingsource.md).||
+|key|String|The Name of the parameter.|
+|value|[attributeMappingSource](synchronization_attributemappingsource.md).|<!-- Add a description. -->|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
