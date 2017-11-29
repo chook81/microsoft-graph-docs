@@ -15,11 +15,11 @@ For more information about synchronization in Azure AD, see:
 
 The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to obtain an access token. For more information, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). For information about the permissions your app needs to access synchronization resources, see [Directory permissions](../../../concepts/permissions_reference.md#directory-permissions).
 
-<!-- I'm not sure why we've included these sections in the overview topic, as this basically repeats the information in the associated resource topics. I don't recommend duplicating content because it's more difficult to maintain and it's easier for users to access information in a single location. Can you clarify the intent for including these resource descriptions in the overview topic?
-
 ## Synchronization job
 
-Synchronization job performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory. Synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, generally you would need to give authorization to read/write objects in your target directory, and customize job's synchronization schema to suit your needs. For more information, see [synchronization job](synchronization_synchronizationjob.md).
+Synchronization jobs perform synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory. The synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, you need to give authorization to read and write objects in your target directory, and customize the job's synchronization schema.
+
+For more information, see [synchronization job](synchronization_synchronizationjob.md).
 
 ## Synchronization schema
 
@@ -41,9 +41,6 @@ Object mappings are the main part of the synchronization rule. Single object map
 
 Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_synchronizationjob.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization_synchronizationschema.md). For more information, please see [synchronization template](synchronization_template.md).
 
--->
-
-<!-- Is this information that is already covered in the Get auth tokens section? If so, remove; we already link to that content under Authorization. 
 ## Using arbitrary REST client (Postman, Fiddler, etc)
 
 To request access token, you will need to have the following:
@@ -56,7 +53,7 @@ To request access token, you will need to have the following:
 
 With this information, we can make a call to obtain access token:
 Description	Obtain authorization token for Microsoft Graph, using administrative user credentials. **Make sure all parameter values are URL-encoded**
--->
+
 ### Request
 <!-- { "blockType": "ignored" } -->
 ```http
