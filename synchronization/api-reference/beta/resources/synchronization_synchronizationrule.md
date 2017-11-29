@@ -1,8 +1,8 @@
 # synchronizationRule resource type
 
-Defines how the synchronization should be performed for the synchronization engine, including which objects to synchronize and in which direction, how objects from the source directory should be matched with objects in the target directory, and how attributes should be transformed going from the source to the target.
+Defines how the synchronization should be performed for the synchronization engine, including which objects to synchronize and in which direction, how objects from the source directory should be matched with objects in the target directory, and how attributes should be transformed when they're synchronized from the source to the target directory.
 
-**Synchronization rules define synchronization in one direction**, from the source directory to the target directory. The source and target directories are defined as part of the rule properties.
+>**Note:** Synchronization rules define synchronization in one direction - from the source directory to the target directory. The source and target directories are defined as part of the rule properties.
 
 Synchronization rules are updated as part of the [synchronization schema](synchronization_synchronizationschema.md).
 
