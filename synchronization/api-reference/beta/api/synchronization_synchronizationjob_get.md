@@ -1,6 +1,6 @@
 # Get synchronizationJob
 
-Retrieve existing job and its properties.
+Retrieve the existing synchronization job and its properties.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -29,7 +29,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, returns `200 OK` response with [synchronizationJob](../resources/synchronization_synchronizationjob.md) in the response body.
+If successful, returns a `200 OK` response with [synchronizationJob](../resources/synchronization_synchronizationjob.md) in the response body.
 
 ## Example
 
@@ -44,7 +44,10 @@ GET https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs
 ```
 
 ##### Response
-The following is an example of a response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+The following is an example of a response. 
+
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
 <!-- {
   "blockType": "response",
   "truncated": true,

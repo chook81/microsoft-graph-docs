@@ -29,7 +29,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, returns `204 No Content` response. It does not return anything in the response body.
+If successful, returns a `204 No Content` response. It does not return anything in the response body.
 
 ## Example
 
@@ -44,7 +44,8 @@ DELETE https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/j
 ```
 
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+The following is an example of the response. 
+
 <!-- {
   "blockType": "response",
   "truncated": true
