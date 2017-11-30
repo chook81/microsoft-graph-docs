@@ -1,16 +1,12 @@
 # Configure synchronization with directory extension attributes
 
-This tutorial will guide you through customizing your synchronization schema to include Azure AD directory extension attributes.
+You can customize your synchronization schema to include Azure Active Directory (Azure AD) directory extension attributes. This article describes how to use a directory extension attribute (**extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. In this scenario, you have Azure AD Connect set up to provision a number of directory extension attributes from Windows Server Active Directory on-premises to Azure AD. 
 
-## Scenario
+This article assumes that you have already added an application that supports synchronization to your tenant through the [Azure Portal](https://portal.azure.com), that you know the application display name, and that you have an authorization token for Microsoft Graph. For information about how to get the authorization token, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview).
 
-You have AD Connect setup to provision a number of directory extension attributes from AD-on-premises to Azure AD. You are setting up provisioning from Azure AD to Salesforce, and you want to use one of the directory extension attributes (i.e. **extension_9d98asdfl15980a_Nickname**) to populate the value of User.CommunityNickname in Salesforce. You can achieve that using the API.
+## Find the service principal object by display name
 
-Assuming that you already added an application which supports provisioning to your tenant through the Azure Portal. You know the application display name (the one shown in the portal), and you have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API quick start](synchronization_howto_api_quickstart.md)
-
-## Find service principal by display name
-
-You are interested in the one named "Salesforce Sandbox":
+The following example shows how to find a service principal object with the display name "Salesforce Sandbox".
 
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
@@ -40,11 +36,11 @@ Authorization: Bearer {Token}
 }
 ```
 
-Your {servicePrincipalId} is "60443998-8cf7-4e61-b05c-a53b658cb5e1"
+The `{servicePrincipalId}` is `60443998-8cf7-4e61-b05c-a53b658cb5e1`.
 
 ## List synchronization jobs in the context of the service principal 
 
-Generally, you expect to see only one - this will give us jobId of the task you need to work with
+The following example shows you how to get the `jobId` that you need to work with. Generally, the response returns only one job.
 
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
@@ -65,22 +61,35 @@ Authorization: Bearer {Token}
 }
 ```
 
-Our {jobId} is "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa"
+The `{jobId}` is `SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa`.
 
-## Find exact name of the directory extension attribute you need
+## Find the name of the directory extension attribute you need
 
-You'll need full name of the extension attribute to perform next steps. If you don't know the full name (which should look similar to **extension_9d98asdfl15980a_Nickname**), see following  information regarding directory extension attributes and how to inspect them: 
+You'll need the full name of the extension attribute. If you don't know the full name (which should look similar to **extension_9d98asdfl15980a_Nickname**), see the following information about directory extension attributes and how to inspect them: 
+
 * [Extending the Azure AD directory schema with custom properties](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-graphapi-directoryextensions-web/)
-* [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory_schema_extensions)
+* [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/en-us/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)
 
 
-## Retrieve effective synchronization schema
+## Get the synchronization schema
+The following example shows how to get the synchronization schema.
+
+<!-- {
+  "blockType": "request",
+  "name": "get_synchronizationschema"
+}-->
 ```http
     GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
     Authorization: Bearer {Token}
 ```
+
 >**Note:** The response object shown here might be shortened for readability. All the properties will be returned in an actual call.
 
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.synchronizationSchema"
+} -->
 ```http
 HTTP/1.1 200 OK
 
@@ -171,18 +180,20 @@ HTTP/1.1 200 OK
 }
 ```
 
-## Add attribute definition for the directory extension attribute, and a mapping between the attributes
+## Add a definition for the directory extension attribute, and a mapping between the attributes
 
-Using text editor of your choice (i.e. http://www.jsoneditoronline.org/, Notepad++, etc) you need to:
+Use a plain text editor of your choice (for example, [Notepad++](https://notepad-plus-plus.org/) or [JSON Editor Online](http://www.jsoneditoronline.org/)) to:
 
-1. Add attribute definition for extension_9d98asdfl15980a_Nickname attribute. 
-    - Under directories, find directory with the name "Azure Active Directory", and in the objects array find the one named "User".
-    - Add new attribute to the list, specifying minimal information (name and type) - see example below
+1. Add an attribute definition for the `extension_9d98asdfl15980a_Nickname` attribute. 
 
-2. Add attribute mapping between extension_9d98asdfl15980a_Nickname and CommunityNickname
-    - Under synchronizationRules, find the rule which has Azure AD as source directory, and Salesforce.com as target directory ( "sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com")
-    - In objectMappings of the rule, find mapping between users ("sourceObjectName": "User",   "targetObjectName": "User")
-    - In the attributeMappings array of the objectMapping, add a new entry, specifying minimal information as show in the example
+    - Under directories, find the directory with the name "Azure Active Directory", and in the object's array, find the one named **User**.
+    - Add the new attribute to the list, specifying the name and type, as shown in the following example.
+
+2. Add attribute mapping between extension_9d98asdfl15980a_Nickname and CommunityNickname.
+
+    - Under **synchronizationRules**, find the rule that specifies Azure AD as source directory, and Salesforce.com as the target directory (`"sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com"`).
+    - In the **objectMappings** of the rule, find the mapping between users (`"sourceObjectName": "User",   "targetObjectName": "User"`).
+    - In the **attributeMappings** array of the **objectMapping**, add a new entry, as shown in the following example.
 
     ```json
     {
@@ -233,9 +244,9 @@ Using text editor of your choice (i.e. http://www.jsoneditoronline.org/, Notepad
     }
     ```
 
-## Save modified schema
+## Save the modified synchronization schema
 
-Make sure you supply entire schema object, including all the unmodified parts, as this request will replace existing schema with the one provided.
+When you save the updated synchronization schema, make sure that you include the entire schema, including the unmodified parts. This request will replace the existing schema with the one that you provide.
 
 ```http
 PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
@@ -248,6 +259,4 @@ Authorization: Bearer {Token}
 HTTP/1.1 201 No Content
 ```
 
-## Observe the results
-
-If schema was saved successfully, on the next iteration of the synchronization job, it will start re-processing all the accounts in your Azure Active Directory, so that new mappings are applied to all provisioned accounts
+If the schema was saved successfully, on the next iteration of the synchronization job, it will start re-processing all the accounts in your Azure AD, and the new mappings will be applied to all provisioned accounts.
