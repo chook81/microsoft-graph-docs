@@ -25,7 +25,7 @@ To request an access token, you need to have the following:
 
     >**Note:** The application must be registered in Azure AD, have Directory.ReadWrite.All permissions for Microsoft Graph, and must be consented to in the tenant. To do this, you can:
 
-	>- Use well-known PowerShell application ID (1950a258-227b-4e31-a9cf-717495945fc2), which is automatically consented to on any tenant.
+	>- Use the well-known PowerShell application ID (1950a258-227b-4e31-a9cf-717495945fc2), which is automatically consented to on any tenant.
 	>- Register your own application. For more information, see [Register an app with the Azure AD v2.0 endpoint](../../../concepts/auth_register_app_v2.md).
 
 
