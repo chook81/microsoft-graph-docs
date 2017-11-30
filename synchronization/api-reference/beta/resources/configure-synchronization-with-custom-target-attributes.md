@@ -176,17 +176,14 @@ Use a plain text editor of your choice (for example, [Notepad++](https://notepad
 
 1. Add an attribute definition for the `officeCode` attribute. 
 
-	a. Under directories, find the directory with the name salesforce.com, and in the object's array, find the one named **User**.
-
-	b. Add the new attribute to the list, specifying the name and type, as shown in the following example.
+	- Under directories, find the directory with the name salesforce.com, and in the object's array, find the one named **User**.
+	- Add the new attribute to the list, specifying the name and type, as shown in the following example.
 
 2. Add an attribute mapping between `officeCode` and `extensionAttribute10`.
 
-	a. Under **synchronizationRules**, find the rule that specifies Azure AD as the source directory, and Salesforce.com as the target directory (`"sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com"`).
-
-	b. In the **objectMappings** of the rule, find the mapping between users (`"sourceObjectName": "User",   "targetObjectName": "User"`).
-	
-	c. In the **attributeMappings** array of the **objectMapping**, add a new entry, as shown in the following example.
+	- Under **synchronizationRules**, find the rule that specifies Azure AD as the source directory, and Salesforce.com as the target directory (`"sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com"`).
+	- In the **objectMappings** of the rule, find the mapping between users (`"sourceObjectName": "User",   "targetObjectName": "User"`).
+	- In the **attributeMappings** array of the **objectMapping**, add a new entry, as shown in the following example.
 
 ```json
 {  
