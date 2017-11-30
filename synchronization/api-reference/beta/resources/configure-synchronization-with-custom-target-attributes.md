@@ -2,11 +2,11 @@
 
 You can customize your synchronization schema to include custom attributes that are defined in the target directory. This article describes how to customize a Salesforce subscription by adding a new field called `officeCode`. You set up synchronization from Azure Active Directory (Azure AD) to Salesforce, and for each user, you will populate the `officeCode` field in Salesforce with the value from the `extensionAttribute10` field in Azure AD.
 
-This article assumes that you have already added an application that supports synchronization to your tenant through the [Azure Portal](https://portal.azure.com), that you know the application display name, and that you have an authorization token for Microsoft Graph. For information about how to obtain authorization token, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview).
+This article assumes that you have already added an application that supports synchronization to your tenant through the [Azure Portal](https://portal.azure.com), that you know the application display name, and that you have an authorization token for Microsoft Graph. For information about how to get the authorization token, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview).
 
 ## Find the service principal object by display name
 
-The following example shows how to find a service principal object with the display name "Salesforce".
+The following example shows how to find a service principal object with the display name Salesforce.
 
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
@@ -61,7 +61,9 @@ Authorization: Bearer {Token}
 The `{jobId}` is `SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa`.
 
 
-## Retreive effective synchronization schema
+## Get the synchronization schema
+The following example shows how to get the synchronization schema.
+
 <!-- {
   "blockType": "request",
   "name": "get_synchronizationschema"
@@ -72,6 +74,7 @@ Authorization: Bearer {Token}
 ```
 
 >**Note:** The response object shown here might be shortened for readability. All the properties will be returned in an actual call.
+
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -167,17 +170,17 @@ HTTP/1.1 200 OK
 }
 ```
 
-## Add attribute definition for officeCode attribute, and a mapping between attributes
+## Add a definition for the officeCode attribute and a mapping between attributes
 
-Using plain text editor of your choice (i.e. Notepad++, or http://www.jsoneditoronline.org/) we need to:
+Use a plain text editor of your choice (for example, [Notepad++](https://notepad-plus-plus.org/) or [JSON Editor Online](http://www.jsoneditoronline.org/)) to:
 
-	1. Add attribute definition for officeCode attribute. 
-		a. Under directories, find directory with the name "salesforce.com", and in the objects array find the one named "User".
-		b. Add new attribute to the list, specifying minimal information (name and type) - see example below
-	2. Add attribute mapping between officeCode and extensionAttribute10
-		a. Under synchronizationRules, find the rule which has Azure AD as source directory, and Salesforce.com as target directory ( "sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com")
-		b. In objectMappings of the rule, find mapping between users ("sourceObjectName": "User",   "targetObjectName": "User")
-		c. In the attributeMappings array of the objectMapping, add a new entry, specifying minimal informati as show in the example
+	1. Add an attribute definition for the `officeCode` attribute. 
+		a. Under directories, find the directory with the name salesforce.com, and in the object's array, find the one named **User**.
+		b. Add the new attribute to the list, specifying the name and type, as shown in the following example.
+	2. Add an attribute mapping between `officeCode` and `extensionAttribute10`.
+		a. Under **synchronizationRules**, find the rule that specifies Azure AD as the source directory, and Salesforce.com as the target directory (`"sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com"`).
+		b. In the **objectMappings** of the rule, find the mapping between users (`"sourceObjectName": "User",   "targetObjectName": "User"`).
+		c. In the **attributeMappings** array of the **objectMapping**, add a new entry, as shown in the following example.
 
 ```json
 {  
@@ -227,9 +230,9 @@ Using plain text editor of your choice (i.e. Notepad++, or http://www.jsoneditor
 }
 ```
 
-## Save modified synchronization schema
+## Save the modified synchronization schema
 
-Make sure you supply entire schema object, including all the unmodified parts, as this request will replace existing schema with the one provided.
+When you save the updated synchronization schema, make sure that you include the entire schema, including the unmodified parts. This request will replace the existing schema with the one that you provide.
 
 ```http
 PUT https://graph.microsoft.com/testSynchronization/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
@@ -242,6 +245,4 @@ Authorization: Bearer {Token}
 HTTP/1.1 201 No Content
 ```
 
-## Observe the results
-
-If schema was saved successfully, on the next iteration of the synchronization job, it will start re-processing all the accounts in your Azure Active Directory, so that new mappings are applied to all provisioned accounts
+If the schema was saved successfully, on the next iteration of the synchronization job, it will start re-processing all the accounts in your Azure AD, and the new mappings will be applied to all provisioned accounts.
