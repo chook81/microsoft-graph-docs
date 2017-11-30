@@ -1,16 +1,12 @@
 # Configure synchronization with custom target attributes
 
-You can customize your synchronization schema to include custom attributes that are defined in the target directory.
+You can customize your synchronization schema to include custom attributes that are defined in the target directory. This article describes how to customize a Salesforce subscription by adding a new field called `officeCode`. You set up synchronization from Azure Active Directory (Azure AD) to Salesforce, and for each user, you will populate the `officeCode` field in Salesforce with the value from the `extensionAttribute10` field in Azure AD.
 
-## Scenario
+This article assumes that you have already added an application that supports synchronization to your tenant through the [Azure Portal](https://portal.azure.com), that you know the application display name, and that you have an authorization token for Microsoft Graph. For information about how to obtain authorization token, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview).
 
-You have a Salesforce subscription, where you customized Salesforce's User object by adding a new field, "officeCode". You are setting up synchronization from Azure AD to Salesforce, and for each user you want to populate "officeCode" in Salesforce with the value from the "extensionAttribute10" on Azure AD side. 
+## Find the service principal object by display name
 
-Assuming that you already added an application which supports synchronization to your tenant through the Azure Portal. You know our application display name (the one shown in [Azure Portal](https://portal.azure.com)), and you have an authorization token for Microsoft Graph. For information on how to obtain authorization token, see [Synchronization API quick start](synchronization_howto_api_quickstart.md)
-
-## Find service principal by display name
-
-We are interested in the one named "Salesforce":
+The following example shows how to find a service principal object with the display name "Salesforce".
 
 ```http
 GET https://graph.microsoft.com/beta/servicePrincipals?$select=id,appId,displayName&$filter=startswith(displayName, 'salesforce')
@@ -38,19 +34,19 @@ Authorization: Bearer {Token}
 }
 ```
 
-Our `{servicePrincipalId}` is "167e33e9-f80e-490e-b4d8-698d4a80fb3e"
+The `{servicePrincipalId}` is `167e33e9-f80e-490e-b4d8-698d4a80fb3e`.
 
 
-## List synchronization jobs in the context of our service principal 
+## List synchronization jobs in the context of the service principal 
 
-Generally, only one job is expected in the response - this will give you jobId you need to work with
+The following example shows you how to get the `jobId` that you need to work with. Generally, the response returns only one job.
 
 ```http
-GET https://graph.microsoft.com/testSynchronization/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
+GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a53b658cb5e1/synchronization/jobs
 Authorization: Bearer {Token}
 
 {
-    "@odata.context": "https://graph.microsoft.com/testSynchronization/$metadata#servicePrincipals('60443998-8cf7-4e61-b05c-a53b658cb5e1')/synchronization/jobs",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('60443998-8cf7-4e61-b05c-a53b658cb5e1')/synchronization/jobs",
     "value": [
         {
             "id": "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa",
@@ -62,7 +58,7 @@ Authorization: Bearer {Token}
 }
 ```
 
-Your `{jobId}` is "SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa"
+The `{jobId}` is `SfSandboxOutDelta.e4bbf44533ea4eabb17027f3a92e92aa`.
 
 
 ## Retreive effective synchronization schema
