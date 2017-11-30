@@ -23,23 +23,21 @@ For more information, see [synchronization job](synchronization_synchronizationj
 
 ## Synchronization schema
 
-Synchronization schema contains the bulk of a particular synchronization setup. On a high level, it defines what objects will be synchronized and how. Most often you will want to customize some of the attribute mappings according to your needs, or add a scoping filter to synchronize only objects which satisfy a certain condition. For more information, please see [synchronization schema](synchronization_synchronizationschema.md).
+The synchronization schema defines what objects will be synchronized and how they will be synchronized. The synchronization schema contains most of the setup information for a particular synchronization job. Typically, you will customize some of the [attribute mappings](synchronization_attributemapping.md), or add a [scoping filter](synchronization_filter.md) to synchronize only objects that satisfy a certain condition.
 
-### Directory definition
+The synchronization schema includes the following components:
 
-Directory definition provides synchronization engine information about a directory and its objects. Directory definition tells synchronization engine, for example, that directory has objects named "User" and "Group" and what attributes are supported for those objects. In order for the object and attribute to used in [object mappings](synchronization_objectMapping.md), they must to be defined as part of the directory definition. For more information, please see [directory definition](synchronization_directoryDefinition.md).
+- Directory definitions
+- Synchronization rules
+- Object mappings
 
-### Synchronization rule
-
-Synchronization rules are at the core of the synchronization setup. They instruct synchronization on how the synchronization should be performed. That includes what objects should be synchronized, how objects from source directory should be matched with objects in target directory, and how attributes should be transformed going from source to target directory. For more information, please see [synchronization rule](synchronization_synchronizationrule.md).
-
-### Object mapping
-
-Object mappings are the main part of the synchronization rule. Single object mapping defines how a given object should be synchronized from source directory to target. In particular, it defines how object in source directory should be matched with an object in target directory, what (if any) scoping filters should be used to decide if we want to provision a given object, and how object attributes should be transformed going from source to target directory. For more information, please see [object mapping](synchronization_objectMapping.md).
+For more information, see [synchronization schema](synchronization_synchronizationschema.md).
 
 ## Synchronization template
 
-Synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_synchronizationjob.md) based on the template.  Template is controlled by the developer of the application, although anyone can retrieve the template to see the default settings, most importantly [synchronization schema](synchronization_synchronizationschema.md). For more information, please see [synchronization template](synchronization_template.md).
+The synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_synchronizationjob.md) that is based on the template. The application developer specifies the template; anyone can retrieve the template to see the default settings, including the [synchronization schema](synchronization_synchronizationschema.md).
+
+For more information, see [synchronization template](synchronization_template.md).
 
 ## Using arbitrary REST client (Postman, Fiddler, etc)
 
@@ -223,7 +221,6 @@ Try the API in the [Graph Explorer](https://graph.microsoft.io/en-us/graph-explo
 
 ## See also
 
-* [Synchronization schema](../resources/synchronization_synchronizationschema.md)
 * [Configure synchronization with directory extension attributes](../resources/synchronization_howto_directory_extensions.md)
 * [Configure synchronization with custom target attributes](../resources/synchronization_howto_custom_attributes.md)
 
