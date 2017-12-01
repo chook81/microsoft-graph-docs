@@ -1,6 +1,6 @@
 # Update synchronizationTemplate
 
-Update (override) synchronization template associated with a given application.
+Update (override) the synchronization template associated with a given application.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -25,7 +25,7 @@ PUT application/{id}/synchronization/templates/{templateId}
 
 ## Request body
 
-In the request body, supply the [synchronizationTemplate](../resources/synchronization_template.md) object to replace the existing template. Make sure all properties are provided, as missing properties will be erased.
+In the request body, supply the [synchronizationTemplate](../resources/synchronization_template.md) object to replace the existing template. Make sure all properties are provided. Missing properties will be erased.
 
 ### Response
 
@@ -34,7 +34,9 @@ If successful, this method returns a `204 No Content` response code. It does not
 ### Examples
 
 ##### Request
-The following is an example of a request. Note: The request object shown here may is truncated for brevity. All of the properties should be supplied in an actual call.
+The following is an example of a request. 
+
+>**Note:** The request object shown here is shortened for readability. Include all the properties in an actual call.
 <!-- {
   "blockType": "request",
   "name": "update_synchronizationtemplate"

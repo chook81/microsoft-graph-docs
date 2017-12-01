@@ -1,6 +1,6 @@
 ## List existing synchronization templates
 
-List templates associated with a given application or service principal.
+List the synchronization templates associated with a given application or service principal.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -30,7 +30,7 @@ Do not supply a request body for this method.
 
 ### Response
 
-If successful, this method returns a `200 OK` response code and collection of [synchronizationTemplate](../resources/synchronization_template.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and acollection of [synchronizationTemplate](../resources/synchronization_template.md) objects in the response body.
 
 ### Example
 

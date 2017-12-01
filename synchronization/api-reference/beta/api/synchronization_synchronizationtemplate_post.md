@@ -1,6 +1,6 @@
 ## Create synchronizationTemplate
 
-Create new template for a given application.
+Create a new synchronization template for a given application.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -25,11 +25,11 @@ POST /applications/{id}/synchronization/templates/
 
 ## Request body
 
-In the request body, supply the [synchronizationTemplate](../resources/synchronization_template.md) object to be created. `id`, `applicationId` and `factoryTag` properties are required. When no `schema` is provided with the template, default schema associated with `factoryTag` will be used.
+In the request body, supply the [synchronizationTemplate](../resources/synchronization_template.md) object to be created. The `id`, `applicationId` and `factoryTag` properties are required. When no `schema` is provided with the template, the default schema associated with the `factoryTag` property will be used.
 
 ### Response
 
-If successful, this method returns a `201 Created` response code and created [synchronizationTemplate](../resources/synchronization_template.md) object in the response body.
+If successful, this method returns a `201 Created` response code and a [synchronizationTemplate](../resources/synchronization_template.md) object in the response body.
 
 ### Example
 

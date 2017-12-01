@@ -1,6 +1,6 @@
 # Update synchronizationSchema
 
-Update synchronization schema for a given job or template. Fully replaces current schema with the one provided in the request. To update schema of a template, call must be made on the application object, and caller must be the owner of the application.
+Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -26,7 +26,7 @@ PUT /applications/{id}/synchronization/templates/{templateId}/schema
 
 ## Request body
 
-In the request body, supply the [synchronizationSchema](../resources/synchronization_synchronizationschema.md) object to replace existing schema with.
+In the request body, supply the [synchronizationSchema](../resources/synchronization_synchronizationschema.md) object to replace the existing schema with.
 
 ## Response
 
@@ -37,7 +37,7 @@ If successful, returns a `204 No Content` response code. It does not return anyt
 ##### Request
 The following is an example of a request.
 
->**Note:** The request object shown here is be shortened for readability. All the properties should be supplied in an actual call.
+>**Note:** The request object shown here is shortened for readability. Supply all the properties in an actual call.
 <!-- {
   "blockType": "request",
   "name": "update_synchronizationschema"
