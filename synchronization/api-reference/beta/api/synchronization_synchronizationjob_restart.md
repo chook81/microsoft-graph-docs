@@ -1,6 +1,6 @@
 # Restart synchronizationJob
 
-Restart the synchronization job, forcing it to reprocess from scratch all the objects in the directory. Optionally clears existing synchronization state and previous errors.
+Restart the synchronization job, forcing it to reprocess all the objects in the directory. Optionally clears existing synchronization state and previous errors.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -25,7 +25,7 @@ POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 
 ## Request body
 
-In the request body provide JSON object with the following parameters:
+In the request body, provide a JSON object with the following parameter.
 
 | Parameter     | Type      | Description    |
 |:--------------|:----------|:---------------|
@@ -33,7 +33,7 @@ In the request body provide JSON object with the following parameters:
 
 ## Response
 
-If successful, returns `204 No Content` response. It does not return anything in the response body.
+If successful, returns a `204 No Content` response. It does not return anything in the response body.
 
 ## Example
 

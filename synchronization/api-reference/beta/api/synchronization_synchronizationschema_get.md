@@ -1,6 +1,6 @@
 # Get synchronizationSchema
 
-Retrieve effective schema for a given job or template.
+Retrieve the schema for a given synchronization job or template.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -31,7 +31,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and [synchronizationSchema](../resources/synchronization_synchronizationschema.md) object in the response body.
+If successful, this method returns a `200 OK` response code and a [synchronizationSchema](../resources/synchronization_synchronizationschema.md) object in the response body.
 
 ## Example
 
@@ -47,6 +47,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 
 ##### Response
 The following is an example of a response.
+
 >**Note:** The response object shown here might be shortened for readability. All the properties will be returned in an actual call.
 <!-- {
   "blockType": "response",

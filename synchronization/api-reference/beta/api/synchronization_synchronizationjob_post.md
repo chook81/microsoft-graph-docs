@@ -1,6 +1,6 @@
 # Create synchronizationJob
 
-Create new synchronization job with default synchronization schema. Job is created in disabled state. Call [Start job](synchronization_synchronizationjob_start.md) to start synchronization.
+Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call [Start job](synchronization_synchronizationjob_start.md) to start synchronization.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -25,11 +25,11 @@ POST /servicePrincipals/{id}/synchronization/jobs/
 
 ## Request body
 
-In the request body, supply a JSON representation of [synchronizationJob](../resources/synchronization_synchronizationjob.md) object to be created. `templateId` is the only required property. `templateId` must match one of the templates created for this application/service principal (to discover available templates, use [List templates](synchronization_list_templates.md).
+In the request body, supply a JSON representation of the [synchronizationJob](../resources/synchronization_synchronizationjob.md) object to be created. The only required property is `templateId`. The `templateId` property must match one of the templates created for this application/service principal. To find available templates, use [List templates](synchronization_list_templates.md).
 
 ## Response
 
-If successful, returns a `201 Created` response code and [synchronizationJob](../resources/synchronization_synchronizationjob.md) object in the response body.
+If successful, returns a `201 Created` response code and a [synchronizationJob](../resources/synchronization_synchronizationjob.md) object in the response body.
 
 ## Example
 
@@ -49,7 +49,10 @@ Content-type: application/json
 ```
 
 ##### Response
-The following is an example of a response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+The following is an example of a response. 
+
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
 <!-- {
   "blockType": "response",
   "truncated": true,

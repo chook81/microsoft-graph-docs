@@ -31,7 +31,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, this method returns `200 OK` response code and collection of [attributemappingFunctionSchema](../resources/synchronization_attributeMappingFunctionSchema.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and a collection of [attributemappingFunctionSchema](../resources/synchronization_attributeMappingFunctionSchema.md) objects in the response body.
 
 ## Example
 
@@ -47,6 +47,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 
 ##### Response
 The following is an example of a response.
+
 >**Note:** The response object shown here might be shortened for readability. All the properties will be returned in an actual call.
 
 <!--

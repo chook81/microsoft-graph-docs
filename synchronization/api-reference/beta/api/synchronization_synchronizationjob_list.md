@@ -29,7 +29,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and collection of [synchronizationJob](../resources/synchronization_synchronizationjob.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and a collection of [synchronizationJob](../resources/synchronization_synchronizationjob.md) objects in the response body.
 
 ## Example
 
@@ -44,7 +44,10 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 ```
 
 ##### Response
-The following is an example of a response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+The following is an example of a response. 
+
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
 <!-- {
   "blockType": "response",
   "truncated": true,

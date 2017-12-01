@@ -36,6 +36,7 @@ If successful, returns a `204 No Content` response code. It does not return anyt
 
 ##### Request
 The following is an example of a request.
+
 >**Note:** The request object shown here is be shortened for readability. All the properties should be supplied in an actual call.
 <!-- {
   "blockType": "request",

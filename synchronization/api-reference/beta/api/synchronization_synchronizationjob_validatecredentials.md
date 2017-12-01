@@ -1,6 +1,6 @@
 # synchronizationJob: validateCredentials
 
-Test provided credentials against the directory.
+Test the credentials provided against the directory.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -27,16 +27,16 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|useSavedCredentials|Boolean|When `true`, `"credentials"` parameter will be ignored and previously saved credentials (if any) will be validated instead. |
-|credentials|[synchronizationSecretKeyStringValuePair](../resources/synchronization_secretkeystringvaluepair.md) collection|Credentials to validate. Ignored when `"useSavedCredentials"` parameter is `true`.|
+|useSavedCredentials|Boolean|When `true`, the `credentials` parameter will be ignored and the previously saved credentials (if any) will be validated instead. |
+|credentials|[synchronizationSecretKeyStringValuePair](../resources/synchronization_secretkeystringvaluepair.md) collection|Credentials to validate. Ignored when the `useSavedCredentials` parameter is `true`.|
 
 ## Response
-If validation is successful, this method returns `204, No Content` response code. It does not return anything in the response body.
+If validation is successful, this method returns a `204, No Content` response code. It does not return anything in the response body.
 
 ## Example
-Here is an example of how to call this API.
+
 ##### Request
-Here is an example of the request.
+The following is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "synchronizationjob_validatecredentials"
@@ -55,7 +55,7 @@ Content-length: 218
 ```
 
 ##### Response
-Here is an example of the response. 
+The following is an example of the response. 
 <!-- {
   "blockType": "response",
   "truncated": true,

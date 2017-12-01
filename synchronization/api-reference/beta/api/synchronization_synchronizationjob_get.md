@@ -29,7 +29,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, returns a `200 OK` response with [synchronizationJob](../resources/synchronization_synchronizationjob.md) in the response body.
+If successful, returns a `200 OK` response with a [synchronizationJob](../resources/synchronization_synchronizationjob.md) in the response body.
 
 ## Example
 
