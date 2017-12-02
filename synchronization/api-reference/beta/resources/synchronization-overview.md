@@ -43,7 +43,7 @@ For more information, see [synchronization template](synchronization_template.md
 
 ## Find the service principal object
 
-To make requests to the synchronization API, you need to know the ID of the service principal object. This example assumes that the you have already added the service principal for your application to the tenant (by adding the application to your tenant in the Azure portal). You can find the service principal object by either display name or app ID.
+To make requests to the synchronization API, you need to know the ID of the [service principal object](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-dev-glossary#service-principal-object). This example assumes that the you have already added the service principal for your application to the tenant (by adding the application to your tenant in the Azure portal). You can find the service principal object by either display name or app ID.
 
 ### Find service principal object by display name
 
