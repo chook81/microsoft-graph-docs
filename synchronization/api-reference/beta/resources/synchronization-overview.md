@@ -11,53 +11,11 @@ For more information about synchronization in Azure AD, see:
 * [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning)
 * [Managing user account provisioning for enterprise apps in the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-apps-manage-provisioning)
 
+You can also try the API in the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in a sample tenant or your own tenant.
+
 ## Authorization
 
 The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to get an access token. For more information, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). For information about the permissions your app needs to access synchronization resources, see [Directory permissions](../../../concepts/permissions_reference.md#directory-permissions).
-
-### Requesting an access token
-
-To request an access token, you need to have the following:
-
-* The tenant identifier (a unique identifier for the tenant you will be working with).
-* Administrative user credentials for the tenant.
-* The client app ID for the application that is calling the API. 
-
-    >**Note:** The application must be registered in Azure AD, have Directory.ReadWrite.All permissions for Microsoft Graph, and must be consented to in the tenant. To do this, you can:
-
-	>- Use the well-known PowerShell application ID (1950a258-227b-4e31-a9cf-717495945fc2), which is automatically consented to on any tenant.
-	>- Register your own application. For more information, see [Register an app with the Azure AD v2.0 endpoint](../../../concepts/auth_register_app_v2.md).
-
-
-The following example shows how to make the call to get an access token. Make sure that all parameter values are URL-encoded.
-
-**Request**
-<!-- { "blockType": "ignored" } -->
-```http
-POST https://login.windows.net/{tenantId}/oauth2/token
-Content-Type: application/x-www-form-urlencoded
-
-client_id={applicationClientId}&resource=https%3A%2F%2Fgraph.microsoft.com%2F&grant_type=password&username={userPrincipalName}&password={password}
-```
-
-**Response**
-<!-- { "blockType": "ignored" } -->
-```http
-HTTP1.1/OK
-{
-    "token_type": "Bearer",
-    "access_token": "eyJ0eXAiOiJKV…",
-    "refresh_token": "AQABAAAAAABu…"
-}
-```
-
-All subsequent requests must include the access token, as shown in the following example.
-
-<!-- { "blockType": "ignored" } -->
-```http
-GET https://graph.microsoft.com/beta/servicePrincipals
-Authorization: Bearer access_token
-```
 
 ## Synchronization job
 
@@ -220,11 +178,6 @@ HTTP/1.1 200 OK
     "synchronizationRules": []
 }
 ```
-
-## Next steps
-
-Try the API in the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Graph Explorer will handle authentication for you, so you don't need to worry about access tokens.
-
 ## See also
 
 * [Configure synchronization with directory extension attributes](../resources/synchronization_howto_directory_extensions.md)
