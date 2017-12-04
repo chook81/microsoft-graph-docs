@@ -49,7 +49,7 @@ Content-length: 218
 { 
     credentials: [ 
         { key: "UserName", value: "user@domain.com" },
-        { key: "Password", value: "[redacted]" }
+        { key: "Password", value: "password-value" }
     ]
 }
 ```
