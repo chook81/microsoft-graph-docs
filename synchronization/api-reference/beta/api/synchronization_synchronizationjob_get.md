@@ -14,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /servicePrincipals/<id>/synchronization/jobs/<jobId>/
+GET /servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
 ## Request headers
@@ -40,7 +40,7 @@ The following is an example of a request.
   "name": "get_synchronizationjob"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<jobId>/
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
 ##### Response

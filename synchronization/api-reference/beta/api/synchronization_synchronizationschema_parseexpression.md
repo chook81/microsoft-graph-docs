@@ -16,8 +16,8 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /servicePrincipals/<id>/synchronization/jobs/<id>/schema/parseExpression
-POST /servicePrincipals/<id>/synchronization/templates/<id>/schema/parseExpression
+POST /servicePrincipals/{id}/synchronization/jobs/{id}/schema/parseExpression
+POST /servicePrincipals/{id}/synchronization/templates/{id}/schema/parseExpression
 
 ```
 ## Request headers
@@ -46,7 +46,7 @@ The following is an example of the request.
   "name": "synchronizationschema_parseexpression"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<id>/schema/parseExpression
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/schema/parseExpression
 Content-type: application/json
 
 {

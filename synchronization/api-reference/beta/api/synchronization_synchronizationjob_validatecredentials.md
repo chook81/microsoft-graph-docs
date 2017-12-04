@@ -14,7 +14,7 @@ One of the following permissions is required to call this API. To learn more, in
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /servicePrincipals/<id>/synchronization/jobs/<id>/validateCredentials
+POST /servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 
 ```
 ## Request headers
@@ -42,7 +42,7 @@ The following is an example of the request.
   "name": "synchronizationjob_validatecredentials"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<id>/validateCredentials
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 Content-type: application/json
 Content-length: 218
 
