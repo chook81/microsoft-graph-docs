@@ -1,4 +1,4 @@
-# Get synchroizationTemplate
+# Get synchronizationTemplate
 
 Retrieve a synchronization template by its identifier.
 
