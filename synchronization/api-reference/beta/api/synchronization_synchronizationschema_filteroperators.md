@@ -1,6 +1,6 @@
 # synchronizationSchema: filterOperators
 
-List all operators supported in the scoping filters.
+List all operators supported in the [scoping filters](resources/synchronization_filter.md).
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
