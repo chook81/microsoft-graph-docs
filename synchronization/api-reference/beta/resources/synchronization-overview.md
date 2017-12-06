@@ -37,7 +37,7 @@ For more information, see [synchronization schema](synchronization_synchronizati
 
 ## Synchronization template
 
-The synchronization template provides pre-configured synchronization settings for a particular application. These settings will be used by default for any [synchronization job](synchronization_synchronizationjob.md) that is based on the template. The application developer specifies the template; anyone can retrieve the template to see the default settings, including the [synchronization schema](synchronization_synchronizationschema.md).
+The synchronization template provides pre-configured synchronization settings for a particular application. These settings (most importantly, [synchronization schema](synchronization_synchronizationschema.md)) will be used by default for any [synchronization job](synchronization_synchronizationjob.md) that is based on the template. Templates are specified by the application developer.
 
 For more information, see [synchronization template](synchronization_template.md).
 
