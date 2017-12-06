@@ -5,8 +5,8 @@ Represents a key-value pair where the key is a string and the value is [attribut
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|key|String|The Name of the parameter.|
-|value|[attributeMappingSource](synchronization_attributemappingsource.md).|<!-- Add a description. -->|
+|key|String|The name of the parameter.|
+|value|[attributeMappingSource](synchronization_attributemappingsource.md)|The value of the parameter.|
 
 ## JSON representation
 
