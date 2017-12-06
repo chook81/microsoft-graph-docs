@@ -1,6 +1,6 @@
 # synchronizationSchema: functions
 
-List all functions supported in the [attribute mapping](resources/synchronization_attributemapping.md) expressions.
+List all the functions currently supported in the [attributeMappingSource](resources/synchronization_attributemappingsource.md).
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
