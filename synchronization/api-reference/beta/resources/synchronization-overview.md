@@ -15,7 +15,7 @@ You can also try the API in the [Graph Explorer](https://developer.microsoft.com
 
 ## Authorization
 
-The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to get an access token. For more information, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). For information about the permissions your app needs to access synchronization resources, see [Directory permissions](../../../concepts/permissions_reference.md#directory-permissions).
+The Azure AD synchronization API uses OAuth 2.0 for authorization. Before making any requests to the API, you need to get an access token. For more information, see [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview). To access synchronization resources, your application needs Directory.ReadWrite.All permissions. For more information, see [Directory permissions](../../../concepts/permissions_reference.md#directory-permissions).
 
 ## Synchronization job
 
