@@ -1,6 +1,8 @@
-## Create synchronizationTemplate
+# Create synchronizationTemplate
 
-Create new template for a given application.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Create a new synchronization template for a given application.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,8 +10,8 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported.|
+|Application                            |Not supported.| 
 
 ### HTTP Request
 <!-- { "blockType": "ignored" } -->
@@ -25,11 +27,11 @@ POST /applications/{id}/synchronization/templates/
 
 ## Request body
 
-In the request body, supply the [synchronizationTemplate](../resources/synchronization_template.md) object to be created. `id`, `applicationId` and `factoryTag` properties are required. When no `schema` is provided with the template, default schema associated with `factoryTag` will be used.
+In the request body, supply the [synchronizationTemplate](../resources/synchronization_template.md) object to be created. The `id`, `applicationId` and `factoryTag` properties are required. When no `schema` is provided with the template, the default schema associated with the `factoryTag` property will be used.
 
 ### Response
 
-If successful, this method returns a `201 Created` response code and created [synchronizationTemplate](../resources/synchronization_template.md) object in the response body.
+If successful, this method returns a `201 Created` response code and a [synchronizationTemplate](../resources/synchronization_template.md) object in the response body.
 
 ### Example
 

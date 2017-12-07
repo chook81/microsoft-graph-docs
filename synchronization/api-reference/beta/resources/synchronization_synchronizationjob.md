@@ -1,20 +1,22 @@
 # synchronizationJob resource type
 
-Synchronization job performs synchronization by periodically running in the background, polling for changes in one directory and pushing them to another directory. Synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, generally you would need to give authorization to read/write objects in your target directory, and customize job's synchronization schema to suit your needs.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory. The synchronization job is always specific to a particular instance of an application in your tenant. As part of the synchronization job setup, you need to give authorization to read and write objects in your target directory, and customize the job's synchronization schema.
 
 ## Methods
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
 |[List](../api/synchronization_list_jobs.md)             |[synchronizationJob](synchronization_synchronizationjob.md) collection  |List existing jobs for a given application instance (service principal).|
-|[Get synchronizationJob](../api/synchronization_synchornizationjob_get.md) | [synchronizationJob](synchronization_synchronizationjob.md) |Read properties and relationships of synchronizationJob object.|
+|[Get synchronizationJob](../api/synchronization_synchronizationjob_get.md) | [synchronizationJob](synchronization_synchronizationjob.md) |Read properties and relationships of a synchronizationJob object.|
 |[Create](../api/synchronization_post_jobs.md)         |[synchronizationJob](synchronization_synchronizationjob.md)   |Create new job for a given application.|
-|[Start](../api/synchronization_synchronizationjob_start.md)          |None   |Start synchronization. If job is in paused state, it continues from the point where job was paused. If job is in quarantine, quarantine status is cleared.|
-|[Restart](../api/synchronization_synchronizationjob_restart.md)      |None   |Force job to start from scratch and re-process all the objects in the directory.|
-|[Pause](../api/synchronization_synchronizationjob_pause.md)          |None   |Temporarily stop synchronizaion. All the progress including job state is persisted, and upon [Start](../api/synchronization_synchronizationjob_start.md) call job execution will continue from where it left off.|
+|[Start](../api/synchronization_synchronizationjob_start.md)          |None   |Start synchronization. If the job is in a paused state, it continues from the point where the job was paused. If the job is in quarantine, the quarantine status is cleared.|
+|[Restart](../api/synchronization_synchronizationjob_restart.md)      |None   |Force the job to start over and re-process all the objects in the directory.|
+|[Pause](../api/synchronization_synchronizationjob_pause.md)          |None   |Temporarily stop synchronization. All the progress, including job state, is persisted, and the job will continue from where it left off when a [Start](../api/synchronization_synchronizationjob_start.md) call is made.|
 |[Delete](../api/synchronization_synchronizationjob_delete.md)        |None   |Stop synchronization, and permanently delete all the state associated with the job.|
-|[Get synchrnoizationSchema](../api/synchronization_synchronizationschema_get.md)    |[synchronizationSchema](synchronization_synchronizationschema.md)   |Retreive job's effective synchronization schema.|
-|[Update synchroizationSchema](../api/synchronization_synchronizationschema_put.md)    |None   |Updates job's synchronization schema. |
+|[Get synchrnoizationSchema](../api/synchronization_synchronizationschema_get.md)    |[synchronizationSchema](synchronization_synchronizationschema.md)   |Retrieve the job's effective synchronization schema.|
+|[Update synchroizationSchema](../api/synchronization_synchronizationschema_put.md)    |None   |Update the job's synchronization schema. |
 |[Validate credentials](../api/synchronization_synchronizationjob_validatecredentials.md)|None|Test provided credentials against target directory.|
 
 ## Properties
@@ -22,18 +24,18 @@ Synchronization job performs synchronization by periodically running in the back
 | Property      | Type      | Description    |
 |:--------------|:----------|:---------------|
 |id             |String                     |Unique synchronization job identifier. Read-only.|
-|schedule       |[synchronizationSchedule](synchronizationschedule.md)|Schedule used to execute the job. Read-only.|
-|status         |[synchronizationStatus](synchronization_synchronizationstatus.md)     |Status of the job, which includes when the job was last executed, current job state and errors.|
+|schedule       |[synchronizationSchedule](synchronizationschedule.md)|Schedule used to run the job. Read-only.|
+|status         |[synchronizationStatus](synchronization_synchronizationstatus.md)     |Status of the job, which includes when the job was last run, current job state, and errors.|
 |templateId     |String    |Identifier of the [synchronization template](synchronization_template.md) this job is based on.|
 
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|schema|[synchronizationSchema](synchronizationschema.md)| Synchronization schema configured for the job.|
+|schema|[synchronizationSchema](synchronizationschema.md)| The synchronization schema configured for the job.|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

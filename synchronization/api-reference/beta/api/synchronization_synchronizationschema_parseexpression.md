@@ -1,6 +1,10 @@
 # synchronizationSchema: parseExpression
 
-Parse given string expression into an [attributeMappingSource|(../resources/synchronization_attributemappingsource.md) object. For additional information on expressions, please also see [Writing Expressions for Attribute Mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings)
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Parse a given string expression into an [attributeMappingSource|(../resources/synchronization_attributemappingsource.md) object. 
+
+For more information about expressions, see [Writing Expressions for Attribute Mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings).
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,14 +12,14 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported.|
+|Application                            |Not supported.| 
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /servicePrincipals/<id>/synchronization/jobs/<id>/schema/parseExpression
-POST /servicePrincipals/<id>/synchronization/templates/<id>/schema/parseExpression
+POST /servicePrincipals/{id}/synchronization/jobs/{id}/schema/parseExpression
+POST /servicePrincipals/{id}/synchronization/templates/{id}/schema/parseExpression
 
 ```
 ## Request headers
@@ -30,21 +34,21 @@ In the request body, provide a JSON object with the following parameters.
 |:---------------|:--------|:----------|
 |expression               |String               |Expression to parse.|
 |testInputObject          |[expressionInputObject](../resources/synchronization_expressioninputobject.md)|Test data object to evaluate expression against. Optional.|
-|targetAttributeDefinition|[attributeDefinition](../resources/synchronization_attributedefinition.md) |Definition of the attribute which will be mapped to this expression. Optional.|
+|targetAttributeDefinition|[attributeDefinition](../resources/synchronization_attributedefinition.md) |Definition of the attribute that will be mapped to this expression. Optional.|
 
 ## Response
-If successful, this method returns `200 OK` response code and [parseExpressionResponse](../resources/synchronization_parseexpressionresponse.md) object in the response body.
+If successful, this method returns a `200 OK` response code and a [parseExpressionResponse](../resources/synchronization_parseexpressionresponse.md) object in the response body.
 
 ## Example
-Here is an example of how to call this API.
+
 ##### Request
-Here is an example of the request.
+The following is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "synchronizationschema_parseexpression"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<id>/schema/parseExpression
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/schema/parseExpression
 Content-type: application/json
 
 {
@@ -99,7 +103,10 @@ Content-type: application/json
 ```
 
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+The following is an example of the response. 
+
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
 <!-- {
   "blockType": "response",
   "truncated": true,

@@ -1,6 +1,8 @@
-## List existing synchronization templates
+# List existing synchronization templates
 
-List templates associated with a given application or service principal.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+List the synchronization templates associated with a given application or service principal.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,8 +10,8 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported.|
+|Application                            |Not supported.| 
 
 ### HTTP Request
 <!-- { "blockType": "ignored" } -->
@@ -30,7 +32,7 @@ Do not supply a request body for this method.
 
 ### Response
 
-If successful, this method returns a `200 OK` response code and collection of [synchronizationTemplate](../resources/synchronization_template.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and acollection of [synchronizationTemplate](../resources/synchronization_template.md) objects in the response body.
 
 ### Example
 

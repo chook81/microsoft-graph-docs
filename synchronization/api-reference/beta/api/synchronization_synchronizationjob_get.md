@@ -1,6 +1,8 @@
 # Get synchronizationJob
 
-Retrieve existing job and its properties.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Retrieve the existing synchronization job and its properties.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,13 +10,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported.  |
+|Application                            |Not supported. | 
 
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /servicePrincipals/<id>/synchronization/jobs/<jobId>/
+GET /servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
 ## Request headers
@@ -29,7 +31,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, returns `200 OK` response with [synchronizationJob](../resources/synchronization_synchronizationjob.md) in the response body.
+If successful, returns a `200 OK` response with a [synchronizationJob](../resources/synchronization_synchronizationjob.md) in the response body.
 
 ## Example
 
@@ -40,11 +42,14 @@ The following is an example of a request.
   "name": "get_synchronizationjob"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<jobId>/
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
 ##### Response
-The following is an example of a response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+The following is an example of a response. 
+
+>**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.
+
 <!-- {
   "blockType": "response",
   "truncated": true,

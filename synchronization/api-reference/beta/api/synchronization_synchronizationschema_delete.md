@@ -1,6 +1,8 @@
 # Delete synchronizationSchema
 
-Deletes customized  schema, effectively resetting the schema to the default configured by application developer. If the schema is deleted in the context of the template, it resets the schema to default one associated with the template's `factoryTag`.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Deletes the customized schema and resets the schema to the default configuration. If the schema is deleted in the context of the template, it resets the schema to the default one associated with the template's `factoryTag`.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,8 +10,8 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported.|
+|Application                            |Not supported.| 
 
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->

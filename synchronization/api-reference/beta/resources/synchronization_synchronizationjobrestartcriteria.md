@@ -1,15 +1,17 @@
 # synchronizationJobRestartCriteria resource type
 
-Defines the scope of [synchronizationJob: restart](../api/synchronization_synchronizationjob_restart.md) method.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Defines the scope of the [synchronizationJob: restart](../api/synchronization_synchronizationjob_restart.md) action.
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|resetScope|String| Comma-separated combination of following values: `Full`, `QuarantineState`, `Watermark`, `Escrows`, `ConnectorDataStore`. Use `Full` if you want all of the above options combined.|
+|resetScope|String| Comma-separated combination of the following values: `Full`, `QuarantineState`, `Watermark`, `Escrows`, `ConnectorDataStore`. Use `Full` if you want all of the options.|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

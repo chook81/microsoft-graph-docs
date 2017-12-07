@@ -1,23 +1,25 @@
 # directoryDefinition resource type
 
-Directory definition provides synchronization engine information about a directory and its objects. Directory definition tells synchronization engine, for example, that directory has objects named "User" and "Group", which attributes are supported for those objects, and what is their type. In order for the  object and attribute to participate in [synchronization rules](synchronization_synchronizationrule.md) and [object mappings](synchronization_objectMapping.md), they must to be defined as part of the directory definition.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
 
-As a general rule, default [synchronization schema](synchronization_synchronizationschema.md) provided as part of the [synchronization template](synchronization_template.md) will define most commonly used objects / attributes for that directory. However, if directory supports addition of custom attributes, it is common one would want to expand the default definition with their own custom objects or attributes. For additional information, you might want to see [Configure synchronization with custom attributes](synchronization_howto_custom_attributes.md) and [Configure synchronization with directory extension attributes](synchronization_howto_directory_extensions.md).
+Provides the synchronization engine information about a directory and its objects. This resource tells the synchronization engine, for example, that the directory has objects named **user** and **group**, which attributes are supported for those objects, and the types for those attributes. In order for the object and attribute to participate in [synchronization rules](synchronization_synchronizationrule.md) and [object mappings](synchronization_objectmapping.md), they must be defined as part of the directory definition.
 
-Directory definitions are updated as part of [synchronization schema](synchronization_synchronizationschema.md).
+In general, the default [synchronization schema](synchronization_synchronizationschema.md) provided as part of the [synchronization template](synchronization_template.md) will define most commonly used objects and attributes for that directory. However, if the directory supports the addition of custom attributes, you might want to expand the default definition with your own custom objects or attributes. For more information, see [Configure synchronization with custom attributes](configure-synchronization-with-custom-target-attributes.md) and [Configure synchronization with directory extension attributes](configure-synchronization-with-directory-extension-attributes.md).
+
+Directory definitions are updated as part of the [synchronization schema](synchronization_synchronizationschema.md).
 
 ## Properties
 
 | Property      | Type      | Description    |
 |:--------------|:----------|:---------------|
-|id           |String     |Directory identifier. Not nullable|
+|id           |String     |Directory identifier. Not nullable.|
 |metadata       |metadataEntry collection    |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.|
 |name           |String     |Name of the directory. Must be unique within the [synchronization schema](synchronization_synchronizationschema.md). Not nullable.|
 |objects        |[objectDefinition](synchronization_objectdefinition.md) collection    |Collection of objects supported by the directory.|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

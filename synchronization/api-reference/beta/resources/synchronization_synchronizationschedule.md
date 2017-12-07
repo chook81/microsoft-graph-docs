@@ -1,17 +1,19 @@
 # synchronizationSchedule resource type
 
-Schedule used to execute given [synchronizationJob](synchronization_synchronizationjob.md).
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Defines the schedule used to run a [synchronizationJob](synchronization_synchronizationjob.md).
 
 ## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |expiration|DateTimeOffset|Date and time when this job will expire. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`.|
-|interval|Duration|Desired interval between synchronization iterations.|
+|interval|Duration|The interval between synchronization iterations.|
 |state|String| Possible values are: `Active`, `Disabled`.|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

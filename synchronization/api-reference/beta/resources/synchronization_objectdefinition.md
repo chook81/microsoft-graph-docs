@@ -1,18 +1,20 @@
 # objectDefinition resource type
 
-Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization_directoryDefinition.md), which is updated as part of [synchronizationSchema](synchronization_synchronizationschema.md)
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Describes an object and its attributes. Object definitions are part of [directoryDefinition](synchronization_directorydefinition.md), which is updated as part of [synchronizationSchema](synchronization_synchronizationschema.md).
 
 ## Properties
 
 | Property      | Type      | Description    |
 |:--------------|:----------|:---------------|
-|attributes     |[attributeDefinition](synchronization_attributeDefinition.md) collection    | Defines attributes of the object |
-|metadata       |[metadataEntry](synchronization_metadataentry.md) collection   |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed|
-|name           |String     |Name of the object. Must be unique within a directory definition. Not nullable|
+|attributes     |[attributeDefinition](synchronization_attributeDefinition.md) collection    | Defines attributes of the object. |
+|metadata       |[metadataEntry](synchronization_metadataentry.md) collection   |Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.|
+|name           |String     |Name of the object. Must be unique within a directory definition. Not nullable.|
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

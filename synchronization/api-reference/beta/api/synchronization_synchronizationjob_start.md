@@ -1,6 +1,8 @@
 # Start synchronizationJob
 
-Start the synchronization job (job must already exist). If job is in paused state, it will continue processing changes from the point where it was paused. If job is in quarantine, quarantine status will be cleared.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Start an existing synchronization job. If the job is in a paused state, it will continue processing changes from the point where it was paused. If the job is in quarantine, the quarantine status will be cleared.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,8 +10,8 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported. |
+|Application                            |Not supported. | 
 
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->
@@ -29,7 +31,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, returns `204 No Content` response. It does not return anything in the response body.
+If successful, returns a `204 No Content` response. It does not return anything in the response body.
 
 ## Example
 

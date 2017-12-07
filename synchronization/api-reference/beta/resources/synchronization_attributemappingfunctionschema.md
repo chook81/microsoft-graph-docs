@@ -1,6 +1,8 @@
 # attributeMappingFunctionSchema resource type
 
-Describes a function which can be used in an [attribute mapping](synchronization_attributeMapping.md) to transform values during synchronization.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Describes a function that can be used in an [attribute mapping](synchronization_attributeMapping.md) to transform values during synchronization.
 
 ## Methods
 
@@ -17,7 +19,7 @@ Describes a function which can be used in an [attribute mapping](synchronization
 
 ## JSON representation
 
-Here is a JSON representation of the resource.
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",

@@ -1,6 +1,8 @@
 # synchronizationJob: validateCredentials
 
-Test provided credentials against the directory.
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
+Validate that the credentials are valid in the tenant.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -8,13 +10,13 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported. |
+|Application                            |Not supported.| 
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /servicePrincipals/<id>/synchronization/jobs/<id>/validateCredentials
+POST /servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 
 ```
 ## Request headers
@@ -27,35 +29,35 @@ In the request body, provide a JSON object with the following parameters.
 
 | Parameter	   | Type	|Description|
 |:---------------|:--------|:----------|
-|useSavedCredentials|Boolean|When `true`, `"credentials"` parameter will be ignored and previously saved credentials (if any) will be validated instead. |
-|credentials|[synchronizationSecretKeyStringValuePair](../resources/synchronization_secretkeystringvaluepair.md) collection|Credentials to validate. Ignored when `"useSavedCredentials"` parameter is `true`.|
+|useSavedCredentials|Boolean|When `true`, the `credentials` parameter will be ignored and the previously saved credentials (if any) will be validated instead. |
+|credentials|[synchronizationSecretKeyStringValuePair](../resources/synchronization_secretkeystringvaluepair.md) collection|Credentials to validate. Ignored when the `useSavedCredentials` parameter is `true`.|
 
 ## Response
-If validation is successful, this method returns `204, No Content` response code. It does not return anything in the response body.
+If validation is successful, this method returns a `204, No Content` response code. It does not return anything in the response body.
 
 ## Example
-Here is an example of how to call this API.
+
 ##### Request
-Here is an example of the request.
+The following is an example of the request.
 <!-- {
   "blockType": "request",
   "name": "synchronizationjob_validatecredentials"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/servicePrincipals/<id>/synchronization/jobs/<id>/validateCredentials
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 Content-type: application/json
 Content-length: 218
 
 { 
     credentials: [ 
         { key: "UserName", value: "user@domain.com" },
-        { key: "Password", value: "[redacted]" }
+        { key: "Password", value: "password-value" }
     ]
 }
 ```
 
 ##### Response
-Here is an example of the response. 
+The following is an example of the response. 
 <!-- {
   "blockType": "response",
   "truncated": true,

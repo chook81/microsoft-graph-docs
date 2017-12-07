@@ -1,5 +1,7 @@
 # Delete synchronizationJob
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
 
 ## Permissions
@@ -8,8 +10,8 @@ One of the following permissions is required to call this API. To learn more, in
 |Permission type                        | Permissions (from least to most privileged)              |
 |:--------------------------------------|:---------------------------------------------------------|
 |Delegated (work or school account)     |Directory.ReadWrite.All  |
-|Delegated (personal Microsoft account) |Directory.ReadWrite.All  |
-|Application                            |Directory.ReadWrite.All  | 
+|Delegated (personal Microsoft account) |Not supported.  |
+|Application                            |Not supported. | 
 
 ## HTTP Request
 <!-- { "blockType": "ignored" } -->
@@ -29,7 +31,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, returns `204 No Content` response. It does not return anything in the response body.
+If successful, returns a `204 No Content` response. It does not return anything in the response body.
 
 ## Example
 
@@ -44,7 +46,8 @@ DELETE https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/j
 ```
 
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+The following is an example of the response. 
+
 <!-- {
   "blockType": "response",
   "truncated": true
