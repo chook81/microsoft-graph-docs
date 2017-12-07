@@ -1,5 +1,7 @@
 # synchronizationSchema: parseExpression
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Parse a given string expression into an [attributeMappingSource|(../resources/synchronization_attributemappingsource.md) object. 
 
 For more information about expressions, see [Writing Expressions for Attribute Mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings).

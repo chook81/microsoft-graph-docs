@@ -1,5 +1,7 @@
 # Get synchronizationSchema
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Retrieve the schema for a given synchronization job or template.
 
 ## Permissions

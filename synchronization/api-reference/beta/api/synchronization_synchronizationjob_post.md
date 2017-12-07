@@ -1,5 +1,7 @@
 # Create synchronizationJob
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call [Start job](synchronization_synchronizationjob_start.md) to start synchronization.
 
 ## Permissions

@@ -1,5 +1,7 @@
 # filter resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Determines which objects should be provisioned to the application. For example, you might want to only provision users that are located in the US. When a scoping filter is present, objects that do not satisfy the filter will be skipped during synchronization.
 
 Filter is part of [object mapping](synchronization_objectMapping.md). It consists of several sets of filter groups, and each filter group holds one or more clauses. An object is considered in scope for the group (the group is evaluated to `true`) only if all the clauses of the group are evaluated to `true`.

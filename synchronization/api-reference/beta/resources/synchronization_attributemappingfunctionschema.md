@@ -1,5 +1,7 @@
 # attributeMappingFunctionSchema resource type
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 Describes a function that can be used in an [attribute mapping](synchronization_attributeMapping.md) to transform values during synchronization.
 
 ## Methods

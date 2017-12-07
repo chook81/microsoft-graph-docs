@@ -1,5 +1,7 @@
 # List synchronization jobs
 
+> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+
 List existing jobs for a given application instance (service principal).
 
 ## Permissions
