@@ -45,7 +45,7 @@ For more information, see [synchronization template](synchronization_template.md
 
 ## Working with the synchronization API
 
-Working with synchronization API primarily involves accessing the [synchronizationJob] and [synchronizationSchema] resources. To find your [synchronizationJob] resource, you need to know know the ID of the service principal object that the synchronization job belongs to. The following examples show you how to work with the **synchronizationJob** and **synchronizationSchema** resources.
+Working with synchronization API primarily involves accessing the [synchronizationJob](synchronization_synchronizationjob.md) and [synchronizationSchema](synchronization_synchronizationschema.md) resources. To find your [synchronizationJob](synchronization_synchronizationjob.md) resource, you need to know the ID of the service principal object that the synchronization job belongs to. The following examples show you how to work with the **synchronizationJob** and **synchronizationSchema** resources.
 
 ### Find the service principal object
 
@@ -162,7 +162,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/60443998-8cf7-4e61-b05c-a
             "interval": "PT20M",
             "state": "Active"
         },
-        "status": {..}
+        "status": {}
     }
 ```
 
@@ -186,8 +186,8 @@ HTTP/1.1 200 OK
 ```
 ## See also
 
-* [Configure synchronization with directory extension attributes](../resources/synchronization_howto_directory_extensions.md)
-* [Configure synchronization with custom target attributes](../resources/synchronization_howto_custom_attributes.md)
+* [Configure synchronization with directory extension attributes](../resources/synchronization-configure-with-directory-extension-attributes.md)
+* [Configure synchronization with custom target attributes](../resources/synchronization-configure-with-custom-target-attributes.md)
 
 
 

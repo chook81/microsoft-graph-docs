@@ -42,7 +42,7 @@ The following is an example of a request.
   "name": "create_synchronizationtemplate_from_synchronization"
 }-->
 ```http
-POST https://graph.microsoft.com/testSynchronization/applications/{id}/synchronization/templates
+POST https://graph.microsoft.com/beta/applications/{id}/synchronization/templates
 Content-type: application/json
 
 { 

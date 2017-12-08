@@ -40,7 +40,7 @@ If successful, this method returns a `200 OK` response code and a [synchronizati
 The following is an example of a request.
 
 ```http
-GET https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/templates/Slack
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/templates/Slack
 ```
 
 ##### Response

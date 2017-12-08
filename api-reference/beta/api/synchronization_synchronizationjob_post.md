@@ -27,7 +27,7 @@ POST /servicePrincipals/{id}/synchronization/jobs/
 
 ## Request body
 
-In the request body, supply a JSON representation of the [synchronizationJob](../resources/synchronization_synchronizationjob.md) object to be created. The only required property is `templateId`. The `templateId` property must match one of the templates created for this application/service principal. To find available templates, use [List templates](synchronization_list_templates.md).
+In the request body, supply a JSON representation of the [synchronizationJob](../resources/synchronization_synchronizationjob.md) object to be created. The only required property is `templateId`. The `templateId` property must match one of the templates created for this application/service principal. To find available templates, use [List templates](synchronization_synchronizationtemplate_list.md).
 
 ## Response
 
@@ -42,7 +42,7 @@ The following is an example of a request.
   "name": "create_synchronizationjob_from_synchronization"
 }-->
 ```http
-POST https://graph.microsoft.com/testSynchronization/servicePrincipals/{id}/synchronization/jobs
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 Content-type: application/json
 
 { 

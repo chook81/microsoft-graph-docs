@@ -8,9 +8,9 @@ Performs synchronization by periodically running in the background, polling for 
 
 | Method        | Return Type               | Description                  |
 |:--------------|:--------------------------|:-----------------------------|
-|[List](../api/synchronization_list_jobs.md)             |[synchronizationJob](synchronization_synchronizationjob.md) collection  |List existing jobs for a given application instance (service principal).|
+|[List](../api/synchronization_synchronizationjob_list.md)             |[synchronizationJob](synchronization_synchronizationjob.md) collection  |List existing jobs for a given application instance (service principal).|
 |[Get synchronizationJob](../api/synchronization_synchronizationjob_get.md) | [synchronizationJob](synchronization_synchronizationjob.md) |Read properties and relationships of a synchronizationJob object.|
-|[Create](../api/synchronization_post_jobs.md)         |[synchronizationJob](synchronization_synchronizationjob.md)   |Create new job for a given application.|
+|[Create](../api/synchronization_synchronizationjob_post.md)         |[synchronizationJob](synchronization_synchronizationjob.md)   |Create new job for a given application.|
 |[Start](../api/synchronization_synchronizationjob_start.md)          |None   |Start synchronization. If the job is in a paused state, it continues from the point where the job was paused. If the job is in quarantine, the quarantine status is cleared.|
 |[Restart](../api/synchronization_synchronizationjob_restart.md)      |None   |Force the job to start over and re-process all the objects in the directory.|
 |[Pause](../api/synchronization_synchronizationjob_pause.md)          |None   |Temporarily stop synchronization. All the progress, including job state, is persisted, and the job will continue from where it left off when a [Start](../api/synchronization_synchronizationjob_start.md) call is made.|
