@@ -27,7 +27,7 @@ The following sections describe the high-level components of the the synchroniza
 |[Delete schema](../api/synchronization_synchronizationschema_delete.md)    |None   |Delete the customized schema, resetting the schema to the default configuration. |
 |[List filter operators](../api/synchronization_synchronizationschema_filteroperators.md)    |[filterOperatorSchema](../resources/synchronization_filteroperatorschema.md) colection   |List all operators supported in the scoping filters. |
 |[List attribute mapping functions](../api/synchronization_synchronizationschema_functions.md)    |[attributeMappingFunctionSchema](../resources/synchronization_attributemappingfunctionschema.md) collection   |List all functions supported in the attribute mapping expressions. |
-|[Parse attribute mapping expression](../api/synchronizationschema_parseexpression.md)|[parseExpressionResponse](parseexpressionresponse.md)|Parse a string expression into an [attributeMappingSource|(../resources/synchronization_attributemappingsource.md) object.|
+|[Parse attribute mapping expression](../api/synchronization_synchronizationschema_parseexpression.md)|[parseExpressionResponse](synchronization_parseexpressionresponse.md)|Parse a string expression into an [attributeMappingSource|(../resources/synchronization_attributemappingsource.md) object.|
 
 
 ## Properties

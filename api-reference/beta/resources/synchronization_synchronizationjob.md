@@ -24,14 +24,14 @@ Performs synchronization by periodically running in the background, polling for 
 | Property      | Type      | Description    |
 |:--------------|:----------|:---------------|
 |id             |String                     |Unique synchronization job identifier. Read-only.|
-|schedule       |[synchronizationSchedule](synchronizationschedule.md)|Schedule used to run the job. Read-only.|
+|schedule       |[synchronizationSchedule](synchronization_synchronizationschedule.md)|Schedule used to run the job. Read-only.|
 |status         |[synchronizationStatus](synchronization_synchronizationstatus.md)     |Status of the job, which includes when the job was last run, current job state, and errors.|
 |templateId     |String    |Identifier of the [synchronization template](synchronization_template.md) this job is based on.|
 
 ## Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|schema|[synchronizationSchema](synchronizationschema.md)| The synchronization schema configured for the job.|
+|schema|[synchronizationSchema](synchronization_synchronizationschema.md)| The synchronization schema configured for the job.|
 
 ## JSON representation
 
